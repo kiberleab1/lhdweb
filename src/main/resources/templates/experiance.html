@@ -65,37 +65,37 @@ License: https://webthemez.com/license
 	<!--==========================
     Header
   ============================-->
-	<header id="header">
+		<header id="header">
 		<div class="container">
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a href="index.html" class="scrollto"><i
-						class="icon icon-trophy"></i> BizTech</a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i
+						class="icon"><img width="50" th:src="@{/img/logo.svg}"/></i> Le Monde </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li class="menu-active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
-					<li><a href="portfolio.html">Portfolio</a></li>
-					<li class="menu-has-children"><a href="">Dropdown</a>
+					<li> <a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/About}">About Us</a></li>
+					<li><a th:href="@{/lhd/Service}">Services</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/Experiance}">Experience</a></li>
+					<li class="menu-has-children"><a href="">Clients</a>
 						<ul>
-							<li><a href="#">Link Item 1</a></li>
-							<li><a href="#">Link Item 3</a></li>
-							<li><a href="#">Link Item 4</a></li>
-							<li><a href="#">Link Item 5</a></li>
+							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
+							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
+							
 						</ul></li>
-					<li class="menu-active"><a href="contact.html">Contact</a></li>
+					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
-	<!-- #header -->
+	
+		<!-- #header -->
 
 	<!--==========================
     Page Banner Section
@@ -163,7 +163,7 @@ License: https://webthemez.com/license
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Strategic and Training Materials</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
 								</tr>
@@ -186,7 +186,7 @@ License: https://webthemez.com/license
 								<thead>
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Research, Survey and Evaluation</th>
+										<th scope="col">Technical Assistant</th>
 										<th scope="col">Client</th>
 										<th scope="col">Firm</th>
 									</tr>
@@ -209,7 +209,7 @@ License: https://webthemez.com/license
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Proposal Development</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
 								</tr>
