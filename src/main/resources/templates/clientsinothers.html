@@ -103,7 +103,7 @@ License: https://webthemez.com/license
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Our Clients In Ethiopia</span><br>Striving for Excellence &amp;
+				<span>Our Clients In Other Countries</span><br>Striving for Excellence &amp;
 				Lasting Change!!
 			</h2>
 			<div></div>
@@ -138,13 +138,14 @@ License: https://webthemez.com/license
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Organization</th>
-								
+									<th scope="col">Country</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="experiance : ${researchExperiance}">
 									<th th:text="${experiance.Id}" scope="row"></th>
 									<td th:text="${experiance.detailText}"></td>
+									<td> Kenya</td>
 								</tr>
 							</tbody>
 
@@ -158,13 +159,14 @@ License: https://webthemez.com/license
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Organization</th>
-								
+									<th scope="col">Country</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="experiance : ${trainExperiance}">
 									<th th:text="${experiance.Id}" scope="row"></th>
 									<td th:text="${experiance.detailText}"></td>
+									<td></td>
 								</tr>
 							</tbody>
 
@@ -178,12 +180,14 @@ License: https://webthemez.com/license
 									<tr>
 										<th scope="col">#</th>
 										<th scope="col">Organization</th>
+										<th scope="col">Country</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="experiance : ${assistExperiance}">
 										<th th:text="${experiance.Id}" scope="row"></th>
 										<td th:text="${experiance.detailText}"></td>
+										<td></td>
 									</tr>
 								</tbody>
 
