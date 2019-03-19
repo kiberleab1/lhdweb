@@ -11,12 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "type"),name="other_texts",schema = "lhd")
 public class OtherTexts {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +32,7 @@ public class OtherTexts {
 	private String page;
 	
 	@Column(columnDefinition="TEXT")
-	private String text;
+	private String detailText;
 	
 	@OneToOne(mappedBy="otherTextId",cascade = CascadeType.PERSIST, 
             fetch = FetchType.LAZY)

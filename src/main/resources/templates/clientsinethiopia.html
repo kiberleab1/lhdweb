@@ -1,0 +1,309 @@
+<!-- =================================================
+Theme Name: BizTech Bootstrap Theme 
+Author: WebThemez.com
+License: https://webthemez.com/license
+======================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LeMonde Health and Development</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+<meta content="Author" name="WebThemez">
+<!-- Favicons -->
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+	rel="stylesheet">
+
+<!-- Bootstrap CSS File -->
+<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet">
+<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
+<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
+	rel="stylesheet">
+<link th:href="@{/lib/magnific-popup/magnific-popup.css}"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/font-icon.css}">
+<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+
+<!-- Main Stylesheet File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body id="body">
+
+	<!--==========================
+    Top Bar
+  ============================-->
+	<section id="topbar" class="d-none d-lg-block">
+		<div class="container clearfix">
+			<div class="contact-info float-left">
+				<i class="fa fa-envelope-o"></i> <a
+					href="mailto:contact@example.com">name@websitename.com</a> <i
+					class="fa fa-phone"></i> +1 2345 67855 22
+			</div>
+			<div class="social-links float-right">
+				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+					href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+					href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
+					href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+			</div>
+		</div>
+	</section>
+
+	<!--==========================
+    Header
+  ============================-->
+	<header id="header">
+		<div class="container">
+
+			<div id="logo" class="pull-left">
+				<h1>
+					<a href="index.html" class="scrollto"><i
+						class="icon icon-trophy"></i> BizTech</a>
+				</h1>
+				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+			</div>
+
+			<nav id="nav-menu-container">
+				<ul class="nav-menu">
+					<li class="menu-active"><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li class="menu-has-children"><a href="">Dropdown</a>
+						<ul>
+							<li><a href="#">Link Item 1</a></li>
+							<li><a href="#">Link Item 3</a></li>
+							<li><a href="#">Link Item 4</a></li>
+							<li><a href="#">Link Item 5</a></li>
+						</ul></li>
+					<li class="menu-active"><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			<!-- #nav-menu-container -->
+		</div>
+	</header>
+	<!-- #header -->
+
+	<!--==========================
+    Page Banner Section
+  ============================-->
+	<section id="innerBanner">
+		<div class="inner-content">
+			<h2>
+				<span>Our Clients In Ethiopia</span><br>Striving for Excellence &amp;
+				Lasting Change!!
+			</h2>
+			<div></div>
+		</div>
+	</section>
+	<!-- #Page Banner -->
+
+	<main id="main">
+	<section id="contact" class="wow fadeInUp">
+
+		<div class="row">
+			<div class="col-3">
+				<div class="list-group" id="list-tab" role="tablist">
+					<a class="list-group-item list-group-item-action active"
+						id="list-home-list" data-toggle="list" href="#list-home"
+						role="tab" aria-controls="home">UN Agencies</a>
+					 <a class="list-group-item list-group-item-action"
+						id="list-profile-list" data-toggle="list" href="#list-profile"
+						role="tab" aria-controls="profile">Govermental Organizations
+					</a> 
+					<a class="list-group-item list-group-item-action"
+						id="list-messages-list" data-toggle="list" href="#list-messages"
+						role="tab" aria-controls="messages">Non-Govermental Organazations</a>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="list-home"
+						role="tabpanel" aria-labelledby="list-home-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Client</th>
+									<th scope="col">Firm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="experiance : ${researchExperiance}">
+									<th th:text="${experiance.Id}" scope="row"></th>
+									<td th:text="${experiance.detailText}"></td>
+									<td th:text="${experiance.client}"></td>
+									<td th:text="${experiance.firm}"></td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+					<div class="tab-pane fade" id="list-profile" role="tabpanel"
+						aria-labelledby="list-profile-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Client</th>
+									<th scope="col">Firm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="experiance : ${trainExperiance}">
+									<th th:text="${experiance.Id}" scope="row"></th>
+									<td th:text="${experiance.detailText}"></td>
+									<td th:text="${experiance.client}"></td>
+									<td th:text="${experiance.firm}"></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="tab-pane fade" id="list-messages" role="tabpanel"
+						aria-labelledby="list-messages-list">
+						<div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Research, Survey and Evaluation</th>
+										<th scope="col">Client</th>
+										<th scope="col">Firm</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="experiance : ${assistExperiance}">
+										<th th:text="${experiance.Id}" scope="row"></th>
+										<td th:text="${experiance.detailText}"></td>
+										<td th:text="${experiance.client}"></td>
+										<td th:text="${experiance.firm}"></td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="list-settings" role="tabpanel"
+						aria-labelledby="list-settings-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Client</th>
+									<th scope="col">Firm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="experiance : ${proposalExperiance}">
+									<th th:text="${experiance.Id}" scope="row"></th>
+									<td th:text="${experiance.detailText}"></td>
+									<td th:text="${experiance.client}"></td>
+									<td th:text="${experiance.firm}"></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- #services --> <!--==========================
+      Clients Section
+    ============================-->
+	<div class="row justify-content-end">
+		<section id="clients" class="wow fadeInUp col-9">
+			<div class="container">
+				<div class="section-header" th:object="${clientText}">
+					<h2>Clients</h2>
+					<p th:text="*{detailText}"></p>
+				</div>
+
+				<div class="owl-carousel clients-carousel">
+					<a th:each="client :${Clients}" target="_blank"
+						th:href="${client.link}"> <img th:src="${client.imgPath}"
+						alt="">
+					</a>
+				</div>
+
+			</div>
+		</section>
+	</div>
+	<!-- #clients --> <!--==========================
+      Testimonials Section
+    ============================-->
+	<div class="row justify-content-end">
+		<section id="testimonials" class="wow fadeInUp col-9">
+			<div class="container">
+				<div class="section-header" th:object="${Testimonial}">
+					<h2>Testimonials</h2>
+					<p th:text="*{detailText}"></p>
+				</div>
+				<div class="owl-carousel testimonials-carousel">
+
+					<div class="testimonial-item" th:each="testomony : ${Testimonies}">
+						<p th:text="${testomony.detailText}"></p>
+						<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
+							James</h3>
+						<h4 th:text="${testomony.Authority}"></h4>
+						<h4 th:text="${testomony.Organazation}"></h4>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	</main>
+
+	<!--==========================
+    Footer
+  ============================-->
+	<footer id="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong>BizTech</strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				Best <a href="https://webthemez.com/free-bootstrap-templates/">Bootstrap
+					Templates</a> by WebThemez
+			</div>
+		</div>
+	</footer>
+	<!-- #footer -->
+
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+	<!-- JavaScript  -->
+	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
+	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
+	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/lib/easing/easing.min.js}"></script>
+	<script th:src="@{/lib/superfish/hoverIntent.js}"></script>
+	<script th:src="@{/lib/superfish/superfish.min.js}"></script>
+	<script th:src="@{/lib/wow/wow.min.js}"></script>
+	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
+	<script th:src="@{/lib/sticky/sticky.js}"></script>
+	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
+	<script th:src="@{/contact/contact_me.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

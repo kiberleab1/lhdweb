@@ -1,14 +1,9 @@
-<!-- =================================================
-Theme Name: BizTech Bootstrap Theme 
-Author: WebThemez.com
-License: https://webthemez.com/license
-======================================================= -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>BizTech Bootstrap 4 Website Template</title>
+<title>LeMonde Health  and Development</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -32,7 +27,8 @@ License: https://webthemez.com/license
 <link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
 <link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
 	rel="stylesheet">
-<link th:href="@{/lib/magnific-popup/magnific-popup.css}" rel="stylesheet">
+<link th:href="@{/lib/magnific-popup/magnific-popup.css}"
+	rel="stylesheet">
 <link rel="stylesheet" th:href="@{/css/font-icon.css}">
 <link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
 
@@ -45,7 +41,8 @@ License: https://webthemez.com/license
 	<!--==========================
     Top Bar
   ============================-->
-	<section id="topbar" class="d-none d-lg-block" style="display: none;">
+  
+	<section id="topbar" >
 		<div class="container clearfix">
 			<div class="contact-info float-left">
 				<i class="fa fa-envelope-o"></i> <a
@@ -70,16 +67,16 @@ License: https://webthemez.com/license
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a href="index.html" class="scrollto"><i
-						class="icon icon-trophy"></i> BizTech</a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i
+						class="icon"><img width="50" th:src="@{/img/logo.svg}"/></i> Le Monde </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li class="menu-active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">About Us</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/About}">About Us</a></li>
 					<li><a href="services.html">Services</a></li>
 					<li><a href="portfolio.html">Portfolio</a></li>
 					<li class="menu-has-children"><a href="">Dropdown</a>
@@ -104,12 +101,13 @@ License: https://webthemez.com/license
 		<div class="container">
 
 			<div class="hero-banner">
-				<img th:src="@{/img/intro-carousel/women.png}" alt="" class="img-fluid">
+				<img th:src="@{/img/intro-carousel/women.png}" alt=""
+					class="img-fluid">
 			</div>
 
 			<div class="hero-content">
 				<h2>
-					Business Growth<br> <span> Consulting</span>
+					Health &amp; Development<br> <span> Consulting</span>
 				</h2>
 				<div>
 					<a href="#" class="btn-banner">Our Service</a>
@@ -125,12 +123,9 @@ License: https://webthemez.com/license
     ============================-->
 	<section id="about" class="wow fadeInUp">
 		<div class="container">
-			<div class="section-header">
+			<div class="section-header" th:object="${AboutHead}">
 				<h2>About</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt eius magni
-					provident, doloribus omnis minus ovident, doloribus omnis minus
-					temporibus perferendis nesciunt..</p>
+				<p th:text="*{detailText}"></p>
 			</div>
 			<div class="row">
 				<div class="col-lg-6 about-img">
@@ -138,20 +133,12 @@ License: https://webthemez.com/license
 				</div>
 
 				<div class="col-lg-6 content">
-					<h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<h3>Dolores quae porro consequatur aliquam, incidunt eius
-						magni provident, doloribus omnis minus ovident</h3>
-					<p>Consectetur adipisicing elit. Dolores quae porro consequatur
-						aliquam, incidunt fugiat. Dolores quae porro consequatur aliquam,
-						incidunt fugiat culpa esse aute nulla. malis nulla duis fugiat</p>
+					<h2 th:object="${AboutMain}" th:text="*{detailText}"></h2>
+					<h3 th:object="${AboutSubMain}" th:text="*{detailText}"></h3>
+					<p th:object="${AboutDetail}" th:text="*{detailText}"></p>
 					<ul>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, incidunt fugiat culpa.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, culpa esse aute nulla.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro esse aute nulla. malis nulla duis fugiat</li>
-					</ul>
+						<li th:each="aboutPoint: ${AboutPoints}" th:inline="text"><i class="icon ion-ios-checkmark-outline"></i>[[${aboutPoint.detailText}]]</li>
+						</ul>
 				</div>
 			</div>
 
@@ -162,30 +149,25 @@ License: https://webthemez.com/license
     ============================-->
 	<section id="services">
 		<div class="container">
-			<div class="section-header">
+			<div class="section-header" th:object="${Service}">
 				<h2>Services</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse
-					aute nulla. malis nulla duis fugiat culpa esse aute nulla ipsum
-					velit export irure minim illum fore</p>
+				<p th:text="*{detailText}"></p>
 			</div>
 
 			<div class="row">
 
-				<div class="col-lg-4">
+				<div class="col-lg-4" th:each="service :${services}">
 					<div class="box wow fadeInLeft">
 						<div class="icon">
 							<i class="icon icon-briefcase"></i>
 						</div>
 						<h4 class="title">
-							<a href="">Marketing</a>
+							<a th:href="@{/lhd/services/}+''+${service.serviceName}" th:text="${service.serviceName}"></a>
 						</h4>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Dolores quae porro consequatur aliquam,
-							incidunt fugiat culpa esse aute nulla.</p>
+						<p class="description" th:text="${service.detailText}"></p>
 					</div>
 				</div>
-
+<!--
 				<div class="col-lg-4">
 					<div class="box wow fadeInRight">
 						<div class="icon">
@@ -253,7 +235,7 @@ License: https://webthemez.com/license
 							adipisicing elit. Dolores quae porro consequatur aliquam,
 							incidunt fugiat culpa esse aute nulla.</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 		</div>
@@ -263,21 +245,16 @@ License: https://webthemez.com/license
     ============================-->
 	<section id="clients" class="wow fadeInUp">
 		<div class="container">
-			<div class="section-header">
+			<div class="section-header" th:object="${clientText}">
 				<h2>Clients</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse
-					aute nulla. duis fugiat culpa esse aute nulla ipsum velit export
-					irure minim illum fore</p>
+				<p th:text="*{detailText}"></p>
 			</div>
 
 			<div class="owl-carousel clients-carousel">
-				<img th:src="@{/img/clients/client-1.png}" alt=""> <img
-					th:src="@{/img/clients/client-2.png}" alt=""> <img
-					th:src="@{/img/clients/client-3.png}" alt=""> <img
-					th:src="@{/img/clients/client-4.png}" alt=""> <img
-					th:src="@{/img/clients/client-5.png}" alt=""> <img
-					th:src="@{/img/clients/client-6.png}" alt="">
+				<a th:each="client :${Clients}" target="_blank"
+					th:href="${client.link}"> <img th:src="${client.imgPath}"
+					alt="">
+				</a>
 			</div>
 
 		</div>
@@ -287,60 +264,24 @@ License: https://webthemez.com/license
     ============================-->
 	<section id="testimonials" class="wow fadeInUp">
 		<div class="container">
-			<div class="section-header">
+			<div class="section-header" th:object="${Testimonial}">
 				<h2>Testimonials</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse
-					aute nulla. duis fugiat culpa esse aute nulla ipsum velit export
-					irure minim illum fore</p>
+				<p th:text="*{detailText}"></p>
 			</div>
 			<div class="owl-carousel testimonials-carousel">
 
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Mrio James</h3>
-					<h4>CEO &amp; Founder</h4>
+				<div class="testimonial-item" th:each="testomony : ${Testimonies}">
+					<p th:text="${testomony.detailText}"></p>
+					<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
+						James</h3>
+					<h4 th:text="${testomony.Authority}"></h4>
+					<h4 th:text="${testomony.Organazation}"></h4>
 				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Finton Gofnes</h3>
-					<h4>CTO</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Marcus Kell</h3>
-					<h4>Marketing</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Williams Belly</h3>
-					<h4>Accounts</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Larry Hanson</h3>
-					<h4>Investor</h4>
-				</div>
-
 			</div>
-
 		</div>
 	</section>
-	<!-- #testimonials --> <!--==========================
+	<!-- #testimonials -->
+	 <!--==========================
       Call To Action Section
     ============================-->
 	<section id="call-to-action" class="wow fadeInUp">

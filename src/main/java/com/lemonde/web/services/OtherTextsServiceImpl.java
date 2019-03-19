@@ -12,18 +12,32 @@ import com.lemonde.web.repositories.OtherTextsRepository;
 public class OtherTextsServiceImpl implements OtherTextsService {
 
 	private OtherTextsRepository otherTextsRepository;
-	
+
 	@Autowired
 	public OtherTextsServiceImpl(OtherTextsRepository otherTextsRepository) {
-		this.otherTextsRepository=otherTextsRepository;
+		this.otherTextsRepository = otherTextsRepository;
 	}
+
 	@Override
 	public List<OtherTexts> findByType(String type) {
 		return otherTextsRepository.findByType(type);
 	}
+
 	@Override
 	public List<OtherTexts> findByPage(String page) {
 		return otherTextsRepository.findByPage(page);
+	}
+
+
+
+	@Override
+	public OtherTexts findSingleByPage(String page) {
+		return otherTextsRepository.findSingleByPage(page);
+	}
+
+	@Override
+	public OtherTexts findSingleByType(String type) {
+		return  otherTextsRepository.findSingleByType(type);
 	}
 
 }

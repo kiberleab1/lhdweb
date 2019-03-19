@@ -1,0 +1,12 @@
+---
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/lhd
+    username: lhd_user
+    password: abeba
+  jpa:
+    hibernate.ddl-auto: none
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    

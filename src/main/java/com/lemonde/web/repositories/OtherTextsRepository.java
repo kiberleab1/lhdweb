@@ -11,5 +11,7 @@ public interface OtherTextsRepository extends CrudRepository<OtherTexts,Long>{
 	List<OtherTexts> findByType(String type);
 
 	List<OtherTexts> findByPage(String page);
+	OtherTexts findSingleByPage(String page);
 
+	OtherTexts findSingleByType(String type);
 }
