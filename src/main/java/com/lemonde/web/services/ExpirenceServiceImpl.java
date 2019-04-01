@@ -25,4 +25,21 @@ public class ExpirenceServiceImpl implements ExperianceService {
 		return 0;
 	}
 
+	@Override
+	public void delete(Long id) {
+		this.expirenceRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public void save(Expirence experiance) {
+		// TODO Auto-generated method stub
+		this.expirenceRepository.save(experiance);
+	}
+
+	@Override
+	public Expirence findById(long id) {
+		return this.expirenceRepository.findById(id).get();
+	}
+
 }

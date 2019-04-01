@@ -33,17 +33,15 @@ public class ClientOtherController {
 	public String recentTacos(@RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "10") int size,
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
-
 		PageRequest pageRequest = PageRequest.of(page, size);
-		model.addAttribute("researchExperiance", this.experianceService.findByPage(pageRequest, type).getContent());
-		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
-		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
-		model.addAttribute("proposalExperiance", this.experianceService.findByPage(pageRequest, "propsal").getContent());
+		model.addAttribute("unClients", this.clientService.findPageByTypeAndCountry(pageRequest, "un","other").getContent());
+		model.addAttribute("govClients", this.clientService.findPageByTypeAndCountry(pageRequest, "gov","other").getContent());
+		model.addAttribute("nongovClients", this.clientService.findPageByTypeAndCountry(pageRequest, "nongov","other").getContent());
 		
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 		
-		model.addAttribute("Clients", clientService.findAll());
+		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		
 

@@ -40,4 +40,10 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 		return  otherTextsRepository.findSingleByType(type);
 	}
 
+	@Override
+	public void save(OtherTexts otherText) {
+		otherTextsRepository.save(otherText);
+		
+	}
+
 }

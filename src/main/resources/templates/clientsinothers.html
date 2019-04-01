@@ -39,6 +39,21 @@ License: https://webthemez.com/license
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
+<style>
+table {
+	counter-reset: rowNumber -1;
+}
+
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+}
+</style>
 </head>
 <body id="body">
 
@@ -65,20 +80,20 @@ License: https://webthemez.com/license
 	<!--==========================
     Header
   ============================-->
-		<header id="header">
+	<header id="header">
 		<div class="container">
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a th:href="@{/lhd/Home}" class="scrollto"><i
-						class="icon"><img width="50" th:src="@{/img/logo.svg}"/></i> Le Monde </a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
+							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li ><a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/Home}">Home</a></li>
 					<li><a th:href="@{/lhd/About}">About Us</a></li>
 					<li><a th:href="@{/lhd/Service}">Services</a></li>
 					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
@@ -86,7 +101,7 @@ License: https://webthemez.com/license
 						<ul>
 							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
 							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
-							
+
 						</ul></li>
 					<li class="menu-active"><a th:href="@{/lhd/Contact}">Contact</a></li>
 				</ul>
@@ -103,8 +118,8 @@ License: https://webthemez.com/license
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Our Clients In Other Countries</span><br>Striving for Excellence &amp;
-				Lasting Change!!
+				<span>Our Clients In Other Countries</span><br>Striving for
+				Excellence &amp; Lasting Change!!
 			</h2>
 			<div></div>
 		</div>
@@ -119,14 +134,14 @@ License: https://webthemez.com/license
 				<div class="list-group" id="list-tab" role="tablist">
 					<a class="list-group-item list-group-item-action active"
 						id="list-home-list" data-toggle="list" href="#list-home"
-						role="tab" aria-controls="home">UN Agencies</a>
-					 <a class="list-group-item list-group-item-action"
+						role="tab" aria-controls="home">UN Agencies</a> <a
+						class="list-group-item list-group-item-action"
 						id="list-profile-list" data-toggle="list" href="#list-profile"
-						role="tab" aria-controls="profile">Govermental Organizations
-					</a> 
+						role="tab" aria-controls="profile">Govermental Organizations </a>
 					<a class="list-group-item list-group-item-action"
 						id="list-messages-list" data-toggle="list" href="#list-messages"
-						role="tab" aria-controls="messages">Non-Govermental Organazations</a>
+						role="tab" aria-controls="messages">Non-Govermental
+						Organazations</a>
 				</div>
 			</div>
 			<div class="col-8">
@@ -142,10 +157,11 @@ License: https://webthemez.com/license
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="experiance : ${researchExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
-									<td th:text="${experiance.detailText}"></td>
-									<td> Kenya</td>
+								<tr th:each="client : ${unClients}">
+									<td></td>
+									<td th:text="${client.name}"></td>
+									<td th:text="${client.country}"></td>
+
 								</tr>
 							</tbody>
 
@@ -163,10 +179,11 @@ License: https://webthemez.com/license
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="experiance : ${trainExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
-									<td th:text="${experiance.detailText}"></td>
+								<tr th:each="client : ${govClients}">
 									<td></td>
+									<td th:text="${client.name}"></td>
+									<td th:text="${client.country}"></td>
+
 								</tr>
 							</tbody>
 
@@ -184,35 +201,19 @@ License: https://webthemez.com/license
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="experiance : ${assistExperiance}">
-										<th th:text="${experiance.Id}" scope="row"></th>
-										<td th:text="${experiance.detailText}"></td>
+									<tr th:each="client : ${nongovClients}">
 										<td></td>
+										<td th:text="${client.name}"></td>
+										<td th:text="${client.country}"></td>
+
+									</tr>
 									</tr>
 								</tbody>
 
 							</table>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="list-settings" role="tabpanel"
-						aria-labelledby="list-settings-list">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Organization</th>
-									
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="experiance : ${proposalExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
-									<td th:text="${experiance.detailText}"></td>
-								</tr>
-							</tbody>
-
-						</table>
-					</div>
+				
 				</div>
 			</div>
 		</div>

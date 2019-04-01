@@ -25,7 +25,7 @@ public class Expirence {
 
 	@NotNull(message = "Detail Can Not Be Empty")
 	@NotEmpty(message = "Detail Can Not Be Empty")
-	@Size(min = 20, message = "Detail Should Be At Least Tewinty Character")
+	@Size(min = 10, message = "Detail Should Be At Least Ten Character")
 	@Column(columnDefinition = "TEXT")
 	private String detailText;
 	

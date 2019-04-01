@@ -45,7 +45,7 @@ public class ExperianceController {
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 		
-		model.addAttribute("Clients", clientService.findAll());
+		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		
 		return "experiance";

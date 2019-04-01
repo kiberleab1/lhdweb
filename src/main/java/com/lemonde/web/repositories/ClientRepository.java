@@ -10,4 +10,7 @@ import com.lemonde.web.domains.Clients;
 public interface ClientRepository extends CrudRepository<Clients,Long>{
 	Page<Clients> findByType(Pageable pageable,String type);
 	Page<Clients> findByTypeAndCountry(Pageable pageable,String type,String country);
+	Page<Clients> findByTypeAndCountryNot(Pageable pageable,String type,String country);
+	
+	Iterable<Clients> findByImgPathIsNotNull();
 }

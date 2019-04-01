@@ -15,5 +15,21 @@ public class TesimonialServiceImpl implements TestimonialService{
 	public Iterable<Testimonies> findAll() {
 		return this.testimonialRepository.findAll();
 	}
+	@Override
+	public void deleteById(long Id) {
+		// TODO Auto-generated method stub
+		this.testimonialRepository.deleteById(Id);
+		
+	}
+	@Override
+	public void save(Testimonies testimonies) {
+		this.testimonialRepository.save(testimonies);
+		
+	}
+	@Override
+	public Testimonies findById(long Id) {
+		// TODO Auto-generated method stub
+		return this.testimonialRepository.findById(Id).get();
+	}
 
 }

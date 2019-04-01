@@ -17,30 +17,30 @@ public class Testimonies {
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long Id;
 		
-		@NotNull(message="Name Can Not Be Empty")
+		@NotNull
 		@NotEmpty(message="Name Can Not Be Empty")
 		@Size(min=1,message="Name Should Be At Least One Character")
 		private String FirstName;
 		
-		@NotNull(message="Name Can Not Be Empty")
+		@NotNull
 		@NotEmpty(message="Name Can Not Be Empty")
 		@Size(min=1,message="Name Should Be At Least One Character")
 		private String LastName;
 		
 		
-		@NotNull(message="Organazation Can Not Be Empty")
+		@NotNull
 		@NotEmpty(message="Organazation Can Not Be Empty")
 		@Size(min=1,message="Organazation Should Be At Least One Character")
 		private String Organazation;
 		
-		@NotNull(message="Authority Can Not Be Empty")
+		@NotNull
 		@NotEmpty(message="Authority Can Not Be Empty")
 		@Size(min=1,message="Authority Should Be At Least One Character")
 		private String Authority;
 		
-		@NotNull(message="Name Can Not Be Empty")
-		@NotEmpty(message="Name Can Not Be Empty")
-		@Size(min=20,message="Name Should Be At Least Tewinty Character")
+		@NotNull
+		@NotEmpty(message="Testimony Can Not Be Empty")
+		@Size(min=10,message="Testimony Should Be At Least Ten Character")
 		@Column(columnDefinition="TEXT")
 		private String detailText;
 	}

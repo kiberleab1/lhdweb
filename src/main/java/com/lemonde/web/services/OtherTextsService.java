@@ -9,4 +9,5 @@ public interface OtherTextsService {
 	List<OtherTexts> findByPage(String page);
 	OtherTexts findSingleByPage(String page);
 	OtherTexts findSingleByType(String type);
+	void save(OtherTexts otherText);
 }

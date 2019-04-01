@@ -39,6 +39,21 @@ License: https://webthemez.com/license
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
+<style>
+table {
+	counter-reset: rowNumber -1;
+}
+
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+}
+</style>
 </head>
 <body id="body">
 
@@ -147,7 +162,7 @@ License: https://webthemez.com/license
 							</thead>
 							<tbody>
 								<tr th:each="experiance : ${researchExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
+									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
 									<td th:text="${experiance.firm}"></td>
@@ -170,7 +185,7 @@ License: https://webthemez.com/license
 							</thead>
 							<tbody>
 								<tr th:each="experiance : ${trainExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
+									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
 									<td th:text="${experiance.firm}"></td>
@@ -193,7 +208,7 @@ License: https://webthemez.com/license
 								</thead>
 								<tbody>
 									<tr th:each="experiance : ${assistExperiance}">
-										<th th:text="${experiance.Id}" scope="row"></th>
+										<td></td>
 										<td th:text="${experiance.detailText}"></td>
 										<td th:text="${experiance.client}"></td>
 										<td th:text="${experiance.firm}"></td>
@@ -212,11 +227,12 @@ License: https://webthemez.com/license
 									<th scope="col">Proposal Development</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
+									
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="experiance : ${proposalExperiance}">
-									<th th:text="${experiance.Id}" scope="row"></th>
+									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
 									<td th:text="${experiance.firm}"></td>

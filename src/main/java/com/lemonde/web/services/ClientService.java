@@ -7,9 +7,10 @@ import com.lemonde.web.domains.Clients;
 
 public interface ClientService {
 	Page<Clients> findByPage(Pageable pagable,String type);
-	Page<Clients> findByPage(Pageable pagable,String type,String counntry);
-	
+	Page<Clients> findPageByTypeAndCountry(Pageable pagable,String type,String counntry);
+	Clients findById(Long id);
 	Iterable<Clients> findAll();
+	Iterable<Clients> findImages();
 	void save(Clients clients);
 	void delete(int id);
 }

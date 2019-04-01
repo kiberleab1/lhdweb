@@ -76,8 +76,9 @@
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li ><a th:href="@{/lhd/Home}">Home</a></li>
-					<li class="menu-active"><a th:href="@{/lhd/About}">About Us</a></li>
+					<li><a th:href="@{/lhd/Home}">Home</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/About}">About
+							Us</a></li>
 					<li><a th:href="@{/lhd/Service}">Services</a></li>
 					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
 					<li class="menu-has-children"><a href="">Clients</a>
@@ -310,26 +311,45 @@
     ============================-->
 	<section id="clients" class="wow fadeInUp">
 		<div class="container">
-			<div class="section-header">
+			<div class="section-header" th:object="${clientText}">
 				<h2>Clients</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse
-					aute nulla. duis fugiat culpa esse aute nulla ipsum velit export
-					irure minim illum fore</p>
+				<p th:text="*{detailText}"></p>
 			</div>
 
 			<div class="owl-carousel clients-carousel">
-				<img src="img/clients/client-1.png" alt=""> <img
-					src="img/clients/client-2.png" alt=""> <img
-					src="img/clients/client-3.png" alt=""> <img
-					src="img/clients/client-4.png" alt=""> <img
-					src="img/clients/client-5.png" alt=""> <img
-					src="img/clients/client-6.png" alt="">
+				<a th:each="client :${Clients}" target="_blank"
+					th:href="${client.link}"> <img th:src="${client.imgPath}"
+					alt="">
+				</a>
 			</div>
 
 		</div>
 	</section>
-	<!-- #clients --> <!--==========================
+	<!-- #clients --> 
+
+	<!--==========================
+      Testimonials Section
+    ============================-->
+	<section id="testimonials" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${Testimonial}">
+				<h2>Testimonials</h2>
+				<p th:text="*{detailText}"></p>
+			</div>
+			<div class="owl-carousel testimonials-carousel">
+
+				<div class="testimonial-item" th:each="testomony : ${Testimonies}">
+					<p th:text="${testomony.detailText}"></p>
+					<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
+						James</h3>
+					<h4 th:text="${testomony.Authority}"></h4>
+					<h4 th:text="${testomony.Organazation}"></h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- #testimonials --> 
+		<!--==========================
       Call To Action Section
     ============================-->
 	<section id="call-to-action" class="wow fadeInUp">
@@ -349,65 +369,8 @@
 
 		</div>
 	</section>
-	<!-- #call-to-action --> <!--==========================
-      Testimonials Section
-    ============================-->
-	<section id="testimonials" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header">
-				<h2>Testimonials</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse
-					aute nulla. duis fugiat culpa esse aute nulla ipsum velit export
-					irure minim illum fore</p>
-			</div>
-			<div class="owl-carousel testimonials-carousel">
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Mrio James</h3>
-					<h4>CEO &amp; Founder</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Finton Gofnes</h3>
-					<h4>CTO</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Marcus Kell</h3>
-					<h4>Marketing</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Williams Belly</h3>
-					<h4>Accounts</h4>
-				</div>
-
-				<div class="testimonial-item">
-					<p>Dolores quae porro consequatur aliquam, incidunt fugiat
-						culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum
-						velit export irure minim illum fore</p>
-					<h3>Larry Hanson</h3>
-					<h4>Investor</h4>
-				</div>
-
-			</div>
-
-		</div>
-	</section>
-	<!-- #testimonials --> </main>
+	<!-- #call-to-action --> 
+	</main>
 
 	<!--==========================
     Footer

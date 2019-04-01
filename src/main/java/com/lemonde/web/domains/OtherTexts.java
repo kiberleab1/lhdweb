@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -31,6 +32,7 @@ public class OtherTexts {
 	@NotNull
 	private String page;
 	
+	@NotEmpty(message="About Clients Cannot be Empty")
 	@Column(columnDefinition="TEXT")
 	private String detailText;
 	

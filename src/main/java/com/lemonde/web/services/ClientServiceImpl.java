@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.lemonde.web.domains.Clients;
 import com.lemonde.web.repositories.ClientRepository;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class ClientServiceImpl implements ClientService {
 
@@ -38,9 +40,23 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Page<Clients> findByPage(Pageable pagable, String type, String counntry) {
-		// TODO Auto-generated method stub
-		return null;
+	public Page<Clients> findPageByTypeAndCountry(Pageable pagable, String type, String country) {
+		if(country.equalsIgnoreCase("Ethiopia")) {
+			return this.clientRepository.findByTypeAndCountry(pagable, type, country);
+		}
+		return this.clientRepository.findByTypeAndCountryNot(pagable, type, "Ethiopia");
+	}
+
+	@Override
+	public Clients findById(Long id) {
+		return this.clientRepository.findById(id).get();
+	}
+
+	@Override
+	public Iterable<Clients> findImages() {
+		Iterable<Clients> t=this.clientRepository.findByImgPathIsNotNull();
+		
+		return t;
 	}
 
 }

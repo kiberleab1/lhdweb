@@ -17,6 +17,7 @@ License: https://webthemez.com/license
 <link th:href="@{/img/favicon.png}" rel="icon">
 <link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
 
+
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
@@ -24,7 +25,6 @@ License: https://webthemez.com/license
 
 <!-- Bootstrap CSS File -->
 <link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-
 <!-- Libraries CSS Files -->
 <link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
 	rel="stylesheet">
@@ -39,6 +39,22 @@ License: https://webthemez.com/license
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
+<!-- css -->
+<style>
+table {
+	counter-reset: rowNumber -1;
+}
+
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+}
+</style>
 </head>
 <body id="body">
 
@@ -103,7 +119,7 @@ License: https://webthemez.com/license
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Our Clients In Ethiopia</span><br>Striving for Excellence
+				<span>Add or Edit Clients </span><br>Striving for Excellence
 				&amp; Lasting Change!!
 			</h2>
 			<div></div>
@@ -143,14 +159,13 @@ License: https://webthemez.com/license
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="clients : ${unCLients}">
-									<th th:text="${clients.Id}" scope="row"></th>
+								<tr th:each="clients : ${unClients}">
+									<td></td>
 									<td th:text="${clients.name}"></td>
 									<td>
 										<form th:action="@{/Admin/editClient/delete}" method="POST"
 											name="sentMessage">
-											<input type="hidden" name="clientId"
-												th:value="${clients.Id}">
+											<input type="hidden" name="clientId" th:value="${clients.Id}">
 											<button type="submit" class="btn btn-primary ">Delete</button>
 											<br />
 
@@ -159,14 +174,13 @@ License: https://webthemez.com/license
 									<td>
 										<form th:action="@{/Admin/editClient/edit}" method="POST"
 											name="sentMessage">
-											<input type="hidden" name="clientId"
-												th:value="${clients.Id}">
+											<input type="hidden" name="clientId" th:value="${clients.Id}">
 											<button type="submit" class="btn btn-primary">Edit</button>
 											<br />
 
 										</form>
 									</td>
-									
+
 								</tr>
 							</tbody>
 
@@ -182,17 +196,20 @@ License: https://webthemez.com/license
 									<th scope="col">Organization</th>
 									<th scope="col">Delete</th>
 									<th scope="col">Edit</th>
+
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="clients : ${govCLients}">
-									<th th:text="${clients.Id}" scope="row"></th>
+								<tr th:each="clients : ${govClients}">
+									<td scope="row">
+									</th>
+
+
 									<td th:text="${clients.name}"></td>
 									<td>
 										<form th:action="@{/Admin/editClient/delete}" method="POST"
 											name="sentMessage">
-											<input type="hidden" name="clientId"
-												th:value="${clients.Id}">
+											<input type="hidden" name="clientId" th:value="${clients.Id}">
 											<button type="submit" class="btn btn-primary ">Delete</button>
 											<br />
 
@@ -201,43 +218,70 @@ License: https://webthemez.com/license
 									<td>
 										<form th:action="@{/Admin/editClient/edit}" method="POST"
 											name="sentMessage">
-											<input type="hidden" name="clientId"
-												th:value="${clients.Id}">
+											<input type="hidden" name="clientId" th:value="${clients.Id}">
 											<button type="submit" class="btn btn-primary">Edit</button>
 											<br />
 
 										</form>
 									</td>
-									
+
 								</tr>
 							</tbody>
+
+						</table>
 					</div>
+					<div class="tab-pane fade" id="list-messages" role="tabpanel"
+						aria-labelledby="list-messages-list">
+						<div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Organization</th>
+										<th scope="col">Delete</th>
+										<th scope="col">Edit</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="clients : ${nongovClients}">
+										<td></td>
+										<td th:text="${clients.name}"></td>
+										<td>
+											<form th:action="@{/Admin/editClient/delete}" method="POST"
+												name="sentMessage">
+												<input type="hidden" name="clientId"
+													th:value="${clients.Id}">
+												<button type="submit" class="btn btn-primary ">Delete</button>
+												<br />
+
+											</form>
+										</td>
+										<td>
+											<form th:action="@{/Admin/editClient/edit}" method="POST"
+												name="sentMessage">
+												<input type="hidden" name="clientId"
+													th:value="${clients.Id}">
+												<button type="submit" class="btn btn-primary">Edit</button>
+												<br />
+
+											</form>
+										</td>
+										</td>
+
+									</tr>
+
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
+		</div>
 	</section>
-	<!-- #services --> <!--==========================
-      Clients Section
-    ============================-->
-	<div class="row justify-content-end">
-		<section id="clients" class="wow fadeInUp col-9">
-			<div class="container">
-				<div class="section-header" th:object="${clientText}">
-					<h2>Clients</h2>
-					<p th:text="*{detailText}"></p>
-				</div>
-
-				<div class="owl-carousel clients-carousel">
-					<a th:each="client :${Clients}" target="_blank"
-						th:href="${client.link}"> <img th:src="${client.imgPath}"
-						alt="">
-					</a>
-				</div>
-
-			</div>
-		</section>
-	</div>
-	<!-- #clients -->
 	<section id="contact" class="wow fadeInUp">
 		<div class="container">
 
@@ -251,6 +295,7 @@ License: https://webthemez.com/license
 							<form name="sentMessage" class="well" id="contactForm" novalidate
 								th:object="${newClient}" th:action="@{/Admin/editClient}"
 								method="POST" enctype="multipart/form-data">
+								<input type="hidden" name="Id" th:value="*{Id}" />
 								<div class="control-group">
 									<div class="form-group">
 										<input type="text" class="form-control"
@@ -260,27 +305,48 @@ License: https://webthemez.com/license
 										<span class="text-danger" th:if="${#fields.hasErrors('name')}"
 											th:errors="*{name}">Last Name Error </span>
 									</div>
-									<div class="control-group">
-										<div class="form-group">
-											<input type="text" class="form-control"
-												placeholder="link to Organazation" id="name" required
-												th:field="*{link}"
-												data-validation-required-message="Please enter your name" />
-											<span class="text-danger"
-												th:if="${#fields.hasErrors('link')}" th:errors="*{link}">Last
-												Name Error </span>
-										</div>
-										<div class="control-group">
-											<div class="form-group">
-												<input type="file" name="img" class="form-control"
-													placeholder="logo" value="Logo" id="img" required />
-											</div>
-										</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<select name="country"
+											class="form-control selectpicker countrypicker"
+											data-default="Ethiopia" data-flag="true">
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<select name="type" class="selectpicker form-control">
+											<option value="un">UN Agency</option>
+											<option value="gov">Govermental Organization</option>
+											<option value="nongov">Non Govermental organization</option>
 
-										<div id="success"></div>
-										<!-- For success/fail messages -->
-										<button type="submit" class="btn btn-primary pull-right">Send</button>
-										<br />
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control"
+											placeholder="link to Organazation" id="name" required
+											th:field="*{link}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger" th:if="${#fields.hasErrors('link')}"
+											th:errors="*{link}">Last Name Error </span>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="file" name="img" class="form-control"
+											placeholder="logo" value="Logo" id="img" required />
+									</div>
+								</div>
+
+
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Add</button>
+								<br />
 							</form>
 						</div>
 
@@ -289,7 +355,51 @@ License: https://webthemez.com/license
 
 
 			</div>
-	</main>
+			<!-- #services -->
+			<!--==========================
+      Clients Section
+    ============================-->
+			<div class="row justify-content-end">
+				<section id="clients" class="wow fadeInUp col-9">
+					<div class="container">
+						<div class="section-header" th:object="${clientText}">
+							<h2>Client Text</h2>
+							<form name="sentMessage" class="well" id="contactForm" novalidate
+								th:action="@{/Admin/editClient/saveClientText}" method="POST"
+								row="8">
+								<input type="hidden" name="Id" th:value="*{Id}" /> <input
+									type="hidden" th:field="*{type}" /> <input type="hidden"
+									th:field="*{page}" />
+								<div class="control-group">
+									<div class="form-group">
+										<textarea class="form-control" rows="8"
+											placeholder="About Clients" id="name" required
+											th:field="*{detailText}"
+											data-validation-required-message="Please enter your name">
+											</textarea>
+										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											th:errors="*{detailText}">Last Name Error </span>
+									</div>
+								</div>
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Save</button>
+								<br />
+							</form>
+						</div>
+					</div>
+					<div class="owl-carousel clients-carousel">
+						<a th:each="client :${Clients}" target="_blank"
+							th:href="${client.link}"> <img th:src="${client.imgPath}"
+							alt="">
+						</a>
+					</div>
+			</div>
+
+	</div>
+	</section>
+	<!-- #clients --> </main>
 
 	<!--==========================
     Footer
@@ -322,6 +432,11 @@ License: https://webthemez.com/license
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
 	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
+	<script th:src="@{/js/countrypicker.js}"></script>
+	<script th:src="@{/js/countrypicker.min.js}"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 </body>
 </html>
