@@ -80,20 +80,20 @@ table tr td:first-child::before {
 	<!--==========================
     Header
   ============================-->
-		<header id="header">
+	<header id="header">
 		<div class="container">
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a th:href="@{/lhd/Home}" class="scrollto"><i
-						class="icon"><img width="50" th:src="@{/img/logo.svg}"/></i> Le Monde </a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
+							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li> <a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/Home}">Home</a></li>
 					<li><a th:href="@{/lhd/About}">About Us</a></li>
 					<li><a th:href="@{/lhd/Service}">Services</a></li>
 					<li class="menu-active"><a th:href="@{/lhd/Experiance}">Experience</a></li>
@@ -101,7 +101,7 @@ table tr td:first-child::before {
 						<ul>
 							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
 							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
-							
+
 						</ul></li>
 					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
 				</ul>
@@ -109,8 +109,8 @@ table tr td:first-child::before {
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
-	
-		<!-- #header -->
+
+	<!-- #header -->
 
 	<!--==========================
     Page Banner Section
@@ -131,11 +131,34 @@ table tr td:first-child::before {
 
 		<div class="row">
 			<div class="col-3">
+
 				<div class="list-group" id="list-tab" role="tablist">
-					<a class="list-group-item list-group-item-action active"
-						id="list-home-list" data-toggle="list" href="#list-home"
-						role="tab" aria-controls="home">Research, Survey &amp;
-						Assessment</a> <a class="list-group-item list-group-item-action"
+
+
+					<a class="list-group-item list-group-item-action"
+						data-toggle="collapse" href="#list-profi"
+						data-target="#collapseExample" aria-expanded="true"
+						aria-controls="collapseExample" role="tab">Research, Survey
+						&amp; Assessment</a>
+					<div class="collapse show" id="collapseExample">
+
+						<div class="card card-body">
+							<a class="list-group-item list-group-item-action active"
+								id="list-health-list" data-toggle="list" href="#list-health"
+								role="tab" aria-controls="health">Health</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-food-list" data-toggle="list" href="#list-food"
+								role="tab" aria-controls="messages">Nutrition & Food
+								Security </a> <a class="list-group-item list-group-item-action"
+								id="list-settings-list" data-toggle="list" href="#list-settings"
+								role="tab" aria-controls="settings">Water, Sanitation &
+								Hygiene (WaSH)</a> <a class="list-group-item list-group-item-action"
+								id="list-settings-list" data-toggle="list" href="#list-settings"
+								role="tab" aria-controls="settings">HIV & AIDS</a>
+						</div>
+					</div>
+
+					<a class="list-group-item list-group-item-action"
 						id="list-profile-list" data-toggle="list" href="#list-profile"
 						role="tab" aria-controls="profile">Strategic &amp; Training
 						Materials Development</a> <a
@@ -149,8 +172,8 @@ table tr td:first-child::before {
 			</div>
 			<div class="col-8">
 				<div class="tab-content" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="list-home"
-						role="tabpanel" aria-labelledby="list-home-list">
+					<div class="tab-pane fade show active" id="list-health"
+						role="tabpanel" aria-labelledby="list-health-list">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -171,6 +194,27 @@ table tr td:first-child::before {
 
 						</table>
 
+					</div>
+					<div class="tab-pane fade" id="list-food" role="tabpanel"
+						aria-labelledby="list-food-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Client</th>
+									<th scope="col">Firm</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="experiance : ${researchExperiance}">
+									<td></td>
+									<td th:text="${experiance.detailText}"></td>
+									<td th:text="${experiance.client}"></td>
+									<td th:text="${experiance.firm}"></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<div class="tab-pane fade" id="list-profile" role="tabpanel"
 						aria-labelledby="list-profile-list">
@@ -227,7 +271,7 @@ table tr td:first-child::before {
 									<th scope="col">Proposal Development</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
-									
+
 								</tr>
 							</thead>
 							<tbody>

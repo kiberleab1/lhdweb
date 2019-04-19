@@ -32,12 +32,13 @@ public class HomeController {
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
-		model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-		model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-		model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-		model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
+		
+		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+		
 		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
-		model.addAttribute("Clients", clientService.findAll());
+		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		model.addAttribute("services",servicesService.findAll());
 		return "home";

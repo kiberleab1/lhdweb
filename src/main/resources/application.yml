@@ -7,7 +7,22 @@ spring:
     password: abeba
   jpa:
     hibernate.ddl-auto: update
-    show-sql: true
+    show-sql: false
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5Dialect
+  mail:
+     
+     host: mail.lhdconsult.org
+     port: 2525
+     username: contact@lhdconsult.org
+     password: 711380Dm
+     
+     debug: true
+     properties:
+         mail:
+            debug: true
+            smtp:
+              auth: true
+              starttls:
+                enable: true
     

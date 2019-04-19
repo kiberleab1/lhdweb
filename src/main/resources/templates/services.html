@@ -38,42 +38,43 @@
 
 <body id="body">
 
-  <!--==========================
+	<!--==========================
     Top Bar
   ============================-->
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container clearfix">
-      <div class="contact-info float-left">
-        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">name@websitename.com</a>
-        <i class="fa fa-phone"></i> +1 2345 67855 22
-      </div>
-      <div class="social-links float-right">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-      </div>
-    </div>
-  </section>
+	<section id="topbar" class="d-none d-lg-block">
+		<div class="container clearfix">
+			<div class="contact-info float-left">
+				<i class="fa fa-envelope-o"></i> <a
+					href="mailto:contact@example.com">name@websitename.com</a> <i
+					class="fa fa-phone"></i> +1 2345 67855 22
+			</div>
+			<div class="social-links float-right">
+				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+					href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+					href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
+					href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+			</div>
+		</div>
+	</section>
 
-  <!--==========================
+	<!--==========================
     Header
   ============================-->
-		<header id="header">
+	<header id="header">
 		<div class="container">
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a th:href="@{/lhd/Home}" class="scrollto"><i
-						class="icon"><img width="50" th:src="@{/img/logo.svg}"/></i> Le Monde </a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
+							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li ><a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/Home}">Home</a></li>
 					<li><a th:href="@{/lhd/About}">About Us</a></li>
 					<li class="menu-active"><a th:href="@{/lhd/Service}">Services</a></li>
 					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
@@ -81,7 +82,7 @@
 						<ul>
 							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
 							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
-							
+
 						</ul></li>
 					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
 				</ul>
@@ -89,168 +90,144 @@
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
-	
-<!-- #header -->
 
-  <!--==========================
+	<!-- #header -->
+
+	<!--==========================
     Page Banner Section
   ============================-->
-  <section id="innerBanner"> 
-    <div class="inner-content">
-      <h2><span>Services</span><br>We create the opportunities!</h2>
-      <div> 
-      </div>
-    </div> 
-  </section><!-- #Page Banner -->
+	<section id="innerBanner">
+		<div class="inner-content">
+			<h2>
+				<span>Services</span> <br>Striving for Excellence and Lasting
+				Change!
+			</h2>
+			<div></div>
+		</div>
+	</section>
+	<!-- #Page Banner -->
 
-  <main id="main">
-
-    <!--==========================
+	<main id="main"> <!--==========================
       Services Section
     ============================-->
-    <section id="services">
-      <div class="container"> 
+	<section id="services">
 
-        <div class="row">
+		<div class="container">
+			<div class="section-header" th:object="${Service}">
+				<h2>Services</h2>
+				<p th:text="*{detailText}"></p>
+			</div>
 
-          <div class="col-lg-4">
-            <div class="box wow fadeInLeft">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Marketing</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
+			<div class="row">
 
-          <div class="col-lg-4">
-            <div class="box wow fadeInRight">
-              <div class="icon"><i class="fa fa-picture-o"></i></div>
-              <h4 class="title"><a href="">Consulting</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
+				<div class="col-lg-4" th:each="service :${services}">
+					<div class="box wow fadeInLeft">
+						<div class="icon">
+							<i class="icon icon-briefcase"></i>
+						</div>
+						<h4 class="title">
+							<a th:href="@{/lhd/services/}+''+${service.serviceName}"
+								th:text="${service.serviceName}"></a>
+						</h4>
+						<p class="description" th:text="${service.detailText}"></p>
+					</div>
+				</div>
 
-          <div class="col-lg-4">
-            <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Strategy</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="box wow fadeInRight" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-map"></i></div>
-              <h4 class="title"><a href="">Quality</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Analysis</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="box wow fadeInRight" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-map"></i></div>
-              <h4 class="title"><a href="">Creative</a></h4>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- #services -->
-
-    <!--==========================
+			</div>
+		</div>
+	</section>
+	<!-- #services --> <!--==========================
       Clients Section
     ============================-->
-    <section id="clients" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Clients</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla. duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
-        </div>
+	<section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${clientText}">
+				<h2>Clients</h2>
+				<p th:text="*{detailText}"></p>
+			</div>
 
-        <div class="owl-carousel clients-carousel">
-          <img th:src="@{/img/clients/client-1.png}" alt="">
-          <img th:src="@{/img/clients/client-2.png}" alt="">
-          <img th:src="@{/img/clients/client-3.png}" alt="">
-          <img th:src="@{/img/clients/client-4.png}" alt="">
-          <img th:src="@{/img/clients/client-5.png}" alt="">
-          <img th:src="@{/img/clients/client-6.png}" alt="">
-        </div>
+			<div class="owl-carousel clients-carousel">
+				<a th:each="client :${Clients}" target="_blank"
+					th:href="${client.link}"> <img th:src="${client.imgPath}"
+					alt="">
+				</a>
+			</div>
 
-      </div>
-    </section><!-- #clients -->
- 
-    <!--==========================
+		</div>
+	</section>
+	<!-- #clients --> <!--==========================
       About Section
     ============================-->
-    <section id="about" class="wow fadeInUp">
-      <div class="container"> 
-        <div class="row">
-          <div class="col-lg-6 about-img">
-            <img th:src="@{/img/about-img.png}" alt="">
-          </div>
+	<section id="about" class="wow fadeInUp">
+		<div class="container">
+			<div class="row">
+							<div class="row">
+				<div class="col-lg-6 about-img">
+					<img th:src="@{/img/about.svg}" alt="">
+				</div>
 
-          <div class="col-lg-6 content">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-            <h3>Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident</h3>
-			<p>Consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla. malis nulla duis fugiat</p>
-            <ul>
-              <li><i class="icon ion-ios-checkmark-outline"></i> Dolores quae porro consequatur aliquam, incidunt fugiat culpa.</li>
-              <li><i class="icon ion-ios-checkmark-outline"></i> Dolores quae porro consequatur aliquam, culpa esse aute nulla.</li>
-              <li><i class="icon ion-ios-checkmark-outline"></i> Dolores quae porro esse aute nulla. malis nulla duis fugiat</li>
-            </ul> 
-          </div>
-        </div>
+				<div class="col-lg-6 content">
+					<div class="section-header">
+						<h2>Vision</h2>
+					</div>
+					<h3 th:object="${VisionText}" th:text="*{detailText}"></h3>
+					<div class="section-header">
+						<h2>Mission</h2>
+					</div>
+					<p th:object="${MisionText}" th:text="*{detailText}"></p>
+					<div class="section-header">
+						<h2>Objectives</h2>
+					</div>
+					<ul>
+						<li th:each="obj :${Objectives}"><i class="icon ion-ios-checkmark-outline" th:text="'  '+${obj.detailText}"></i></li>
+						
+					</ul>
+				</div>
+			</div>
+				
+			</div>
 
-      </div>
-    </section><!-- #about -->
- 
-
-    <!--==========================
+		</div>
+	</section>
+	<!-- #about --> <!--==========================
       Call To Action Section
     ============================-->
-    <section id="call-to-action" class="wow fadeInUp">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title">Get Our Service</h3>
-            <p class="cta-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt fugiat culpa esse aute nulla cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#contact">Contact Us</a>
-          </div>
-        </div>
+	<section id="call-to-action" class="wow fadeInUp">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 text-center text-lg-left"
+					th:object="${Service}">
+					<h3 class="cta-title">Get Our Service</h3>
+					<p class="cta-text" th:text="*{detailText}"></p>
+				</div>
+				<div class="col-lg-3 cta-btn-container text-center">
+					<a class="cta-btn align-middle" th:href="@{/lhd/Contact}">Contact
+						Us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- #call-to-action --> </main>
 
-      </div>
-    </section><!-- #call-to-action -->
- 
-
-  </main>
-
-  <!--==========================
+	<!--==========================
     Footer
   ============================-->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>BizTech</strong>. All Rights Reserved
-      </div>
-      <div class="credits"> 
-        Best <a href="https://webthemez.com/free-bootstrap-templates/">Bootstrap Templates</a> by WebThemez
-      </div>
-    </div>
-  </footer><!-- #footer -->
+	<footer id="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong>BizTech</strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				Best <a href="https://webthemez.com/free-bootstrap-templates/">Bootstrap
+					Templates</a> by WebThemez
+			</div>
+		</div>
+	</footer>
+	<!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  <!-- JavaScript  -->
+	<!-- JavaScript  -->
 	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
 	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>

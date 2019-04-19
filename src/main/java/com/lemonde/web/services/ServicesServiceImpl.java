@@ -15,5 +15,19 @@ public class ServicesServiceImpl implements ServicesService {
 	public Iterable<Services> findAll() {
 		return serviceRepository.findAll();
 	}
+	@Override
+	public void deleteById(int Id) {
+		this.serviceRepository.deleteById((long)Id);
+		
+	}
+	@Override
+	public Services findById(int Id) {
+		return this.serviceRepository.findById((long)Id).get();
+	}
+	@Override
+	public void save(Services service) {
+		this.serviceRepository.save(service);
+		
+	}
 
 }

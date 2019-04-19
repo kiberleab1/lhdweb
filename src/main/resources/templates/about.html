@@ -120,19 +120,20 @@
 				</div>
 
 				<div class="col-lg-6 content">
-					<h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<h3>Dolores quae porro consequatur aliquam, incidunt eius
-						magni provident, doloribus omnis minus ovident</h3>
-					<p>Consectetur adipisicing elit. Dolores quae porro consequatur
-						aliquam, incidunt fugiat. Dolores quae porro consequatur aliquam,
-						incidunt fugiat culpa esse aute nulla. malis nulla duis fugiat</p>
+					<div class="section-header">
+						<h2>Vision</h2>
+					</div>
+					<h3 th:object="${VisionText}" th:text="*{detailText}"></h3>
+					<div class="section-header">
+						<h2>Mission</h2>
+					</div>
+					<p th:object="${MisionText}" th:text="*{detailText}"></p>
+					<div class="section-header">
+						<h2>Objectives</h2>
+					</div>
 					<ul>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, incidunt fugiat culpa.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, culpa esse aute nulla.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro esse aute nulla. malis nulla duis fugiat</li>
+						<li th:each="obj :${Objectives}"><i class="icon ion-ios-checkmark-outline" th:text="'  '+${obj.detailText}"></i></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -145,135 +146,29 @@
 			<div class="section-header">
 				<h2>Our Team</h2>
 			</div>
-			<div class="row">
+			<div class="row" th:each="teamMember :${ourTeam}">
 				<div class="col-lg-3 col-md-6">
 					<div class="member">
 						<div class="pic">
-							<img th:src="@{/img/team1.jpg}" alt="">
+							<img th:src="${teamMember.imgPath}" alt="">
 						</div>
 						<div class="details">
-							<h4>James Smith</h4>
-							<span>Chief Executive Officer</span>
+							<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
+							<span th:text="${teamMember.authority}"></span>
 							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
+								<a th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
+								</a> <a th:href="${teamMember.facebook}"><i
+									class="fa fa-facebook"></i></a> <a
+									th:href="${teamMember.googlePlus}"> <i
+									class="fa fa-google-plus"></i></a> <a
+									th:href="${teamMember.linkdon}"><i class="fa fa-linkedin"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team2.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>Michell Kellon</h4>
-							<span>Technical Manager</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team3.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>French Lincon</h4>
-							<span>Financial Manager</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team4.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>Amanda Jepson</h4>
-							<span>Accountant</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team4.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>Amanda Jepson</h4>
-							<span>Accountant</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team4.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>Amanda Jepson</h4>
-							<span>Accountant</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="member">
-						<div class="pic">
-							<img th:src="@{/img/team4.jpg}" alt="">
-						</div>
-						<div class="details">
-							<h4>Amanda Jepson</h4>
-							<span>Accountant</span>
-							<div class="social">
-								<a href=""><i class="fa fa-twitter"></i></a> <a href=""><i
-									class="fa fa-facebook"></i></a> <a href=""><i
-									class="fa fa-google-plus"></i></a> <a href=""><i
-									class="fa fa-linkedin"></i></a>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 
-		</div>
 	</section>
 	<!-- #team --> <!--==========================!-->
 	<section id="about" class="wow fadeInUp">
@@ -286,21 +181,8 @@
 					<img th:src="@{/img/about-img.png}" alt="">
 				</div>
 
-				<div class="col-lg-6 content">
-					<h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-					<h3>Dolores quae porro consequatur aliquam, incidunt eius
-						magni provident, doloribus omnis minus ovident</h3>
-					<p>Consectetur adipisicing elit. Dolores quae porro consequatur
-						aliquam, incidunt fugiat. Dolores quae porro consequatur aliquam,
-						incidunt fugiat culpa esse aute nulla. malis nulla duis fugiat</p>
-					<ul>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, incidunt fugiat culpa.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro consequatur aliquam, culpa esse aute nulla.</li>
-						<li><i class="icon ion-ios-checkmark-outline"></i> Dolores
-							quae porro esse aute nulla. malis nulla duis fugiat</li>
-					</ul>
+				<div class="col-lg-6 content" th:object="${OperationalCapacity}">
+					<p th:text="*{detailText}"></p>
 				</div>
 			</div>
 
@@ -355,15 +237,12 @@
 	<section id="call-to-action" class="wow fadeInUp">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-9 text-center text-lg-left">
+				<div class="col-lg-9 text-center text-lg-left" th:object="${Service}">
 					<h3 class="cta-title">Get Our Service</h3>
-					<p class="cta-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
-						fugiat culpa esse aute nulla cupidatat non proident, sunt in culpa
-						qui officia deserunt mollit anim id est laborum.</p>
+					<p class="cta-text" th:text="*{detailText}"></p>
 				</div>
 				<div class="col-lg-3 cta-btn-container text-center">
-					<a class="cta-btn align-middle" href="#contact">Contact Us</a>
+					<a class="cta-btn align-middle" th:href="@{/lhd/Contact}">Contact Us</a>
 				</div>
 			</div>
 

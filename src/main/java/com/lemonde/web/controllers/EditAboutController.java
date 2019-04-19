@@ -30,6 +30,9 @@ import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TeamMembersService;
 import com.lemonde.web.services.TestimonialService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/Admin/editAbout")
 public class EditAboutController {
@@ -58,12 +61,12 @@ public class EditAboutController {
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 		
-		model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-		model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-		model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-		model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		
+		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
@@ -72,15 +75,25 @@ public class EditAboutController {
 		
 		model.addAttribute("newTeamMember",new TeamMembers());
 		model.addAttribute("newTestemony",new Testimonies());
+		model.addAttribute("newObjectives", new OtherTexts());
 		
 		return "editAbout";
 	}
+	
+	@PostMapping("/deleteObjective")
+	public String deleteObjective(String objId) {
+		int id = Integer.parseInt(objId);
+		this.otherTextsService.deleteById((long)id);
+		return "redirect:/Admin/editAbout";
+	}
+	
 	@PostMapping("/deleteTestmony")
 	public String deleteTestimony(String testomonyId) {
 		int id = Integer.parseInt(testomonyId);
 		this.testomonialService.deleteById((long)id);
 		return "redirect:/Admin/editAbout";
 	}
+	
 	@PostMapping("/editTestmony")
 	public String editTestimony(String testomonyId,Model model) {
 		int id = Integer.parseInt(testomonyId);
@@ -126,25 +139,92 @@ public class EditAboutController {
 		this.testomonialService.save(testimonies);
 		return "redirect:/Hotel/sss";
 	}
-	@PostMapping("/saveTestmonialText")
-	public String saveClientText(@Valid @ModelAttribute("clientText") OtherTexts clientText, BindingResult bindingResult,
+	@PostMapping("/addObjectives")
+	public String saveObjectivesText(@Valid @ModelAttribute("newObjectives") OtherTexts clientText, BindingResult bindingResult,
 			Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			
 			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
-		//	model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 			
-			model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-			model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-			model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-			model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-			model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
 			model.addAttribute("Clients", clientService.findImages());
 			model.addAttribute("Testimonies",testomonialService.findAll());
 			model.addAttribute("services",servicesService.findAll());
+			model.addAttribute("ourTeam",teamMembersService.findAll());
+			
+			model.addAttribute("newTeamMember",new TeamMembers());
+			model.addAttribute("newTestemony",new Testimonies());
+			//model.addAttribute("newObjectives", new OtherTexts());
+			
+			return "editAbout";
+			
+		}
+		this.otherTextsService.save(clientText);
+		return "redirect:/Admin/editAbout";
+	}
+	@PostMapping("/saveTestmonialText")
+	public String saveClientText(@Valid @ModelAttribute("clientText") OtherTexts clientText, BindingResult bindingResult,
+			Errors errors, Model model) {
+		if (errors.hasErrors()) {
+			
 
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
+			
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+			
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies",testomonialService.findAll());
+			model.addAttribute("services",servicesService.findAll());
+			model.addAttribute("ourTeam",teamMembersService.findAll());
+			
+			model.addAttribute("newTeamMember",new TeamMembers());
+			model.addAttribute("newTestemony",new Testimonies());
+			model.addAttribute("newObjectives", new OtherTexts());
+
+			return "editAbout";
+			
+		}
+
+		this.otherTextsService.save(clientText);
+		return "redirect:/Admin/editAbout";
+	}
+	@PostMapping("/saveOthersText")
+	public String saveOperationaCapacity(@Valid @ModelAttribute("OperationalCapacity") OtherTexts clientText, BindingResult bindingResult,
+			Errors errors, Model model) {
+		if (errors.hasErrors()) {
+			
+
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
+			
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+			
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies",testomonialService.findAll());
+			model.addAttribute("services",servicesService.findAll());
+			model.addAttribute("ourTeam",teamMembersService.findAll());
+			
+			model.addAttribute("newTeamMember",new TeamMembers());
+			model.addAttribute("newTestemony",new Testimonies());
+			model.addAttribute("newObjectives", new OtherTexts());
 			return "editAbout";
 			
 		}
@@ -157,15 +237,16 @@ public class EditAboutController {
 	public String addClient(@Valid @ModelAttribute("newTeamMember") TeamMembers teamMembers, BindingResult bindingResult,
 			@RequestParam("img") MultipartFile file, Errors errors, Model model) {
 		if (errors.hasErrors()) {
+
 			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 			
-			model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-			model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-			model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-			model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-			model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
 			model.addAttribute("Clients", clientService.findImages());
 			model.addAttribute("Testimonies",testomonialService.findAll());
@@ -174,6 +255,7 @@ public class EditAboutController {
 			
 			//model.addAttribute("newTeamMember",new TeamMembers());
 			model.addAttribute("newTestemony",new Testimonies());
+			model.addAttribute("newObjectives", new OtherTexts());
 			return "editAbout";
 		}
 		
@@ -237,23 +319,25 @@ public class EditAboutController {
 	@PostMapping("/editTeam")
 	public String editTeam(String teamMemberId,Model model) {
 		int id = Integer.parseInt(teamMemberId);
-		
+
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 		
-		model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-		model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-		model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-		model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		
+		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		model.addAttribute("services",servicesService.findAll());
+		model.addAttribute("ourTeam",teamMembersService.findAll());
 		
-		model.addAttribute("newTeamMember",this.teamMembersService.findById((long)id));
+		model.addAttribute("newTeamMember",new TeamMembers());
 		model.addAttribute("newTestemony",new Testimonies());
+		model.addAttribute("newObjectives", new OtherTexts());
 		return "editAbout";
 	}
 
