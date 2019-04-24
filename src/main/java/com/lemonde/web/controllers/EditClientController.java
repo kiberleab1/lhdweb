@@ -27,9 +27,6 @@ import com.lemonde.web.services.ExperianceService;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.TestimonialService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 @RequestMapping("/Admin/editClient")
 public class EditClientController {
@@ -74,7 +71,7 @@ public class EditClientController {
 			model.addAttribute("Clients", clientService.findImages());
 			return "editClient";
 		}
-		log.info("ad" + file.getOriginalFilename() + "ff");
+		
 		if (!file.getOriginalFilename().isEmpty()) {
 
 			
@@ -92,8 +89,7 @@ public class EditClientController {
 				    name += filename.substring(0, pos);
 				}
 				String absPath=directory.getAbsolutePath();
-				//absPath.replaceAll("\\","/");
-				log.info("abs: "+absPath);
+			
 				String filePath = absPath + "/" + name+"/";
 				File destFolder = new File(filePath);
 				
@@ -108,7 +104,7 @@ public class EditClientController {
 				
 				
 				filePath+=filename;
-				log.info(filePath);
+				
 				File dest=new File(filePath);
 			
 				file.transferTo(dest);
@@ -117,10 +113,10 @@ public class EditClientController {
 				
 			}
 			catch(FileNotFoundException e) {
-				log.info(e.getMessage());
+				
 			}
 			catch(IOException e) {
-				log.info(e.getMessage());
+			
 			}
 		}
 		this.clientService.save(client);
@@ -137,7 +133,7 @@ public class EditClientController {
 	public String editClient(String clientId, @RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "10") int size,
 			@RequestParam(name = "type", defaultValue = "un") String type, Model model) {
-		log.info(clientId);
+		
 		PageRequest pageRequest = PageRequest.of(page, size);
 		model.addAttribute("unClients", this.clientService.findByPage(pageRequest, type).getContent());
 		model.addAttribute("govClients", this.clientService.findByPage(pageRequest, "gov").getContent());

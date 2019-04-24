@@ -10,6 +10,7 @@ import com.lemonde.web.services.ClientService;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
+import com.lemonde.web.services.VaccancyService;
 
 @Controller
 @RequestMapping("/lhd/Home")
@@ -19,6 +20,8 @@ public class HomeController {
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private ServicesService servicesService;
+	@Autowired
+	private VaccancyService vaccancyService;
 	@Autowired
 	public HomeController(OtherTextsService otherTextsService, ClientService clientService,TestimonialService testomonialService,ServicesService servicesService) {
 		this.otherTextsService = otherTextsService;
@@ -41,6 +44,7 @@ public class HomeController {
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		model.addAttribute("services",servicesService.findAll());
+		model.addAttribute("vacc",this.vaccancyService.count());
 		return "home";
 	}
 }

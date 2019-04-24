@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lemonde.web.domains.User;
 import com.lemonde.web.services.UserService;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 @RequestMapping("/Admin/Register")
 public class RegisterAdminController {
@@ -34,7 +32,7 @@ public class RegisterAdminController {
 	}
 	@GetMapping
 	public String getRegister() {
-		log.debug("Register Admin Reached");
+		
 		return "registerAdmin";
 	}
 
@@ -45,6 +43,7 @@ public class RegisterAdminController {
 
 			return "registerAdmin";
 		}
+		this.userService.saveAdminUser(Admin);
 		// User registedManager=userRepository.save(manager);
 		return "redirect:/Admin/Home";
 

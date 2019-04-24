@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lemonde.web.domains.User;
 import com.lemonde.web.services.UserService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 @RequestMapping("/default")
 public class DefaultController {
@@ -30,19 +27,6 @@ public class DefaultController {
 
 	@GetMapping
 	public String getDfault(@AuthenticationPrincipal UserDetails userDetails) {
-
-		if (userDetails.getAuthorities().toString().equals("[ADMIN]")) {
-
-			user = (User) userDetails;
-			user = this.userService.findByEmail(userDetails.getUsername());
-
-			return "redirect:/Admin/Home";
-		} else if (userDetails.getAuthorities().toString().equalsIgnoreCase("EMPLOYEERS")) {
-			user = (User) userDetails;
-			user = this.userService.findByEmail(userDetails.getUsername());
-			return "redirect:/EMPLOYEERS/Home";
-		} else {
-			return "redirect:/AccessDenied";
-		}
+		return "redirect:/Admin/Home";
 	}
 }

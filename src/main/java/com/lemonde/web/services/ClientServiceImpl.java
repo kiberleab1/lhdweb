@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.lemonde.web.domains.Clients;
 import com.lemonde.web.repositories.ClientRepository;
 
-import lombok.extern.slf4j.Slf4j;
-@Slf4j
 @Service
 public class ClientServiceImpl implements ClientService {
 

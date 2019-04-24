@@ -26,9 +26,8 @@ import com.lemonde.web.services.ExperianceService;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.TestimonialService;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Controller
 @RequestMapping("/Admin/editExperiance")
 public class EditExperianceController {

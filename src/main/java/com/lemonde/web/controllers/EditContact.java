@@ -15,8 +15,8 @@ import com.lemonde.web.domains.Contact;
 import com.lemonde.web.services.EmailService;
 
 @Controller
-@RequestMapping("/lhd/Contact")
-public class ContactController {
+@RequestMapping("/Admin/editContact")
+public class EditContact {
 	private final String contactEmail="contact@lhdconsult.org";
 	@Autowired
 	private EmailService emailService;
@@ -31,10 +31,11 @@ public class ContactController {
 			return "contact";
 		}
 		emailService.SendSimpleMessage("kiberleabdemassie@gmail.com",contactEmail,contact.getName()+"@ "+contact.getEmail(), contact.getMessage());
-		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Contact @ LeMonde","Thank you for contacting us and will respond to your quires.  Please\r\n" + 
+		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Thanks","Thank you for contacting us and will respond to your quires.  Please\r\n" + 
 				"do reach out to the following emails and we will be able to respond to\r\n" + 
 				"you as soon as possible.\r\n" + 
 				"antenanie35@gmail.com or anduye2@gmail.com");
 		return "redirect:/lhd/Contact";
 	}
+
 }

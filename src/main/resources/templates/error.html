@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LeMonde Health and Development</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+<meta content="Author" name="WebThemez">
+<!-- Favicons -->
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+	rel="stylesheet">
+
+<!-- Bootstrap CSS File -->
+<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet">
+<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
+<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
+	rel="stylesheet">
+<link th:href="@{/lib/magnific-popup/magnific-popup.css}"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/font-icon.css}">
+<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+<style>
+*{
+    transition: all 0.6s;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    color: #888;
+    margin: 0;
+}
+
+#main{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.fof{
+	  display: table-cell;
+	  vertical-align: middle;
+}
+
+.fof h1{
+	  font-size: 50px;
+	  display: inline-block;
+	  padding-right: 12px;
+	  animation: type .5s alternate infinite;
+}
+
+@keyframes type{
+	  from{box-shadow: inset -3px 0px 0px #888;}
+	  to{box-shadow: inset -3px 0px 0px transparent;}
+}
+</style>
+<!-- Main Stylesheet File -->
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body id="body">
+
+	<!--==========================
+    Top Bar
+  ============================-->
+	<section id="topbar" class="d-none d-lg-block">
+		<div class="container clearfix">
+			<div class="contact-info float-left">
+				<i class="fa fa-envelope-o"></i> <a
+					href="mailto:contact@example.com">name@websitename.com</a> <i
+					class="fa fa-phone"></i> +1 2345 67855 22
+			</div>
+			<div class="social-links float-right">
+				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+					href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+					href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
+					href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+			</div>
+		</div>
+	</section>
+
+	<!--==========================
+    Header
+  ============================-->
+	<!-- #header -->
+	<header id="header">
+		<div class="container">
+
+			<div id="logo" class="pull-left">
+				<h1>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
+							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
+				</h1>
+				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+			</div>
+
+			<nav id="nav-menu-container">
+				<ul class="nav-menu">
+					<li><a th:href="@{/lhd/Home}">Home</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/About}">About
+							Us</a></li>
+					<li><a th:href="@{/lhd/Service}">Services</a></li>
+					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
+					<li class="menu-has-children"><a href="">Clients</a>
+						<ul>
+							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
+							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
+
+						</ul></li>
+					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
+				</ul>
+			</nav>
+			<!-- #nav-menu-container -->
+		</div>
+	</header>
+	<div id="main">
+		<div class="fof">
+			<h1>Error 404</h1>
+		</div>
+	</div>
+	<footer id="footer">
+		<div class="container">
+			<div class="copyright">
+				&copy; Copyright <strong>BizTech</strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				Best <a href="https://webthemez.com/free-bootstrap-templates/">Bootstrap
+					Templates</a> by WebThemez
+			</div>
+		</div>
+	</footer>
+	<!-- #footer -->
+
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
+	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
+	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/lib/easing/easing.min.js}"></script>
+	<script th:src="@{/lib/superfish/hoverIntent.js}"></script>
+	<script th:src="@{/lib/superfish/superfish.min.js}"></script>
+	<script th:src="@{/lib/wow/wow.min.js}"></script>
+	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
+	<script th:src="@{/lib/sticky/sticky.js}"></script>
+	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
+	<script th:src="@{/contact/contact_me.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+
+</body>
+</html>

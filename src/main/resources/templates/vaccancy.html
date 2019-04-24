@@ -1,3 +1,8 @@
+<!-- =================================================
+Theme Name: BizTech Bootstrap Theme 
+Author: WebThemez.com
+License: https://webthemez.com/license
+======================================================= -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +17,7 @@
 <link th:href="@{/img/favicon.png}" rel="icon">
 <link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
 
+
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
@@ -19,7 +25,6 @@
 
 <!-- Bootstrap CSS File -->
 <link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-
 <!-- Libraries CSS Files -->
 <link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
 	rel="stylesheet">
@@ -34,8 +39,23 @@
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
-</head>
+<!-- css -->
+<style>
+table {
+	counter-reset: rowNumber -1;
+}
 
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+}
+</style>
+</head>
 <body id="body">
 
 	<!--==========================
@@ -73,22 +93,20 @@
 			</div>
 
 			<nav id="nav-menu-container">
-
 				<ul class="nav-menu">
-					<li><a th:href="@{/Admin/Home}">Home</a></li>
-					<li><a th:href="@{/Admin/editAbout}">abt & testimony</a></li>
-					<li class="menu-active"><a th:href="@{/Admin/editService}">Services</a></li>
-					<li><a th:href="@{/Admin/editExperiance}">Experience</a></li>
-					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
-					<li class="menu-has-children"><a href="">Vacancy</a>
+						<li ><a th:href="@{/lhd/Home}">Home</a></li>
+					<li><a th:href="@{/lhd/About}">About Us</a></li>
+					<li><a th:href="@{/lhd/Service}">Services</a></li>
+					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
+					<li class="menu-has-children"><a href="">Clients</a>
 						<ul>
-							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
-							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
-
+							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
+							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
+							
 						</ul></li>
-					<li><a th:href="@{/Admin/Contact}">Contact</a></li>
-					<li><a th:href="@{/logout}">Logout</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/Contact}">Contact</a></li>
 				</ul>
+				
 
 			</nav>
 			<!-- #nav-menu-container -->
@@ -103,129 +121,52 @@
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Add Or Edit Services</span> <br>Striving for Excellence and Lasting
-				Change!
+				<span>Add or Edit Vaccancy </span><br>Striving for Excellence
+				&amp; Lasting Change!!
 			</h2>
 			<div></div>
 		</div>
 	</section>
 	<!-- #Page Banner -->
 
-	<main id="main"> <!--==========================
-      Services Section
-    ============================-->
-	<section id="services">
-
-		<div class="container">
-			<div class="section-header" th:object="${Service}">
-				<h2>Services</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
-
-			<div class="row">
-
-				<div class="col-lg-4" th:each="service :${services}">
-					<div class="box wow fadeInLeft">
-						<div class="icon">
-							<i class="icon icon-briefcase"></i>
-						</div>	
-						<h4 class="title">
-							<a th:href="@{/lhd/services/}+''+${service.serviceName}"
-								th:text="${service.serviceName}"></a>
-						</h4>
-						<p class="description" th:text="${service.detailText}"></p>
-					</div>
-
-					<div>
-						<form th:action="@{/Admin/editService/delete}" method="POST"
-							name="sentMessage">
-							<input type="hidden" name="serviceId" th:value="${service.Id}">
-							<button type="submit" class="btn btn-primary ">Delete</button>
-							<br />
-
-						</form>
-						<br />
-
-						<form th:action="@{/Admin/editService/edit}" method="POST"
-							name="sentMessage">
-							<input type="hidden" name="serviceId" th:value="${service.Id}">
-							<button type="submit" class="btn btn-primary">Edit</button>
-
-						</form>
-						<br />
-
-					</div>
-
-
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- #call-to-action -->
+	<main id="main">
 	<section id="contact" class="wow fadeInUp">
-		<div class="container">
+		<div th:each="vacc : ${vaccancys}">
+			<h4 class="col-md-4 offset-md-2">TITLE:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.title}"></p>
+			<h4 class="col-md-4 offset-md-2">MAJOR RESPONSIBILITIES:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.responsblities}"></p>
+			<h4 class="col-md-4 offset-md-2">POSTION:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.position}"></p>
+			
+			<div id="demo" class="collapse">
+				<h4 class="col-md-4 offset-md-2">QUALIFICATION:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.Qualification}"></p>
+			<h4 class="col-md-4 offset-md-2">Conditions:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.conditions}"></p>
+			<h4 class="col-md-4 offset-md-2">DeadLine:</h4>
+			<p class="col-md-4 offset-md-3" th:text="${vacc.deadline}"></p>
+			<form class="col-md-4 offset-md-3" th:action="@{/lhd/Vaccancy/apply}" method="Get"
+				name="sentMessage">
+				<input type="hidden" name="appId" th:value="${vacc.Id}">
+				<button type="submit" class="btn btn-primary ">Apply</button>
+				<br />
 
-			<div class="row contact-info">
-				<div class="col-lg-5"></div>
-				<div class="col-lg-7">
-					<div class="container">
-						<div class="form">
-
-							<!-- Form itself -->
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:object="${newService}" th:action="@{/Admin/editService}"
-								method="POST" enctype="multipart/form-data">
-								
-								<div class="control-group">
-									<div class="form-group">
-										<input type="file" name="img" class="form-control"
-											placeholder="logo" value="Logo" id="img" required />
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Service Name" id="name" required
-											th:field="*{serviceName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('serviceName')}"
-											th:errors="*{serviceName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Detail Service" id="name" required
-											th:field="*{detailText}"
-											data-validation-required-message="Please enter your name">
-											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('detailText')}"
-											th:errors="*{detailText}">Last Name Error </span>
-									</div>
-								</div>
-								
-
-
-								<div id="success"></div>
-								<br />
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Add</button>
-								<br />
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-
+			</form>
 			</div>
-			<!-- #services -->
-			<!--==========================
-      Clients Section
-    ============================-->
+			<a class="col-md-4 offset-md-4" ass="btn btn-info" data-toggle="collapse" data-target="#demo">See More</a>
+			
+			
+		</div>
+		
 	</section>
+	
+				</div>
+			</div>
+
+
+		</div>
+		<!-- #clients -->
 	</main>
 
 	<!--==========================
@@ -257,8 +198,18 @@
 	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
 	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
-
+	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
+	<script th:src="@{/js/countrypicker.js}"></script>
+	<script th:src="@{/js/countrypicker.min.js}"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+	<script>
+		$('#arrival_date, #departure_date').datepicker({});
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 </body>
 </html>

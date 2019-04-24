@@ -58,43 +58,23 @@ footer -colorlib-footer-links, p {
 <body>
 
 	<header role="banner">
+			<nav>
+				<ul class="nav-menu">
+					<li><a th:href="@{/Admin/Home}">Home</a></li>
+					<li class="menu-active"><a th:href="@{/Admin/editAbout}">abt
+							& testimony</a></li>
+					<li><a th:href="@{/Admin/editService}">Services</a></li>
+					<li><a th:href="@{/Admin/editExperiance}">Experience</a></li>
+					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
+					<li class="menu-has-children"><a href="">Vacancy</a>
+						<ul>
+							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
+							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-light">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Ehotel</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarsExample05" aria-controls="navbarsExample05"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse navbar-light"
-					id="navbarsExample05">
-					<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-						<li class="nav-item"><a class="nav-link" th:href="index.html">Home</a>
-						</li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="rooms.html"
-							id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">Delate</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="rooms.html">User</a> <a
-									class="dropdown-item" href="rooms.html">Hotel Rooms</a> <a
-									class="dropdown-item" href="rooms.html">Commment</a> <a
-									class="dropdown-item" href="rooms.html">Rooms</a>
-							</div></li>
-
-						<li class="nav-item"><a class="nav-link " href="about.html">About</a>
-						</li>
-						<li class="nav-item"><a class="nav-link active"
-							href="register.html">Register Admin</a></li>
-
-						<li class="nav-item cta"><a class="nav-link"
-							href="booknow.html"><span>Request</span></a></li>
-					</ul>
-
-				</div>
-			</div>
+						</ul></li>
+					<li><a th:href="@{/Admin/Contact}">Contact</a></li>
+					<li><a th:href="@{/logout}">Logout</a></li>
+				</ul>
 		</nav>
 	</header>
 	<!-- END header -->
@@ -109,10 +89,6 @@ footer -colorlib-footer-links, p {
 				class="row align-items-center site-hero-inner justify-content-center">
 				<div class="col-md-12 text-center">
 
-					<div class="mb-5 element-animate">
-						<h1>Welcome To EHotel</h1>
-						<p>Discover our world's #1 Luxury hotel.</p>
-					</div>
 
 				</div>
 			</div>
@@ -210,14 +186,7 @@ footer -colorlib-footer-links, p {
 
 					<p class="mb-5">
 						<img src="images/img_4.jpg" alt="" class="img-fluid">
-					</p>
-					<p>Ullam cumque eveniet, fugiat quas maiores, non modi eos
-						deleniti minima, nesciunt assumenda sequi vitae culpa labore
-						nulla! Cumque vero, magnam ab optio quidem debitis dignissimos
-						nihil nesciunt vitae impedit!</p>
-					<div class="media-body">
-
-						<ul class="room-specs">
+					
 
 						</ul>
 					</div>
@@ -225,7 +194,7 @@ footer -colorlib-footer-links, p {
 
 			</div>
 
-		</div>
+		
 	</section>
 	<!-- END section -->
 
@@ -233,82 +202,7 @@ footer -colorlib-footer-links, p {
 
 
 
-	<section class="section-cover" data-stellar-background-ratio="0.5"
-		style="background-image: url(images/img_5.jpg);">
-		<div class="container">
-			<div class="row justify-content-center align-items-center intro">
-				<div class="col-md-9 text-center element-animate">
-					<h2>Relax and Enjoy your Holiday</h2>
-					<p class="lead mb-5">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Architecto quidem tempore expedita facere
-						facilis, dolores!</p>
-					<div class="btn-play-wrap">
-						<a href="https://vimeo.com/channels/staffpicks/93951774"
-							class="btn-play popup-vimeo "><span class="ion-ios-play"></span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- END section -->
-	<section class="section-cover" data-stellar-background-ratio="0.5"
-		style="background-image: url(images/img_5.jpg);"></section>
-
-	<footer id="colorlib-footer" role="contentinfo" style="width: 100%">
-		<div class="container" style="width: 100%">
-			<div class="row row-pb-md" style="width: 100%">
-				<div class="col-md-3 colorlib-widget">
-					<h4>EHotel Reservation</h4>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia
-						reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-					<p>
-					<ul class="colorlib-social-icons">
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-linkedin"></i></a></li>
-						<li><a href="#"><i class="icon-dribbble"></i></a></li>
-					</ul>
-					</p>
-				</div>
-				<div class="col-md-3 colorlib-widget">
-					<h4>Quick Links</h4>
-					<p>
-					<ul class="colorlib-footer-links">
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">Home</a></li>
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">Hotels</a></li>
-						<li><a href="pages/Rooms.html"
-							style="color: rgb(255, 255, 255, 0.5)">Rooms</a></li>
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">Contact
-								Us</a></li>
-					</ul>
-					</p>
-				</div>
-				<div class="col-md-3">
-					<h4>Recents Blog Post</h4>
-					<ul class="colorlib-footer-links">
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">The
-								Ultimate Packing List For Female Travelers</a></li>
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">How
-								These 5 People Found The Path to Their Dream Trip</a></li>
-						<li><a href="#" style="color: rgb(255, 255, 255, 0.5)">A
-								Definitive Guide to the Best Dining and Drinking Venues in the
-								City</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-3 col-md-push-1">
-					<h4>Contact Information</h4>
-					<ul class="colorlib-footer-links">
-						<li>6 Kilo , <br> Addis Ababa , Ethiopia
-						</li>
-						<li><a href="tel:+251930856544"
-							style="color: rgb(255, 255, 255, 0.5)">+ 930856544</a></li>
-						<li><a href="mailto:kirubelayehu@gmail.com"
-							style="color: rgb(255, 255, 255, 0.5)">kirubelayehu@gmail.com</a></li>
-						<li><a href="" style="color: rgb(255, 255, 255, 0.5)">Ehotel.com</a></li>
-					</ul>
-				</div>
-			</div>
+			
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<p>

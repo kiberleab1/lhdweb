@@ -28,9 +28,7 @@ import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 @RequestMapping("Admin/editService")
 public class EditServiceController {
@@ -105,7 +103,7 @@ public class EditServiceController {
 				}
 				String absPath = directory.getAbsolutePath();
 				// absPath.replaceAll("\\","/");
-				log.info("abs: " + absPath);
+				
 				String filePath = absPath + "/" + name + "/";
 				File destFolder = new File(filePath);
 
@@ -118,7 +116,7 @@ public class EditServiceController {
 				destFolder.mkdir();
 
 				filePath += filename;
-				log.info(filePath);
+				
 				File dest = new File(filePath);
 
 				file.transferTo(dest);
@@ -126,9 +124,9 @@ public class EditServiceController {
 				service.setSvgImgPath("/img/" + name + "/" + name + ".svg");
 
 			} catch (FileNotFoundException e) {
-				log.info(e.getMessage());
+				
 			} catch (IOException e) {
-				log.info(e.getMessage());
+				
 			}
 		}
 		this.servicesService.save(service);
@@ -146,7 +144,7 @@ public class EditServiceController {
 	public String editClient(String serviceId, Model model) {
 
 		int id = Integer.parseInt(serviceId);
-		log.info("ServiceId", id);
+		
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));

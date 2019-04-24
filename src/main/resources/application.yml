@@ -2,25 +2,25 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/lhd
-    username: lhd_user
-    password: abeba
+    url: jdbc:mysql://mysql3000.mochahost.com/lhdcons_lhd?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&requireSSL=false
+    username: lhdcons_lhd
+    password: 711380Dm
+    
+  http:
+      multipart:
+         max-file-size: 30Mb
   jpa:
-    hibernate.ddl-auto: update
-    show-sql: false
+    hibernate.ddl-auto: none
+    show-sql: false 
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-  mail:
-     
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  mail:  
      host: mail.lhdconsult.org
      port: 2525
      username: contact@lhdconsult.org
      password: 711380Dm
-     
-     debug: true
      properties:
          mail:
-            debug: true
             smtp:
               auth: true
               starttls:

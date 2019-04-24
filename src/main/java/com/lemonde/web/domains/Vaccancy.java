@@ -25,6 +25,11 @@ public class Vaccancy {
 	
 	@NotNull
 	@NotEmpty
+	@Size(min=4,message="Position Can not be Empty")
+	private String Qualification;
+	
+	@NotNull
+	@NotEmpty
 	@Size(min=4,message="Responsiblities Can not be Empty")
 	private String responsblities;
 	

@@ -6,19 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lemonde.web.services.EmailService;
+import com.lemonde.web.services.OtherTextsService;
 
 @Controller
-public class MainController {
-	
+@RequestMapping("/Admin/Home")
+public class EditHome {
 	@Autowired
-	private EmailService emailService;
-	@GetMapping("/")
-	public String onRoot() {
-		return "redirect:/lhd/Home";
+	private OtherTextsService otherTextsService;
+	@GetMapping
+	public String getEditHome(Model model) {
+		return "editHome";
 	}
-	@GetMapping("/login")
-	public String getLogin(Model model) {
-		return "login";
-	}
+
 }

@@ -34,6 +34,7 @@
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
+
 </head>
 
 <body id="body">
@@ -61,6 +62,7 @@
 	<!--==========================
     Header
   ============================-->
+	<!-- #header -->
 	<header id="header">
 		<div class="container">
 
@@ -73,11 +75,11 @@
 			</div>
 
 			<nav id="nav-menu-container">
-
 				<ul class="nav-menu">
-					<li><a th:href="@{/Admin/Home}">Home</a></li>
-					<li><a th:href="@{/Admin/editAbout}">abt & testimony</a></li>
-					<li class="menu-active"><a th:href="@{/Admin/editService}">Services</a></li>
+					<li class="menu-active"><a th:href="@{/Admin/Home}">Home</a></li>
+					<li ><a th:href="@{/Admin/editAbout}">abt
+							& testimony</a></li>
+					<li><a th:href="@{/Admin/editService}">Services</a></li>
 					<li><a th:href="@{/Admin/editExperiance}">Experience</a></li>
 					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
 					<li class="menu-has-children"><a href="">Vacancy</a>
@@ -89,149 +91,12 @@
 					<li><a th:href="@{/Admin/Contact}">Contact</a></li>
 					<li><a th:href="@{/logout}">Logout</a></li>
 				</ul>
-
 			</nav>
 			<!-- #nav-menu-container -->
 		</div>
 	</header>
 
-	<!-- #header -->
-
-	<!--==========================
-    Page Banner Section
-  ============================-->
-	<section id="innerBanner">
-		<div class="inner-content">
-			<h2>
-				<span>Add Or Edit Services</span> <br>Striving for Excellence and Lasting
-				Change!
-			</h2>
-			<div></div>
-		</div>
-	</section>
-	<!-- #Page Banner -->
-
-	<main id="main"> <!--==========================
-      Services Section
-    ============================-->
-	<section id="services">
-
-		<div class="container">
-			<div class="section-header" th:object="${Service}">
-				<h2>Services</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
-
-			<div class="row">
-
-				<div class="col-lg-4" th:each="service :${services}">
-					<div class="box wow fadeInLeft">
-						<div class="icon">
-							<i class="icon icon-briefcase"></i>
-						</div>	
-						<h4 class="title">
-							<a th:href="@{/lhd/services/}+''+${service.serviceName}"
-								th:text="${service.serviceName}"></a>
-						</h4>
-						<p class="description" th:text="${service.detailText}"></p>
-					</div>
-
-					<div>
-						<form th:action="@{/Admin/editService/delete}" method="POST"
-							name="sentMessage">
-							<input type="hidden" name="serviceId" th:value="${service.Id}">
-							<button type="submit" class="btn btn-primary ">Delete</button>
-							<br />
-
-						</form>
-						<br />
-
-						<form th:action="@{/Admin/editService/edit}" method="POST"
-							name="sentMessage">
-							<input type="hidden" name="serviceId" th:value="${service.Id}">
-							<button type="submit" class="btn btn-primary">Edit</button>
-
-						</form>
-						<br />
-
-					</div>
-
-
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- #call-to-action -->
-	<section id="contact" class="wow fadeInUp">
-		<div class="container">
-
-			<div class="row contact-info">
-				<div class="col-lg-5"></div>
-				<div class="col-lg-7">
-					<div class="container">
-						<div class="form">
-
-							<!-- Form itself -->
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:object="${newService}" th:action="@{/Admin/editService}"
-								method="POST" enctype="multipart/form-data">
-								
-								<div class="control-group">
-									<div class="form-group">
-										<input type="file" name="img" class="form-control"
-											placeholder="logo" value="Logo" id="img" required />
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Service Name" id="name" required
-											th:field="*{serviceName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('serviceName')}"
-											th:errors="*{serviceName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Detail Service" id="name" required
-											th:field="*{detailText}"
-											data-validation-required-message="Please enter your name">
-											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('detailText')}"
-											th:errors="*{detailText}">Last Name Error </span>
-									</div>
-								</div>
-								
-
-
-								<div id="success"></div>
-								<br />
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Add</button>
-								<br />
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-
-			</div>
-			<!-- #services -->
-			<!--==========================
-      Clients Section
-    ============================-->
-	</section>
-	</main>
-
-	<!--==========================
-    Footer
-  ============================-->
-	<footer id="footer">
+		<footer id="footer">
 		<div class="container">
 			<div class="copyright">
 				&copy; Copyright <strong>BizTech</strong>. All Rights Reserved
@@ -245,8 +110,6 @@
 	<!-- #footer -->
 
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-	<!-- JavaScript  -->
 	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
 	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -257,8 +120,10 @@
 	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
 	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
+	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
 
 	<script th:src="@{/js/main.js}"></script>
+
 
 </body>
 </html>

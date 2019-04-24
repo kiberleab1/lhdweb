@@ -30,9 +30,6 @@ import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TeamMembersService;
 import com.lemonde.web.services.TestimonialService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 @RequestMapping("/Admin/editAbout")
 public class EditAboutController {

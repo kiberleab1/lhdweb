@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.lemonde.web.domains.OtherTexts;
 import com.lemonde.web.repositories.OtherTextsRepository;
 
-import lombok.extern.slf4j.Slf4j;
-@Slf4j
 @Service
 public class OtherTextsServiceImpl implements OtherTextsService {
 
@@ -22,10 +20,7 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 
 	@Override
 	public List<OtherTexts> findByType(String type) {
-		log.info("hello");
-		for(OtherTexts other:otherTextsRepository.findByType(type)) {
-			log.info("asdadadas");
-		}
+		
 		return otherTextsRepository.findByType(type);
 	}
 

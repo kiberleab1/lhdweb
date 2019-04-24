@@ -109,7 +109,8 @@
 					Health &amp; Development<br> <span> Consulting</span>
 				</h2>
 				<div>
-					<a href="#" class="btn-banner">Our Service</a>
+					<a th:href="@{/lhd/Service}" th:if="${vacc==0}" class="btn-banner">Our Service</a>
+					<a th:href="@{/lhd/Vaccancy}" th:unless="${vacc==0}" class="btn-banner">We are Hiring</a>
 				</div>
 			</div>
 
