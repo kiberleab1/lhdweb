@@ -1,5 +1,6 @@
 package com.lemonde.web.domains;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -46,9 +47,8 @@ public class User implements UserDetails{
     	    private Role role;
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return Arrays.asList(new org.springframework.security.core.authority.SimpleGrantedAuthority(role.getName()));
+				}
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub

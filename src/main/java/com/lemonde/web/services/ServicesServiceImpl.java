@@ -29,5 +29,9 @@ public class ServicesServiceImpl implements ServicesService {
 		this.serviceRepository.save(service);
 		
 	}
+	@Override
+	public int countByType() {
+		return (int)this.serviceRepository.count();
+	}
 
 }

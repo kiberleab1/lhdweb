@@ -120,35 +120,7 @@
 
 	<main id="main"> <!--==========================
       About Section
-    ============================-->
-	<section id="about" class="wow fadeInUp">
-		<div class="container">
-			
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 about-img">
-					<img th:src="@{/img/about.svg}" alt="">
-				</div>
-
-				<div class="col-lg-6 content">
-					<div class="section-header">
-						<h2>Vision</h2>
-					</div>
-					<h3 th:object="${VisionText}" th:text="*{detailText}"></h3>
-					<div class="section-header">
-						<h2>Mission</h2>
-					</div>
-					<p th:object="${MisionText}" th:text="*{detailText}"></p>
-					<div class="section-header">
-						<h2>Objectives</h2>
-					</div>
-					<ul>
-						<li th:each="obj :${Objectives}"><i class="icon ion-ios-checkmark-outline" th:text="'  '+${obj.detailText}"></i></li>
-						
-					</ul>
-				</div>
-			</div>
-
+    
 			
 
 		</div>
@@ -181,50 +153,6 @@
 
 		</div>
 	</section>
-	<!-- #services --> 
-	
-	<!--==========================
-      Clients Section
-    ============================-->
-	<section id="clients" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${clientText}">
-				<h2>Clients</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
-
-			<div class="owl-carousel clients-carousel">
-				<a th:each="client :${Clients}" target="_blank"
-					th:href="${client.link}"> <img th:src="${client.imgPath}"
-					alt="">
-				</a>
-			</div>
-
-		</div>
-	</section>
-	<!-- #clients -->
-	 <!--==========================
-      Testimonials Section
-    ============================-->
-	<section id="testimonials" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${Testimonial}">
-				<h2>Testimonials</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
-			<div class="owl-carousel testimonials-carousel">
-
-				<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-					<p th:text="${testomony.detailText}"></p>
-					<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-						James</h3>
-					<h4 th:text="${testomony.Authority}"></h4>
-					<h4 th:text="${testomony.Organazation}"></h4>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- #testimonials -->
 	 <!--==========================
       Call To Action Section
     ============================-->

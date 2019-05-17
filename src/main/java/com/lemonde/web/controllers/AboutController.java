@@ -48,6 +48,8 @@ public class AboutController {
 		
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 		
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		

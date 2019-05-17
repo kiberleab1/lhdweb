@@ -1,8 +1,10 @@
 package com.lemonde.web.controllers;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -46,7 +48,7 @@ public class EditClientController {
 
 	@GetMapping
 	public String getClient(@RequestParam(name = "page", defaultValue = "0") int page,
-			@RequestParam(name = "size", defaultValue = "10") int size,
+			@RequestParam(name = "size", defaultValue = "1000") int size,
 			@RequestParam(name = "type", defaultValue = "un") String type, Model model) {
 		PageRequest pageRequest = PageRequest.of(page, size);
 		model.addAttribute("unClients", this.clientService.findByPage(pageRequest, type).getContent());
@@ -56,13 +58,15 @@ public class EditClientController {
 
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("newClient", new Clients());
+		ArrayList<Clients> listClients=new ArrayList<>();
+		
 		return "editClient";
 	}
 	@PostMapping
 	public String addClient(@Valid @ModelAttribute("newClient") Clients client, BindingResult bindingResult,
 			@RequestParam("img") MultipartFile file, Errors errors, Model model) {
 		if (errors.hasErrors()) {
-			PageRequest pageRequest = PageRequest.of(0, 10);
+			PageRequest pageRequest = PageRequest.of(0, 1000);
 			model.addAttribute("unClients", this.clientService.findByPage(pageRequest, "un").getContent());
 			model.addAttribute("govClients", this.clientService.findByPage(pageRequest, "gov").getContent());
 			model.addAttribute("nongovClients", this.clientService.findByPage(pageRequest, "nongov").getContent());
@@ -131,7 +135,7 @@ public class EditClientController {
 
 	@PostMapping("/edit")
 	public String editClient(String clientId, @RequestParam(name = "page", defaultValue = "0") int page,
-			@RequestParam(name = "size", defaultValue = "10") int size,
+			@RequestParam(name = "size", defaultValue = "1000") int size,
 			@RequestParam(name = "type", defaultValue = "un") String type, Model model) {
 		
 		PageRequest pageRequest = PageRequest.of(page, size);
@@ -154,7 +158,7 @@ public class EditClientController {
 	public String saveClientText(@Valid @ModelAttribute("clientText") OtherTexts clientText, BindingResult bindingResult,
 			Errors errors, Model model) {
 		if (errors.hasErrors()) {
-			PageRequest pageRequest = PageRequest.of(0, 10);
+			PageRequest pageRequest = PageRequest.of(0, 1000);
 			model.addAttribute("unClients", this.clientService.findByPage(pageRequest, "un").getContent());
 			model.addAttribute("govClients", this.clientService.findByPage(pageRequest, "gov").getContent());
 			model.addAttribute("nongovClients", this.clientService.findByPage(pageRequest, "nongov").getContent());

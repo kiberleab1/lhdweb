@@ -128,6 +128,11 @@ table tr td:first-child::before {
 
 	<main id="main">
 	<section id="contact" class="wow fadeInUp">
+		<div class="section-header" th:object="${expText}">
+
+			<p th:text="*{detailText}"></p>
+		</div>
+
 
 		<div class="row">
 			<div class="col-3">
@@ -135,36 +140,36 @@ table tr td:first-child::before {
 				<div class="list-group" id="list-tab" role="tablist">
 
 
-					<a class="list-group-item list-group-item-action"
-						data-toggle="collapse" href="#list-profi"
-						data-target="#collapseExample" aria-expanded="true"
-						aria-controls="collapseExample" role="tab">Research, Survey
-						&amp; Assessment</a>
-					<div class="collapse show" id="collapseExample">
+					<a class="list-group-item">Research, Survey &amp; Assessment</a>
+					<ul>
+						<div class="list-group collapse" id="homeSubmenu" role="tablist">
 
-						<div class="card card-body">
 							<a class="list-group-item list-group-item-action active"
 								id="list-health-list" data-toggle="list" href="#list-health"
 								role="tab" aria-controls="health">Health</a> <a
 								class="list-group-item list-group-item-action"
 								id="list-food-list" data-toggle="list" href="#list-food"
-								role="tab" aria-controls="messages">Nutrition & Food
-								Security </a> <a class="list-group-item list-group-item-action"
-								id="list-settings-list" data-toggle="list" href="#list-settings"
-								role="tab" aria-controls="settings">Water, Sanitation &
-								Hygiene (WaSH)</a> <a class="list-group-item list-group-item-action"
-								id="list-settings-list" data-toggle="list" href="#list-settings"
-								role="tab" aria-controls="settings">HIV & AIDS</a>
-						</div>
-					</div>
+								role="tab" aria-controls="food">Nutrition & Food Security </a> <a
+								class="list-group-item list-group-item-action"
+								id="list-water-list" data-toggle="list" href="#list-water"
+								role="tab" aria-controls="water">Water, Sanitation & Hygiene
+								(WaSH)</a> <a class="list-group-item list-group-item-action"
+								id="list-hiv-list" data-toggle="list" href="#list-hiv"
+								role="tab" aria-controls="hiv">HIV & AIDS</a>
 
+						</div>
+					</ul>
 					<a class="list-group-item list-group-item-action"
 						id="list-profile-list" data-toggle="list" href="#list-profile"
 						role="tab" aria-controls="profile">Strategic &amp; Training
 						Materials Development</a> <a
 						class="list-group-item list-group-item-action"
 						id="list-messages-list" data-toggle="list" href="#list-messages"
-						role="tab" aria-controls="messages">Technical Assistant</a> <a
+						role="tab" aria-controls="messages">Technical Assistant</a> 
+						 <a
+						class="list-group-item list-group-item-action"
+						id="list-train-list" data-toggle="list" href="#list-train"
+						role="tab" aria-controls="train">Providing Training</a><a
 						class="list-group-item list-group-item-action"
 						id="list-settings-list" data-toggle="list" href="#list-settings"
 						role="tab" aria-controls="settings">Proposal Development</a>
@@ -176,45 +181,157 @@ table tr td:first-child::before {
 						role="tabpanel" aria-labelledby="list-health-list">
 						<table class="table table-striped">
 							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Research, Survey and Evaluation</th>
-									<th scope="col">Client</th>
-									<th scope="col">Firm</th>
-								</tr>
-							</thead>
 							<tbody>
-								<tr th:each="experiance : ${researchExperiance}">
-									<td></td>
-									<td th:text="${experiance.detailText}"></td>
-									<td th:text="${experiance.client}"></td>
-									<td th:text="${experiance.firm}"></td>
+								<tr th:each="experiance : ${health}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+
+
+					</div>
+
+					<div class="tab-pane fade " id="list-water" role="tabpanel"
+						aria-labelledby="list-water-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${water}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+										</table>
+									</td>
 								</tr>
 							</tbody>
 
 						</table>
 
 					</div>
+
 					<div class="tab-pane fade" id="list-food" role="tabpanel"
 						aria-labelledby="list-food-list">
 						<table class="table table-striped">
 							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Research, Survey and Evaluation</th>
-									<th scope="col">Client</th>
-									<th scope="col">Firm</th>
-								</tr>
-							</thead>
 							<tbody>
-								<tr th:each="experiance : ${researchExperiance}">
-									<td></td>
-									<td th:text="${experiance.detailText}"></td>
-									<td th:text="${experiance.client}"></td>
-									<td th:text="${experiance.firm}"></td>
+								<tr th:each="experiance : ${food}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+										</table>
+									</td>
 								</tr>
 							</tbody>
+
 						</table>
+
+					</div>
+					<div class="tab-pane fade" id="list-hiv" role="tabpanel"
+						aria-labelledby="list-hiv-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${hiv}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
 					</div>
 					<div class="tab-pane fade" id="list-profile" role="tabpanel"
 						aria-labelledby="list-profile-list">
@@ -224,7 +341,7 @@ table tr td:first-child::before {
 									<th scope="col">#</th>
 									<th scope="col">Strategic and Training Materials</th>
 									<th scope="col">Client</th>
-									<th scope="col">Firm</th>
+
 								</tr>
 							</thead>
 							<tbody>
@@ -232,7 +349,7 @@ table tr td:first-child::before {
 									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
-									<td th:text="${experiance.firm}"></td>
+
 								</tr>
 							</tbody>
 
@@ -247,7 +364,7 @@ table tr td:first-child::before {
 										<th scope="col">#</th>
 										<th scope="col">Technical Assistant</th>
 										<th scope="col">Client</th>
-										<th scope="col">Firm</th>
+
 									</tr>
 								</thead>
 								<tbody>
@@ -255,7 +372,7 @@ table tr td:first-child::before {
 										<td></td>
 										<td th:text="${experiance.detailText}"></td>
 										<td th:text="${experiance.client}"></td>
-										<td th:text="${experiance.firm}"></td>
+
 									</tr>
 								</tbody>
 
@@ -270,7 +387,7 @@ table tr td:first-child::before {
 									<th scope="col">#</th>
 									<th scope="col">Proposal Development</th>
 									<th scope="col">Client</th>
-									<th scope="col">Firm</th>
+
 
 								</tr>
 							</thead>
@@ -279,61 +396,58 @@ table tr td:first-child::before {
 									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
-									<td th:text="${experiance.firm}"></td>
+
 								</tr>
 							</tbody>
 
 						</table>
 					</div>
+					<div class="tab-pane fade" id="list-train" role="tabpanel"
+						aria-labelledby="list-train-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Providing Training</th>
+									<th scope="col">Client</th>
+
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="experiance : ${trainExperiance}">
+									<td></td>
+									<td th:text="${experiance.detailText}"></td>
+									<td th:text="${experiance.client}"></td>
+
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- #services --> <!--==========================
-      Clients Section
-    ============================-->
-	<div class="row justify-content-end">
-		<section id="clients" class="wow fadeInUp col-9">
-			<div class="container">
-				<div class="section-header" th:object="${clientText}">
-					<h2>Clients</h2>
-					<p th:text="*{detailText}"></p>
-				</div>
 
-				<div class="owl-carousel clients-carousel">
-					<a th:each="client :${Clients}" target="_blank"
-						th:href="${client.link}"> <img th:src="${client.imgPath}"
-						alt="">
-					</a>
-				</div>
+	<section>
+		<div class="container">
+			<div class="row" th:with="someVariable=${pageCounter}">
+				<nav aria-label="Page navigation example"
+					class="col align-self-end row justify-content-center">
+					<ul class="pagination">
+						<li class="page-item"
+							th:each="i : ${#numbers.sequence( 0, pageCounter)}"><a
+							class="page-link" th:href="@{/lhd/Experiance?page=}+${i}"
+							th:text="${i+1}"></a></li>
 
+					</ul>
+				</nav>
 			</div>
-		</section>
-	</div>
-	<!-- #clients --> <!--==========================
-      Testimonials Section
-    ============================-->
-	<div class="row justify-content-end">
-		<section id="testimonials" class="wow fadeInUp col-9">
-			<div class="container">
-				<div class="section-header" th:object="${Testimonial}">
-					<h2>Testimonials</h2>
-					<p th:text="*{detailText}"></p>
-				</div>
-				<div class="owl-carousel testimonials-carousel">
-
-					<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-						<p th:text="${testomony.detailText}"></p>
-						<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-							James</h3>
-						<h4 th:text="${testomony.Authority}"></h4>
-						<h4 th:text="${testomony.Organazation}"></h4>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-	</main>
+		</div>
+	</section>
+	--> </main>
 
 	<!--==========================
     Footer
@@ -350,9 +464,7 @@ table tr td:first-child::before {
 		</div>
 	</footer>
 	<!-- #footer -->
-
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
 	<!-- JavaScript  -->
 	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
@@ -365,8 +477,7 @@ table tr td:first-child::before {
 	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
 	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
-	<script th:src="@{/contact/contact_me.js}"></script>
-	<script th:src="@{/js/main.js}"></script>
 
+	<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

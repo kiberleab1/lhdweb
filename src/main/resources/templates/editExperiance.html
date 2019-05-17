@@ -97,8 +97,8 @@ table tr td:first-child::before {
 					<li><a th:href="@{/Admin/editAbout}">abt & testimony</a></li>
 					<li><a th:href="@{/Admin/editService}">Services</a></li>
 					<li class="menu-active"><a th:href="@{/Admin/editExperiance}">Experience</a></li>
-					<li> <a th:href="@{/Admin/editClient}">Clients</a></li>
-					<li class="menu-has-children"><a href="">Vacancy</a>
+					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
+					<li class="menu-has-children"><a href="">More</a>
 						<ul>
 							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
 							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
@@ -120,8 +120,8 @@ table tr td:first-child::before {
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Add or Edit Experiance</span><br>Striving for Excellence &amp;
-				Lasting Change!!
+				<span>Add or Edit Experiance</span><br>Striving for Excellence
+				&amp; Lasting Change!!
 			</h2>
 			<div></div>
 		</div>
@@ -133,11 +133,30 @@ table tr td:first-child::before {
 
 		<div class="row">
 			<div class="col-3">
+
 				<div class="list-group" id="list-tab" role="tablist">
-					<a class="list-group-item list-group-item-action active"
-						id="list-home-list" data-toggle="list" href="#list-home"
-						role="tab" aria-controls="home">Research, Survey &amp;
-						Assessment</a> <a class="list-group-item list-group-item-action"
+
+
+					<a class="list-group-item">Research, Survey &amp; Assessment</a>
+					<ul>
+						<div class="list-group collapse" id="homeSubmenu" role="tablist">
+
+							<a class="list-group-item list-group-item-action active"
+								id="list-health-list" data-toggle="list" href="#list-health"
+								role="tab" aria-controls="health">Health</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-food-list" data-toggle="list" href="#list-food"
+								role="tab" aria-controls="food">Nutrition & Food Security </a> <a
+								class="list-group-item list-group-item-action"
+								id="list-water-list" data-toggle="list" href="#list-water"
+								role="tab" aria-controls="water">Water, Sanitation & Hygiene
+								(WaSH)</a> <a class="list-group-item list-group-item-action"
+								id="list-hiv-list" data-toggle="list" href="#list-hiv"
+								role="tab" aria-controls="hiv">HIV & AIDS</a>
+
+						</div>
+					</ul>
+					<a class="list-group-item list-group-item-action"
 						id="list-profile-list" data-toggle="list" href="#list-profile"
 						role="tab" aria-controls="profile">Strategic &amp; Training
 						Materials Development</a> <a
@@ -145,19 +164,276 @@ table tr td:first-child::before {
 						id="list-messages-list" data-toggle="list" href="#list-messages"
 						role="tab" aria-controls="messages">Technical Assistant</a> <a
 						class="list-group-item list-group-item-action"
+						id="list-trian-list" data-toggle="list" href="#list-trian"
+						role="tab" aria-controls="trian">Providing Training</a> <a
+						class="list-group-item list-group-item-action"
 						id="list-settings-list" data-toggle="list" href="#list-settings"
-						role="tab" aria-controls="settings">Proposal Development</a>
+						role="tab" aria-controls="settings">Proposal Writing</a>
+
 				</div>
 			</div>
 			<div class="col-8">
 				<div class="tab-content" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="list-home"
-						role="tabpanel" aria-labelledby="list-home-list">
+					<div class="tab-pane fade show active" id="list-health"
+						role="tabpanel" aria-labelledby="list-health-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${health}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td>
+
+													<form th:action="@{/Admin/editExperiance/deleteResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary ">Delete</button>
+														<br />
+
+													</form>
+												</td>
+												<td>
+													<form th:action="@{/Admin/editExperiance/editResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary">Edit</button>
+														<br />
+
+													</form>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+					<div class="tab-pane fade show" id="list-food" role="tabpanel"
+						aria-labelledby="list-food-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${food}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td>
+
+													<form th:action="@{/Admin/editExperiance/deleteResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary ">Delete</button>
+														<br />
+
+													</form>
+												</td>
+												<td>
+													<form th:action="@{/Admin/editExperiance/editResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary">Edit</button>
+														<br />
+
+													</form>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+					<div class="tab-pane fade show" id="list-water" role="tabpanel"
+						aria-labelledby="list-water-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${water}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td>
+
+													<form th:action="@{/Admin/editExperiance/deleteResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary ">Delete</button>
+														<br />
+
+													</form>
+												</td>
+												<td>
+													<form th:action="@{/Admin/editExperiance/editResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary">Edit</button>
+														<br />
+
+													</form>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+					<div class="tab-pane fade show" id="list-hiv" role="tabpanel"
+						aria-labelledby="list-hiv-list">
+						<table class="table table-striped">
+							<thead>
+							<tbody>
+								<tr th:each="experiance : ${water}">
+									<td style="display: none; width: 0px"></td>
+									<td>
+										<table>
+
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Title:</td>
+												<td th:text="${experiance.title}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Client:</td>
+												<td th:text="${experiance.client}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Objective of the study:</td>
+												<td th:text="${experiance.objective}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td style="width: 20px">Methodology:</td>
+												<td th:text="${experiance.methodlogy}"></td>
+											</tr>
+											<tr>
+												<td style="display: none; width: 0px"></td>
+												<td>
+
+													<form th:action="@{/Admin/editExperiance/deleteResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary ">Delete</button>
+														<br />
+
+													</form>
+												</td>
+												<td>
+													<form th:action="@{/Admin/editExperiance/editResearch}"
+														method="POST" name="sentMessage">
+														<input type="hidden" name="experianceId"
+															th:value="${experiance.Id}">
+														<button type="submit" class="btn btn-primary">Edit</button>
+														<br />
+
+													</form>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+
+
+
+
+
+					<div class="tab-pane fade" id="list-trian" role="tabpanel"
+						aria-labelledby="list-trian-list">
 						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Research, Survey and Evaluation</th>
+									<th scope="col">Provide Training</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
 									<th scope="col">Delete</th>
@@ -165,7 +441,7 @@ table tr td:first-child::before {
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="experiance : ${researchExperiance}">
+								<tr th:each="experiance : ${trainExperiance}">
 									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
@@ -194,7 +470,6 @@ table tr td:first-child::before {
 							</tbody>
 
 						</table>
-
 					</div>
 					<div class="tab-pane fade" id="list-profile" role="tabpanel"
 						aria-labelledby="list-profile-list">
@@ -205,6 +480,8 @@ table tr td:first-child::before {
 									<th scope="col">Strategic and Training Materials</th>
 									<th scope="col">Client</th>
 									<th scope="col">Firm</th>
+									<th scope="col">Delete</th>
+									<th scope="col">Edit</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -213,11 +490,32 @@ table tr td:first-child::before {
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
 									<td th:text="${experiance.firm}"></td>
+									<td>
+										<form th:action="@{/Admin/editExperiance/delete}"
+											method="POST" name="sentMessage">
+											<input type="hidden" name="experianceId"
+												th:value="${experiance.Id}">
+											<button type="submit" class="btn btn-primary ">Delete</button>
+											<br />
+
+										</form>
+									</td>
+									<td>
+										<form th:action="@{/Admin/editExperiance/edit}" method="POST"
+											name="sentMessage">
+											<input type="hidden" name="experianceId"
+												th:value="${experiance.Id}">
+											<button type="submit" class="btn btn-primary">Edit</button>
+											<br />
+
+										</form>
+									</td>
 								</tr>
 							</tbody>
 
 						</table>
 					</div>
+
 					<div class="tab-pane fade" id="list-messages" role="tabpanel"
 						aria-labelledby="list-messages-list">
 						<div>
@@ -239,24 +537,25 @@ table tr td:first-child::before {
 										<td th:text="${experiance.client}"></td>
 										<td th:text="${experiance.firm}"></td>
 										<td>
-										<form th:action="@{/Admin/editExperiance/delete}"
-											method="POST" name="sentMessage">
-											<input type="hidden" name="experianceId"
-												th:value="${experiance.Id}">
-											<button type="submit" class="btn btn-primary ">Delete</button>
-											<br />
+											<form th:action="@{/Admin/editExperiance/delete}"
+												method="POST" name="sentMessage">
+												<input type="hidden" name="experianceId"
+													th:value="${experiance.Id}">
+												<button type="submit" class="btn btn-primary ">Delete</button>
+												<br />
 
-										</form>
-									</td>
-									<td>
-										<form th:action="@{/Admin/editExperiance/edit}" method="POST"
-											name="sentMessage">
-											<input type="hidden" name="experianceId"
-												th:value="${experiance.Id}">
-											<button type="submit" class="btn btn-primary">Edit</button>
-											<br />
+											</form>
+										</td>
+										<td>
+											<form th:action="@{/Admin/editExperiance/edit}" method="POST"
+												name="sentMessage">
+												<input type="hidden" name="experianceId"
+													th:value="${experiance.Id}">
+												<button type="submit" class="btn btn-primary">Edit</button>
+												<br />
 
-										</form>
+											</form>
+										</td>
 									</tr>
 								</tbody>
 
@@ -301,6 +600,7 @@ table tr td:first-child::before {
 											<br />
 
 										</form>
+									</td>
 								</tr>
 							</tbody>
 
@@ -308,7 +608,6 @@ table tr td:first-child::before {
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 	<section id="contact" class="wow fadeInUp">
 		<div class="container">
@@ -331,10 +630,10 @@ table tr td:first-child::before {
 								<div class="control-group">
 									<div class="form-group">
 										<select name="type" class="selectpicker form-control">
-											<option value="research">Research, Survey and
-												Evaluation</option>
-											<option value="train">Strategic and Training
+
+											<option value="strat">Strategic and Training
 												Materials</option>
+											<option value="train">Providing Training</option>
 											<option value="assist">Technical Assistant</option>
 											<option value="propsal">Proposal Development</option>
 										</select>
@@ -362,11 +661,10 @@ table tr td:first-child::before {
 								</div>
 								<div class="control-group">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Firm"
-											id="name" required th:field="*{firm}"
+										<input type="hidden" class="form-control" id="name" required
+											th:field="*{firm}" name="firm" value="LHD"
 											data-validation-required-message="Please enter your name" />
-										<span class="text-danger" th:if="${#fields.hasErrors('firm')}"
-											th:errors="*{firm}">Last Name Error </span>
+
 									</div>
 								</div>
 
@@ -385,12 +683,128 @@ table tr td:first-child::before {
 
 
 			</div>
+			<div class="row contact-info">
+				<div class="col-lg-5"></div>
+				<div class="col-lg-7">
+					<div class="container">
+						<div class="section-header" th:object="${clientText}">
+							<h2>Add or Edit Research</h2>
 
+						</div>
+						<div class="form">
+
+							<!-- Form itself -->
+							<form name="sentMessage" class="well" id="contactForm" novalidate
+								th:object="${newResearch}"
+								th:action="@{/Admin/editExperiance/research}" method="POST">
+								<input type="hidden" name="Id" th:value="*{Id}" />
+								<div class="control-group">
+									<div class="form-group">
+										<select name="type" class="selectpicker form-control">
+											<option value="health">Health</option>
+											<option value="food">Nutrition, Livelihoods and Food
+												Security</option>
+											<option value="water">WATER, SANITATION, AND HYGIENE
+												(WASH)</option>
+											<option value="hiv">HIV and AIDS</option>
+
+										</select>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Title"
+											id="name" required th:field="*{title}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger"
+											th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Last
+											Name Error </span>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Client"
+											id="name" required th:field="*{client}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger"
+											th:if="${#fields.hasErrors('client')}" th:errors="*{client}">Last
+											Name Error </span>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control"
+											placeholder="Methodlogy" id="name" required
+											th:field="*{methodlogy}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger"
+											th:if="${#fields.hasErrors('methodlogy')}"
+											th:errors="*{methodlogy}">Last Name Error </span>
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control"
+											placeholder="Objective" id="name" required
+											th:field="*{objective}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger"
+											th:if="${#fields.hasErrors('objective')}"
+											th:errors="*{objective}">Last Name Error </span>
+									</div>
+								</div>
+
+
+
+
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Add</button>
+								<br />
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
 
 		</div>
 
 
 	</section>
+	<div class="row justify-content-end">
+		<section id="clients" class="wow fadeInUp col-9">
+			<div class="container">
+				<div class="section-header" th:object="${expText}">
+					<h2>Experience Text</h2>
+					<form name="sentMessage" class="well" id="contactForm" novalidate
+						th:action="@{/Admin/editClient/saveClientText}" method="POST"
+						row="8">
+						<input type="hidden" name="Id" th:value="*{Id}" /> <input
+							type="hidden" th:field="*{type}" /> <input type="hidden"
+							th:field="*{page}" />
+						<div class="control-group">
+							<div class="form-group">
+								<textarea class="form-control" rows="8"
+									placeholder="About Clients" id="name" required
+									th:field="*{detailText}"
+									data-validation-required-message="Please enter your name">
+											</textarea>
+								<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+									th:errors="*{detailText}">Last Name Error </span>
+							</div>
+						</div>
+						<div id="success"></div>
+						<br />
+						<!-- For success/fail messages -->
+						<button type="submit" class="btn btn-primary pull-right">Save</button>
+						<br />
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
 
 	</main>
 

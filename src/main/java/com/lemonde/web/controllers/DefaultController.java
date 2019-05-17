@@ -27,6 +27,9 @@ public class DefaultController {
 
 	@GetMapping
 	public String getDfault(@AuthenticationPrincipal UserDetails userDetails) {
-		return "redirect:/Admin/Home";
+		if(userDetails.getAuthorities().toString().equals("[ADMIN]")){
+			return "redirect:/Admin/Home";
+		}
+		return "redirect:/login";
 	}
 }

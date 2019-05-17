@@ -111,6 +111,14 @@
 	<main id="main"> <!--==========================
       About Section
     ============================-->
+    <section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${FirmText}">
+				<h2>Our Firm</h2>
+				<p th:text="*{detailText}"></p>
+			</div>
+		</div>
+	</section>
 	<section id="about" class="wow fadeInUp">
 
 		<div class="container">
@@ -140,14 +148,19 @@
 
 		</div>
 	</section>
+	<section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${TeamText}">
+				<h2>Our Team</h2>
+				<p th:text="*{detailText}"></p>
+			</div>
+		</div>
+	</section>
 	<!--  Our Team Section ============================-->
 	<section id="team" class="wow fadeInUp">
 		<div class="container">
-			<div class="section-header">
-				<h2>Our Team</h2>
-			</div>
-			<div class="row" th:each="teamMember :${ourTeam}">
-				<div class="col-lg-3 col-md-6">
+			<div class="row">
+				<div class="col-lg-3 col-md-6" th:each="teamMember: ${ourTeam}">
 					<div class="member">
 						<div class="pic">
 							<img th:src="${teamMember.imgPath}" alt="">
@@ -155,22 +168,22 @@
 						<div class="details">
 							<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
 							<span th:text="${teamMember.authority}"></span>
+							<span th:text="${teamMember.qualification}"></span>
 							<div class="social">
-								<a th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
-								</a> <a th:href="${teamMember.facebook}"><i
-									class="fa fa-facebook"></i></a> <a
+								<a target="_blank" th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
+								</a> <a target="_blank" th:href="${teamMember.facebook}"><i
+									class="fa fa-facebook"></i></a> <a target="_blank"
 									th:href="${teamMember.googlePlus}"> <i
-									class="fa fa-google-plus"></i></a> <a
+									class="fa fa-google-plus"></i></a> <a target="_blank"
 									th:href="${teamMember.linkdon}"><i class="fa fa-linkedin"></i></a>
 							</div>
 						</div>
 					</div>
-				</div>
-				</div>
-			</div>
-
+	</div>
+	</div>
+	</div>
 	</section>
-	<!-- #team --> <!--==========================!-->
+		<!-- #team --> <!--==========================!-->
 	<section id="about" class="wow fadeInUp">
 		<div class="section-header">
 			<h2>Operational Capacity</h2>
@@ -212,24 +225,7 @@
 	<!--==========================
       Testimonials Section
     ============================-->
-	<section id="testimonials" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${Testimonial}">
-				<h2>Testimonials</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
-			<div class="owl-carousel testimonials-carousel">
 
-				<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-					<p th:text="${testomony.detailText}"></p>
-					<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-						James</h3>
-					<h4 th:text="${testomony.Authority}"></h4>
-					<h4 th:text="${testomony.Organazation}"></h4>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- #testimonials --> 
 		<!--==========================
       Call To Action Section

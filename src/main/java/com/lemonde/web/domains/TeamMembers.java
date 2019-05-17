@@ -30,6 +30,11 @@ public class TeamMembers {
 	private String lastName;
 	
 	@NotNull
+	@NotEmpty(message="Last Name Cannot be Empty")
+	@Size(min=2,message="Last Name size too small minimum 2 allowed")
+	private String qualification;
+	
+	@NotNull
 	@NotEmpty(message="Authority Cannot be Empty")
 	@Size(min=2,message="Authority size too small minimum 2 allowed")
 	private String authority;

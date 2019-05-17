@@ -80,7 +80,7 @@
 					<li class="menu-active"><a th:href="@{/Admin/editService}">Services</a></li>
 					<li><a th:href="@{/Admin/editExperiance}">Experience</a></li>
 					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
-					<li class="menu-has-children"><a href="">Vacancy</a>
+					<li class="menu-has-children"><a href="">More</a>
 						<ul>
 							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
 							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
@@ -116,11 +116,42 @@
     ============================-->
 	<section id="services">
 
+		
+
+
 		<div class="container">
-			<div class="section-header" th:object="${Service}">
-				<h2>Services</h2>
-				<p th:text="*{detailText}"></p>
-			</div>
+			<div class="row">
+				
+
+					<div class="container">
+						<div class="section-header" th:object="${Service}">
+							<h2>Our Service</h2>
+							<form name="sentMessage" class="well" id="contactForm" novalidate
+								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
+								row="8">
+								<input type="hidden" name="Id" th:field="*{Id}" /> <input
+									type="hidden" th:field="*{type}" /> <input type="hidden"
+									th:field="*{page}" />
+								<div class="control-group">
+									<div class="form-group">
+										<textarea class="form-control" rows="8"
+											placeholder="Operational Capacity" id="name" required
+											th:field="*{detailText}"
+											data-validation-required-message="Please enter your name">
+											</textarea>
+										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											th:errors="*{detailText}">Last Name Error </span>
+									</div>
+								</div>
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Save</button>
+								<br />
+							</form>
+						</div>
+					</div>
+				</div>
 
 			<div class="row">
 

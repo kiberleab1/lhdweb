@@ -31,18 +31,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// http.requestMatcher(EndpointRequest.toAnyEndpoint());
 		http.authorizeRequests()
-			.antMatchers("../css/**").permitAll()
-			.antMatchers("../js/**").permitAll()
 			.antMatchers("/").permitAll()
-			.antMatchers("/about").permitAll()
-			.antMatchers("/Contact").permitAll()
-			.antMatchers("/login").permitAll()
-			.antMatchers("/registration").permitAll()
-			.antMatchers("/register/user").permitAll()
-			.antMatchers("/Admin/**").hasAuthority("ADMIN")
-		//	.antMatchers("/Hotel/**").hasAuthority("MANAGER")
 			.antMatchers("/lhd/**").permitAll()
-				// .antMatchers("/actuator/**").hasAuthority("ADMIN")
+			.antMatchers("/Admin/**").hasAuthority("ADMIN")
+			
 				.and()
 					.formLogin()
 						.loginPage("/login")
@@ -50,8 +42,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 							.defaultSuccessUrl("/default")
 
 				.and()
-					.logout().invalidateHttpSession(true).clearAuthentication(true)
-						.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
+					.logout()
+						.invalidateHttpSession(true)
+						.clearAuthentication(true)
+						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+						.logoutSuccessUrl("/login?logout")
 							.permitAll().and().exceptionHandling().accessDeniedPage("/AccessDenied");
 
 	}

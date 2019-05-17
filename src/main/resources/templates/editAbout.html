@@ -82,7 +82,7 @@
 					<li><a th:href="@{/Admin/editService}">Services</a></li>
 					<li><a th:href="@{/Admin/editExperiance}">Experience</a></li>
 					<li><a th:href="@{/Admin/editClient}">Clients</a></li>
-					<li class="menu-has-children"><a href="">Vacancy</a>
+					<li class="menu-has-children"><a href="">More</a>
 						<ul>
 							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
 							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
@@ -102,8 +102,8 @@
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Add or Edit About Us</span><br>Striving for Excellence and Lasting
-				Change!
+				<span>Add or Edit About Us</span><br>Striving for Excellence
+				and Lasting Change!
 			</h2>
 			<div></div>
 		</div>
@@ -113,6 +113,45 @@
 	<main id="main"> <!--==========================
       About Section
     ============================-->
+    <section id="about" class="wow fadeInUp">
+
+		<div class="container">
+			<div class="row">
+				
+
+					<div class="container">
+						<div class="section-header" th:object="${FirmText}">
+							<h2>Our Firm</h2>
+							<form name="sentMessage" class="well" id="contactForm" novalidate
+								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
+								row="8">
+								<input type="hidden" name="Id" th:field="*{Id}" /> <input
+									type="hidden" th:field="*{type}" /> <input type="hidden"
+									th:field="*{page}" />
+								<div class="control-group">
+									<div class="form-group">
+										<textarea class="form-control" rows="8"
+											placeholder="Operational Capacity" id="name" required
+											th:field="*{detailText}"
+											data-validation-required-message="Please enter your name">
+											</textarea>
+										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											th:errors="*{detailText}">Last Name Error </span>
+									</div>
+								</div>
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Save</button>
+								<br />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	
+	  
 	<section id="about" class="wow fadeInUp">
 
 		<div class="container">
@@ -129,9 +168,9 @@
 							<form name="sentMessage" class="well" id="contactForm" novalidate
 								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
 								row="8">
-								<input type="hidden" name="Id" th:field="*{Id}" />
-								 <input	type="hidden" th:field="*{type}" />
-								 <input type="hidden" th:field="*{page}" />
+								<input type="hidden" name="Id" th:field="*{Id}" /> <input
+									type="hidden" th:field="*{type}" /> <input type="hidden"
+									th:field="*{page}" />
 								<div class="control-group">
 									<div class="form-group">
 										<textarea class="form-control" rows="8"
@@ -186,10 +225,9 @@
 								<li th:each="objectives : ${Objectives}"><i
 									class="icon ion-ios-checkmark-outline"
 									th:text="'  '+${objectives.detailText}"></i>
-									<form th:action="@{/Admin/editAbout/deleteObjective}" method="POST"
-										name="sentMessage">
-										<input type="hidden" name="objId"
-											th:value="${objectives.Id}">
+									<form th:action="@{/Admin/editAbout/deleteObjective}"
+										method="POST" name="sentMessage">
+										<input type="hidden" name="objId" th:value="${objectives.Id}">
 										<button type="submit" class="btn btn-primary ">Delete</button>
 										<br />
 
@@ -197,19 +235,19 @@
 							</ul>
 							<form th:action="@{/Admin/editAbout/addObjectives}" method="POST"
 								name="sentMessage" th:object="${newObjectives}">
-								<input type="hidden" name="Id" th:value="*{Id}">
-								<input	type="hidden" name="type" value="aboutPoint"/>
-								<input type="hidden" name="page" value="about"/>
+								<input type="hidden" name="Id" th:value="*{Id}"> <input
+									type="hidden" name="type" value="aboutPoint" /> <input
+									type="hidden" name="page" value="about" />
 								<div class="control-group">
-										<div class="form-group">
-											<textarea class="form-control" rows="8"
-												placeholder="Objectives" id="name" required
-												th:field="*{detailText}"
-												data-validation-required-message="Please enter your name">
+									<div class="form-group">
+										<textarea class="form-control" rows="8"
+											placeholder="Objectives" id="name" required
+											th:field="*{detailText}"
+											data-validation-required-message="Please enter your name">
 											</textarea>
-											<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-												th:errors="*{detailText}">Last Name Error </span>
-										</div>
+										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											th:errors="*{detailText}">Last Name Error </span>
+									</div>
 								</div>
 								<button type="submit" class="btn btn-primary ">Add</button>
 								<br />
@@ -218,6 +256,43 @@
 
 						</div>
 					</div>
+	</section>
+	<section id="about" class="wow fadeInUp">
+
+		<div class="container">
+			<div class="row">
+				
+
+					<div class="container">
+						<div class="section-header" th:object="${TeamText}">
+							<h2>Our Team</h2>
+							<form name="sentMessage" class="well" id="contactForm" novalidate
+								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
+								row="8">
+								<input type="hidden" name="Id" th:field="*{Id}" /> <input
+									type="hidden" th:field="*{type}" /> <input type="hidden"
+									th:field="*{page}" />
+								<div class="control-group">
+									<div class="form-group">
+										<textarea class="form-control" rows="8"
+											placeholder="Operational Capacity" id="name" required
+											th:field="*{detailText}"
+											data-validation-required-message="Please enter your name">
+											</textarea>
+										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											th:errors="*{detailText}">Last Name Error </span>
+									</div>
+								</div>
+								<div id="success"></div>
+								<br />
+								<!-- For success/fail messages -->
+								<button type="submit" class="btn btn-primary pull-right">Save</button>
+								<br />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 	</section>
 	<!--  Our Team Section ============================-->
 	<section id="team" class="wow fadeInUp">
@@ -234,6 +309,7 @@
 						<div class="details">
 							<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
 							<span th:text="${teamMember.authority}"></span>
+							<span th:text="${teamMember.qualification}"></span>
 							<div class="social">
 								<a th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
 								</a> <a th:href="${teamMember.facebook}"><i
@@ -310,6 +386,17 @@
 										<span class="text-danger"
 											th:if="${#fields.hasErrors('authority')}"
 											th:errors="*{authority}">Last Name Error </span>
+									</div>
+								</div>
+									<div class="control-group">
+									<div class="form-group">
+										<input type="text" class="form-control"
+											placeholder="Qualification" id="name" required
+											th:field="*{qualification}"
+											data-validation-required-message="Please enter your name" />
+										<span class="text-danger"
+											th:if="${#fields.hasErrors('qualification')}"
+											th:errors="*{qualification}">Last Name Error </span>
 									</div>
 								</div>
 
@@ -441,32 +528,32 @@
 				</form>
 			</div>
 		</div>
+	</div>
+	<div class="owl-carousel testimonials-carousel">
+
+		<div class="testimonial-item" th:each="testomony : ${Testimonies}">
+			<p th:text="${testomony.detailText}"></p>
+			<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
+				James</h3>
+			<h4 th:text="${testomony.Authority}"></h4>
+			<h4 th:text="${testomony.Organazation}"></h4>
+			<br />
+			<form th:action="@{/Admin/editAbout/deleteTestmony}" method="POST"
+				name="sentMessage">
+				<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
+				<button type="submit" class="btn btn-primary ">Delete</button>
+				<br /> <br />
+			</form>
+
+			<form th:action="@{/Admin/editAbout/editTestmony}" method="POST"
+				name="sentMessage">
+				<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
+				<button type="submit" class="btn btn-primary">Edit</button>
+
+			</form>
+
 		</div>
-		<div class="owl-carousel testimonials-carousel">
-
-			<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-				<p th:text="${testomony.detailText}"></p>
-				<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-					James</h3>
-				<h4 th:text="${testomony.Authority}"></h4>
-				<h4 th:text="${testomony.Organazation}"></h4>
-				<br />
-				<form th:action="@{/Admin/editAbout/deleteTestmony}" method="POST"
-					name="sentMessage">
-					<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
-					<button type="submit" class="btn btn-primary ">Delete</button>
-					<br /> <br />
-				</form>
-
-				<form th:action="@{/Admin/editAbout/editTestmony}" method="POST"
-					name="sentMessage">
-					<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
-					<button type="submit" class="btn btn-primary">Edit</button>
-
-				</form>
-
-			</div>
-		</div>
+	</div>
 	</section>
 	<section id="contact" class="wow fadeInUp">
 		<div class="container">

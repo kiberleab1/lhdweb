@@ -128,10 +128,13 @@ table tr td:first-child::before {
 
 	<main id="main">
 	<section id="contact" class="wow fadeInUp">
-
+		<div class="section-header" th:object="${clientText}">
+			
+			<p th:text="*{detailText}"></p>
+		</div>
 		<div class="row">
 			<div class="col-3">
-				<div class="list-group" id="list-tab" role="tablist">
+				<div style="display:none; width:30px" class="list-group" id="list-tab" role="tablist">
 					<a class="list-group-item list-group-item-action active"
 						id="list-home-list" data-toggle="list" href="#list-home"
 						role="tab" aria-controls="home">UN Agencies</a> <a
@@ -144,7 +147,7 @@ table tr td:first-child::before {
 						Organazations</a>
 				</div>
 			</div>
-			<div class="col-8">
+			<div class="col-12">
 				<div class="tab-content" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="list-home"
 						role="tabpanel" aria-labelledby="list-home-list">
@@ -218,50 +221,7 @@ table tr td:first-child::before {
 			</div>
 		</div>
 	</section>
-	<!-- #services --> <!--==========================
-      Clients Section
-    ============================-->
-	<div class="row justify-content-end">
-		<section id="clients" class="wow fadeInUp col-9">
-			<div class="container">
-				<div class="section-header" th:object="${clientText}">
-					<h2>Clients</h2>
-					<p th:text="*{detailText}"></p>
-				</div>
-
-				<div class="owl-carousel clients-carousel">
-					<a th:each="client :${Clients}" target="_blank"
-						th:href="${client.link}"> <img th:src="${client.imgPath}"
-						alt="">
-					</a>
-				</div>
-
-			</div>
-		</section>
-	</div>
-	<!-- #clients --> <!--==========================
-      Testimonials Section
-    ============================-->
-	<div class="row justify-content-end">
-		<section id="testimonials" class="wow fadeInUp col-9">
-			<div class="container">
-				<div class="section-header" th:object="${Testimonial}">
-					<h2>Testimonials</h2>
-					<p th:text="*{detailText}"></p>
-				</div>
-				<div class="owl-carousel testimonials-carousel">
-
-					<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-						<p th:text="${testomony.detailText}"></p>
-						<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-							James</h3>
-						<h4 th:text="${testomony.Authority}"></h4>
-						<h4 th:text="${testomony.Organazation}"></h4>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+	
 	</main>
 
 	<!--==========================

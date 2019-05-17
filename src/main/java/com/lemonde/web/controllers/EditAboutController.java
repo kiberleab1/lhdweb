@@ -59,9 +59,11 @@ public class EditAboutController {
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
-		
+	
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 		
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		
@@ -94,20 +96,26 @@ public class EditAboutController {
 	@PostMapping("/editTestmony")
 	public String editTestimony(String testomonyId,Model model) {
 		int id = Integer.parseInt(testomonyId);
-		
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 		
-		model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-		model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-		model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-		model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
+		
+		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("Testimonies",testomonialService.findAll());
 		model.addAttribute("services",servicesService.findAll());
+		model.addAttribute("ourTeam",teamMembersService.findAll());
+		
+		model.addAttribute("newTeamMember",new TeamMembers());
+	
+		model.addAttribute("newObjectives", new OtherTexts());
 		
 		model.addAttribute("newTestemony",this.testomonialService.findById((long)id));
 		return "editAbout";
@@ -119,16 +127,25 @@ public class EditAboutController {
 			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 			
-			model.addAttribute("AboutHead", otherTextsService.findSingleByType("aboutHeader"));
-			model.addAttribute("AboutMain", otherTextsService.findSingleByType("aboutMain"));
-			model.addAttribute("AboutSubMain", otherTextsService.findSingleByType("aboutSubMain"));
-			model.addAttribute("AboutDetail", otherTextsService.findSingleByType("aboutDetail"));
-			model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
+			
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
 			model.addAttribute("Clients", clientService.findImages());
 			model.addAttribute("Testimonies",testomonialService.findAll());
 			model.addAttribute("services",servicesService.findAll());
+			model.addAttribute("ourTeam",teamMembersService.findAll());
+			
+			model.addAttribute("newTeamMember",new TeamMembers());
+		
+			model.addAttribute("newObjectives", new OtherTexts());
+			
+			model.addAttribute("newTestemony",new Testimonies());
 
 			return "editAbout";
 		}
@@ -148,6 +165,8 @@ public class EditAboutController {
 			
 			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 			
 			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
@@ -179,6 +198,8 @@ public class EditAboutController {
 			
 			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 			
 			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
@@ -211,6 +232,8 @@ public class EditAboutController {
 			
 			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 			
 			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
@@ -242,6 +265,8 @@ public class EditAboutController {
 			
 			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 			
 			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 			
@@ -324,6 +349,8 @@ public class EditAboutController {
 		
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 		
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 		
@@ -332,7 +359,7 @@ public class EditAboutController {
 		model.addAttribute("services",servicesService.findAll());
 		model.addAttribute("ourTeam",teamMembersService.findAll());
 		
-		model.addAttribute("newTeamMember",new TeamMembers());
+		model.addAttribute("newTeamMember",this.teamMembersService.findById(id));
 		model.addAttribute("newTestemony",new Testimonies());
 		model.addAttribute("newObjectives", new OtherTexts());
 		return "editAbout";

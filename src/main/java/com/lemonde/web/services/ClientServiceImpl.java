@@ -42,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
 		if(country.equalsIgnoreCase("Ethiopia")) {
 			return this.clientRepository.findByTypeAndCountry(pagable, type, country);
 		}
-		return this.clientRepository.findByTypeAndCountryNot(pagable, type, "Ethiopia");
+		return this.clientRepository.findByCountryNot(pagable,  "Ethiopia");
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class ClientEthiopiaController {
 
 	@GetMapping
 	public String recentTacos(@RequestParam(name = "page", defaultValue = "0") int page,
-			@RequestParam(name = "size", defaultValue = "10") int size,
+			@RequestParam(name = "size", defaultValue = "1000") int size,
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
 
 		PageRequest pageRequest = PageRequest.of(page, size);

@@ -7,4 +7,5 @@ public interface ServicesService {
 	Iterable<Services> findAll();
 	void deleteById(int Id);
 	Services findById(int Id);
+	int countByType();
 }
