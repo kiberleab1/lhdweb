@@ -2,9 +2,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql3000.mochahost.com/lhdcons_lhd?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&requireSSL=false
-    username: lhdcons_lhd
-    password: 711380Dm
+    url:
+    username: 
+    password: 
     
   http:
       multipart:
@@ -17,8 +17,6 @@ spring:
   mail:  
      host: mail.lhdconsult.org
      port: 2525
-     username: contact@lhdconsult.org
-     password: 711380Dm
      properties:
          mail:
             smtp:
