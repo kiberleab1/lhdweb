@@ -2,8 +2,13 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
+<<<<<<< HEAD
     url: jdbc:mysql://localhost:3306/lhd
     username: root
+=======
+    url:
+    username: 
+>>>>>>> cc3dd525700ba8365b46ddabfb364515184ad6da
     password: 
     
   http:
@@ -17,8 +22,6 @@ spring:
   mail:  
      host: mail.lhdconsult.org
      port: 2525
-     username: contact@lhdconsult.org
-     password: 711380Dm
      properties:
          mail:
             smtp:
