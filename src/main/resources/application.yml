@@ -2,15 +2,15 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql3000.mochahost.com/lhdcons_lhd?serverTimezone=UTC&verifyServerCertificate=false&useSSL=false&requireSSL=false
-    username: lhdcons_lhd
-    password: 711380Dm
+    url: jdbc:mysql://localhost:3306/lhd
+    username: root
+    password: 
     
   http:
       multipart:
          max-file-size: 30Mb
   jpa:
-    hibernate.ddl-auto: none
+    hibernate.ddl-auto: update
     show-sql: false 
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

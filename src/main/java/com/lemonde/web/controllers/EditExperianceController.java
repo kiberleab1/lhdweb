@@ -28,8 +28,11 @@ import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ResearchService;
 import com.lemonde.web.services.TestimonialService;
 
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 @Controller
 @RequestMapping("/Admin/editExperiance")
 public class EditExperianceController {
@@ -56,6 +59,7 @@ public class EditExperianceController {
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
 
 		PageRequest pageRequest = PageRequest.of(page, size);
+		model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
 		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 		model.addAttribute("proposalExperiance",
@@ -85,6 +89,8 @@ public class EditExperianceController {
 				@RequestParam(name = "type", defaultValue = "research") String type) {
 		if (errors.hasErrors()) {
 			PageRequest pageRequest = PageRequest.of(page, size);
+			model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
+			
 			model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 			model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 			model.addAttribute("proposalExperiance",
@@ -107,8 +113,13 @@ public class EditExperianceController {
 			 Errors errors, Model model,@RequestParam(name = "page", defaultValue = "0") int page,
 				@RequestParam(name = "size", defaultValue = "1000") int size,
 				@RequestParam(name = "type", defaultValue = "research") String type) {
-		if (errors.hasErrors()) {
+		experiance.setFirm("lhd");
+		if (errors.hasErrors() && errors.getErrorCount()!=1) {
+			log.debug("In the Error Section");
+			log.debug(experiance.getClient()+" "+experiance.getDetailText()+" "+experiance.getFirm()+" "+experiance.getType());
+			
 			PageRequest pageRequest = PageRequest.of(page, size);
+			model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
 			model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 			model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 			model.addAttribute("proposalExperiance",
@@ -122,7 +133,7 @@ public class EditExperianceController {
 			model.addAttribute("newResearch", new Research());
 			return "editExperiance";
 		}
-		
+		log.debug(experiance.getClient()+" "+experiance.getDetailText()+" "+experiance.getFirm()+" "+experiance.getType());
 		this.experianceService.save(experiance);
 		return "redirect:/Admin/editExperiance";
 	}
@@ -147,6 +158,8 @@ public class EditExperianceController {
 		int id=Integer.parseInt(experianceId);
 		
 		PageRequest pageRequest = PageRequest.of(page, size);
+		model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
+		
 		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 		model.addAttribute("proposalExperiance",
@@ -170,6 +183,8 @@ public class EditExperianceController {
 		int id=Integer.parseInt(experianceId);
 		
 		PageRequest pageRequest = PageRequest.of(page, size);
+		model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
+		
 		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 		model.addAttribute("proposalExperiance",

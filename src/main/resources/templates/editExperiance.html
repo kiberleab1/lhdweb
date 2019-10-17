@@ -157,12 +157,12 @@ table tr td:first-child::before {
 						</div>
 					</ul>
 					<a class="list-group-item list-group-item-action"
-						id="list-profile-list" data-toggle="list" href="#list-profile"
-						role="tab" aria-controls="profile">Strategic &amp; Training
+						id="list-strat-list" data-toggle="list" href="#list-strat"
+						role="tab" aria-controls="strat">Strategic &amp; Training
 						Materials Development</a> <a
 						class="list-group-item list-group-item-action"
 						id="list-messages-list" data-toggle="list" href="#list-messages"
-						role="tab" aria-controls="messages">Technical Assistant</a> <a
+						role="tab" aria-controls="messages">Technical Assistance</a> <a
 						class="list-group-item list-group-item-action"
 						id="list-trian-list" data-toggle="list" href="#list-trian"
 						role="tab" aria-controls="trian">Providing Training</a> <a
@@ -365,7 +365,7 @@ table tr td:first-child::before {
 						<table class="table table-striped">
 							<thead>
 							<tbody>
-								<tr th:each="experiance : ${water}">
+								<tr th:each="experiance : ${hiv}">
 									<td style="display: none; width: 0px"></td>
 									<td>
 										<table>
@@ -471,8 +471,8 @@ table tr td:first-child::before {
 
 						</table>
 					</div>
-					<div class="tab-pane fade" id="list-profile" role="tabpanel"
-						aria-labelledby="list-profile-list">
+					<div class="tab-pane fade" id="list-strat" role="tabpanel"
+						aria-labelledby="list-strat-list">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -485,7 +485,7 @@ table tr td:first-child::before {
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="experiance : ${trainExperiance}">
+								<tr th:each="experiance : ${stratExperiance}">
 									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
@@ -523,7 +523,7 @@ table tr td:first-child::before {
 								<thead>
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Technical Assistant</th>
+										<th scope="col">Technical Assistance</th>
 										<th scope="col">Client</th>
 										<th scope="col">Firm</th>
 										<th scope="col">Delete</th>
@@ -608,7 +608,7 @@ table tr td:first-child::before {
 					</div>
 				</div>
 			</div>
-	</section>
+ 	</section>
 	<section id="contact" class="wow fadeInUp">
 		<div class="container">
 
@@ -634,7 +634,7 @@ table tr td:first-child::before {
 											<option value="strat">Strategic and Training
 												Materials</option>
 											<option value="train">Providing Training</option>
-											<option value="assist">Technical Assistant</option>
+											<option value="assist">Technical Assistance</option>
 											<option value="propsal">Proposal Development</option>
 										</select>
 									</div>

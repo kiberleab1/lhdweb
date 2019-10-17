@@ -165,7 +165,7 @@ table tr td:first-child::before {
 						Materials Development</a> <a
 						class="list-group-item list-group-item-action"
 						id="list-messages-list" data-toggle="list" href="#list-messages"
-						role="tab" aria-controls="messages">Technical Assistant</a> 
+						role="tab" aria-controls="messages">Technical Assistance</a> 
 						 <a
 						class="list-group-item list-group-item-action"
 						id="list-train-list" data-toggle="list" href="#list-train"
@@ -345,7 +345,7 @@ table tr td:first-child::before {
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="experiance : ${trainExperiance}">
+								<tr th:each="experiance : ${stratExperiance}">
 									<td></td>
 									<td th:text="${experiance.detailText}"></td>
 									<td th:text="${experiance.client}"></td>
@@ -362,7 +362,7 @@ table tr td:first-child::before {
 								<thead>
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Technical Assistant</th>
+										<th scope="col">Technical Assistance</th>
 										<th scope="col">Client</th>
 
 									</tr>
