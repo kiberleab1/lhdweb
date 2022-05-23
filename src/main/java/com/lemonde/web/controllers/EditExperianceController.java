@@ -1,10 +1,14 @@
 package com.lemonde.web.controllers;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.validation.Valid;
+
+import com.lemonde.web.domains.Expirence;
+import com.lemonde.web.domains.Research;
+import com.lemonde.web.services.ClientService;
+import com.lemonde.web.services.ExperianceService;
+import com.lemonde.web.services.OtherTextsService;
+import com.lemonde.web.services.ResearchService;
+import com.lemonde.web.services.TestimonialService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -17,18 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.lemonde.web.domains.Clients;
-import com.lemonde.web.domains.Expirence;
-import com.lemonde.web.domains.Research;
-import com.lemonde.web.services.ClientService;
-import com.lemonde.web.services.ExperianceService;
-import com.lemonde.web.services.OtherTextsService;
-import com.lemonde.web.services.ResearchService;
-import com.lemonde.web.services.TestimonialService;
-
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 

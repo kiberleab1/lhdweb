@@ -23,6 +23,8 @@ import javax.validation.constraints.Email;
 
 import lombok.Data;
 
+
+
 @Data
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"),name="user",schema = "lhd")

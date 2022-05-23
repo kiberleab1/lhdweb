@@ -71,9 +71,9 @@
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
-      <nav id="nav-menu-container">
+			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
+					<li ><a th:href="@{/lhd/Home}">Home</a></li>
 					<li><a th:href="@{/lhd/About}">About Us</a></li>
 					<li><a th:href="@{/lhd/Service}">Services</a></li>
 					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
@@ -81,10 +81,9 @@
 						<ul>
 							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
 							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
-							<li><a th:href="@{/lhd/Emails}">Emails</a></li>
 							
 						</ul></li>
-					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
+					<li class="menu-active"><a th:href="@{/lhd/Contact}">Edit Contact</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -96,7 +95,7 @@
   ============================-->
   <section id="innerBanner"> 
     <div class="inner-content">
-      <h2><span>Contact</span><br>Straving for Excellence and Lasting Change!</h2>
+      <h2><span>Edit Contact</span><br>Straving for Excellence and Lasting Change!</h2>
       <div> 
       </div>
     </div> 
@@ -116,25 +115,38 @@
 
         <div class="row contact-info">
          <div class="col-lg-5"> 
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>Haile Geberselasie Road Matiyas Building(Beside lem Hotel),</br>5th floor,office #406	 & 407 
-</br>Yeka Sub City, Addis Ababa, Ethiopia</address>
-    <address>12727LayHill Rd,Apt #T2	</br> Sliver Spring,MD 20906, USA </address>
-            </div> 	
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+251">+251 909 564 185</a></p>
-              <p><a href="tel:+251">+251 913 054  265</a></p>
-              <p><a href="tel:+251">+1 (202) 751 56</a></p>
-            </div> 
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@lhdconsult.org">info@lhdconsult.org</a></p>
-            </div> 
+          <form name="sentMessage" class="well" id="contactForm"  novalidate th:action="@{/lhd/Contact}"
+          th:object="${newContact}"	method="POST" > 
+        <div class="control-group">
+           <div class="form-group">
+              <input type="text" class="form-control" placeholder="Add Address" id="name" required th:field="*{name}"
+                data-validation-required-message="Please enter your Address" />
+                <p class="help-block"></p>
+                <button type="submit" class="btn btn-primary pull-right">Add</button><br /><br />
+           </div>
+           <div class="form-group">
+            <input type="text" class="form-control" placeholder="Phone Number" id="name" required th:field="*{name}"
+              data-validation-required-message="Please enter your Phone Number" />
+              <p class="help-block"></p>
+              <button type="submit" class="btn btn-primary pull-right">Add</button><br /><br />
+         </div>
+         <div class="form-group">
+          <input type="text" class="form-control" placeholder="Email" id="name" required th:field="*{name}"
+            data-validation-required-message="Please enter your Email" />
+            <p class="help-block"></p>
+            <button type="submit" class="btn btn-primary pull-right">Add</button><br /><br />
+          
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Link" id="name" required th:field="*{name}"
+                data-validation-required-message="Please enter your Email" />
+                <p class="help-block"></p>
+                <button type="submit" class="btn btn-primary pull-right">Add Link</button><br />
+           </div> 
+       </div>          
+      </div> 	 
+      
+
+</form>
 		 </div>
 		 <div class="col-lg-7">
 		      <div class="container">
@@ -143,36 +155,52 @@
 		   <!-- Form itself -->
           <form name="sentMessage" class="well" id="contactForm"  novalidate th:action="@{/lhd/Contact}"
 										th:object="${newContact}"	method="POST" > 
-		 <div class="control-group">
-                   <div class="form-group">
-			<input type="text" class="form-control" 
-			   	   placeholder="Full Name" id="name" required th:field="*{name}"
-			           data-validation-required-message="Please enter your name" />
-			  <p class="help-block"></p>
+                    <form action="#">
+                      <label for="lang">Select</label>
+                      <select name="languages" id="lang">
+                        <optgroup label="Choice">
+                          <option value="Address">Address</option>
+                          <option value="Phone">Phone Number</option>
+                          <option value="Email">Email</option>
+                        </optgroup>                       
+                      </select>
+                </form>
 
-		   </div>
-	         </div> 	
-                <div class="form-group">
-                  <div class="controls">
-			<input type="email" class="form-control" placeholder="Email" 
-			   	            id="email" required th:field="*{email}"
-			   		   data-validation-required-message="Please enter your email" />
-		</div>
-	    </div> 	
+
+		        <div class="control-group">
+              <div class="form-group">
+			          <input type="text" class="form-control" 
+			   	      placeholder="Edit Address" id="name" required th:field="*{name}"
+			          data-validation-required-message="Please enter your Address" />
+                <p class="help-block"></p>
+			          <button type="submit" class="btn btn-primary pull-right">Save</button><br /><br />
+
+		          </div>
+	          </div> 	
+            <div class="form-group">
+              <div class="controls">
+			          <input type="email" class="form-control" placeholder="Edit phone Number" 
+			   	      id="email" required th:field="*{email}" data-validation-required-message="Please enter your email" />
+                <p class="help-block"></p>
+                <button type="submit" class="btn btn-primary pull-right">Save</button><br /><br />
+		          </div>
+	          </div> 
+            <div class="form-group">
+              <div class="controls">
+			          <input type="email" class="form-control" placeholder="Edit Email" 
+			   	      id="email" required th:field="*{email}"
+			   		    data-validation-required-message="Please enter your email" />
+		          </div>
+	          </div> 	
 			  
-               <div class="form-group">
-                 <div class="controls">
-				 <textarea rows="10" cols="100" class="form-control" 
-                       placeholder="Message" id="message" required
-		       data-validation-required-message="Please enter your message" minlength="5" 
-                       data-validation-minlength-message="Min 5 characters" 
-                        maxlength="999" style="resize:none"
-                        th:field="*{message}"></textarea>
-		</div>
-               </div> 		 
-	     <div id="success"> </div> <!-- For success/fail messages -->
-	    <button type="submit" class="btn btn-primary pull-right">Send</button><br />
-          </form>
+            <div class="form-group">
+              <div class="controls">
+				
+		          </div>
+            </div> 		 
+	          <div id="success"> </div> <!-- For success/fail messages -->
+	            <button type="submit" class="btn btn-primary pull-right">Save</button>
+        </form>
         </div>
 
       </div>
@@ -182,10 +210,10 @@
         </div>
       </div>
 
-      <div class="container mb-4 map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5348696893707!2d38.78105031366575!3d9.014874493530636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857490af8af3%3A0x979ce5703b0e5957!2sLem+Hotel!5e0!3m2!1sen!2set!4v1553023393272" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
  
+      <div class="container mb-4 map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5348696893707!2d38.78105031366575!3d9.014874493530636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857490af8af3%3A0x979ce5703b0e5957!2sLem+Hotel!5e0!3m2!1sen!2set!4v1553023393272" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
     </section><!-- #contact -->
 
   </main>

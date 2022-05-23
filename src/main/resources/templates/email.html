@@ -71,7 +71,7 @@
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
 
-      <nav id="nav-menu-container">
+			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
 					<li><a th:href="@{/lhd/About}">About Us</a></li>
@@ -96,7 +96,7 @@
   ============================-->
   <section id="innerBanner"> 
     <div class="inner-content">
-      <h2><span>Contact</span><br>Straving for Excellence and Lasting Change!</h2>
+      <h2><span>Emails</span><br>Straving for Excellence and Lasting Change!</h2>
       <div> 
       </div>
     </div> 
@@ -115,26 +115,39 @@
         </div>
 
         <div class="row contact-info">
-         <div class="col-lg-5"> 
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>Haile Geberselasie Road Matiyas Building(Beside lem Hotel),</br>5th floor,office #406	 & 407 
-</br>Yeka Sub City, Addis Ababa, Ethiopia</address>
-    <address>12727LayHill Rd,Apt #T2	</br> Sliver Spring,MD 20906, USA </address>
-            </div> 	
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+251">+251 909 564 185</a></p>
-              <p><a href="tel:+251">+251 913 054  265</a></p>
-              <p><a href="tel:+251">+1 (202) 751 56</a></p>
-            </div> 
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@lhdconsult.org">info@lhdconsult.org</a></p>
-            </div> 
+          <div class="col-3" style="margin-left: -20px;width: 300px;">
+
+            <div class="list-group" id="list-tab" role="tablist">
+    
+              <ul>
+                <div class="list-group collapse" id="homeSubmenu" role="tablist">
+                  <form action="#" style="margin-left: -20px;width: 300px;">
+                    <label for="lang" style="display: flex; align-items: center;justify-content: center;margin: 0 auto;">Emails</label>
+                    <select name="languages" id="lang" style="margin-bottom: 10px;margin-top: 10px ;height: 200px;padding: 10px;" multiple>
+                      <option value="javascript">kibrleabenyiew@gmail.com</option>
+                      <option value="php">henokaddis@gmail.com</option>
+                      <option value="java">kibrleabenyiew@gmail.com</option>
+                      <option value="golang">kibrleabenyiew@gmail.com</option>
+                      <option value="python">kibrleabenyiew@gmail.com</option>
+                      <option value="c#">kibrleabenyiew@gmail.com</option>
+                      <option value="C++">kibrleabenyiew@gmail.com</option>
+                      <option value="erlang">kibrleabenyiew@gmail.com</option>
+                      <option value="c#">kibrleabenyiew@gmail.com</option>
+                      <option value="C++">kibrleabenyiew@gmail.com</option>
+                      <option value="erlang">kibrleabenyiew@gmail.com</option>
+                      <option value="c#">kibrleabenyiew@gmail.com</option>
+                      <option value="C++">kibrleabenyiew@gmail.com</option>
+                      <option value="erlang">kibrleabenyiew@gmail.com</option>
+                      <option value="c#">kibrleabenyiew@gmail.com</option>
+                      <option value="C++">kibrleabenyiew@gmail.com</option>
+                      <option value="erlang">kibrleabenyiew@gmail.com</option>
+                    </select>
+                    <!-- <input type="submit" value="Submit" /> -->
+              </form>
+                   
+                </div>
+              </ul>
+            </div>
 		 </div>
 		 <div class="col-lg-7">
 		      <div class="container">
@@ -142,7 +155,7 @@
 		  
 		   <!-- Form itself -->
           <form name="sentMessage" class="well" id="contactForm"  novalidate th:action="@{/lhd/Contact}"
-										th:object="${newContact}"	method="POST" > 
+										th:object="${newContact}"	method="POST" style="margin-left: 100px;"> 
 		 <div class="control-group">
                    <div class="form-group">
 			<input type="text" class="form-control" 
@@ -159,7 +172,28 @@
 			   		   data-validation-required-message="Please enter your email" />
 		</div>
 	    </div> 	
+      <div id="success"> </div> <!-- For success/fail messages -->
+	    <button type="submit" class="btn btn-primary pull-right">Add</button><br /><br /><br />
 			  
+      <div class="form-group">
+        <div class="controls">
+<input type="email" class="form-control" placeholder="Edit Email" 
+             id="email" required th:field="*{email}"
+      data-validation-required-message="Please enter your Email" />
+</div>
+</div> 	
+<div id="success"> </div> <!-- For success/fail messages -->
+<button type="submit" class="btn btn-primary pull-right">Save</button><br /><br /><br />
+
+
+
+      <div class="form-group">
+        <div class="controls">
+          <input type="email" class="form-control" placeholder="Subject" 
+             id="email" required th:field="*{email}"
+              data-validation-required-message="Please enter Subject" />
+        </div>
+      </div> 	
                <div class="form-group">
                  <div class="controls">
 				 <textarea rows="10" cols="100" class="form-control" 
@@ -171,7 +205,12 @@
 		</div>
                </div> 		 
 	     <div id="success"> </div> <!-- For success/fail messages -->
-	    <button type="submit" class="btn btn-primary pull-right">Send</button><br />
+	    <button type="submit" class="btn btn-primary pull-right">Send To All</button>
+      <button type="submit" class="btn btn-primary pull-left">Send To Selected</button><br />
+
+
+
+      
           </form>
         </div>
 
@@ -182,9 +221,7 @@
         </div>
       </div>
 
-      <div class="container mb-4 map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5348696893707!2d38.78105031366575!3d9.014874493530636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857490af8af3%3A0x979ce5703b0e5957!2sLem+Hotel!5e0!3m2!1sen!2set!4v1553023393272" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
+    
  
     </section><!-- #contact -->
 

@@ -1,14 +1,9 @@
 package com.lemonde.web;
 
-import java.util.Properties;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @SpringBootApplication
 public class LemondeApplication extends SpringBootServletInitializer {
@@ -28,8 +23,8 @@ public class LemondeApplication extends SpringBootServletInitializer {
 	    mailSender.setUsername("contact@lhdconsult.org");
 	    mailSender.setPassword("711380Dm");
 	     
-	    Properties props = mailSender.getJavaMailProperties();
-	    props.put("mail.transport.protocol", "smtp");
+	    Properties props = mailSender.getJavaMailProperties();f
+	    props.put("mail.transport. protocol", "smtp");
 	    props.put("mail.smtp.auth", "true");
 	    props.put("mail.smtp.starttls.enable", "true");
 	    props.put("mail.debug", "true");

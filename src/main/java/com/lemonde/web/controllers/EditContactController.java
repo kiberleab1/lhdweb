@@ -16,15 +16,16 @@ import com.lemonde.web.services.EmailService;
 
 @Controller
 @RequestMapping("/Admin/editContact")
-public class EditContact {
+public class EditContactController {
 	private final String contactEmail="contact@lhdconsult.org";
 	@Autowired
 	private EmailService emailService;
 	@GetMapping
 	public String getContact(Model model) {
 		model.addAttribute("newContact", new Contact());
-		return "contact";
+		return "editContact";
 	}
+	
 	@PostMapping
 	public String saveContact(@Valid @ModelAttribute("newContact") Contact contact,Model Model,Errors error) {
 		if(error.hasErrors()) {
