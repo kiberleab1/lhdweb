@@ -33,7 +33,7 @@ public class EmailServiceImpl implements EmailService{
 
 			@Override
 			public void sendMesssageWithAttachment(String to, String from,String subject, String text, String pathToAttachemnt) {
-				Mime	Message message=eMailSender.createMimeMessage();
+				MimeMessage message=eMailSender.createMimeMessage();
 				try {
 					MimeMessageHelper helper=new MimeMessageHelper(message, true);
 					helper.setFrom(from);

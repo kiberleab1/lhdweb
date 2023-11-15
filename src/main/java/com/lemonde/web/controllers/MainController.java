@@ -10,15 +10,17 @@ import com.lemonde.web.services.EmailService;
 
 @Controller
 public class MainController {
-	
+
 	@Autowired
 	private EmailService emailService;
+
 	@GetMapping("/")
 	public String onRoot() {
 		return "redirect:/lhd/Home";
 	}
+
 	@GetMapping("/login")
 	public String getLogin(Model model) {
-		return "login";
+		return "admin/login";
 	}
 }

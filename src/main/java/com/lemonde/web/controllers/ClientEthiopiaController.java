@@ -14,19 +14,20 @@ import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.TestimonialService;
 
 @Controller
-@RequestMapping("/lhd/ClientEthiopia")
+@RequestMapping("/lhd/clientinethiopia")
 public class ClientEthiopiaController {
 	private ExperianceService experianceService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
-	
+
 	@Autowired
-	public ClientEthiopiaController(ExperianceService experianceService,TestimonialService testomonialService,ClientService clientService,OtherTextsService otherTextsService) {
+	public ClientEthiopiaController(ExperianceService experianceService, TestimonialService testomonialService,
+			ClientService clientService, OtherTextsService otherTextsService) {
 		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
-		this.testomonialService=testomonialService;
+		this.testomonialService = testomonialService;
 	}
 
 	@GetMapping
@@ -35,16 +36,19 @@ public class ClientEthiopiaController {
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
 
 		PageRequest pageRequest = PageRequest.of(page, size);
-		model.addAttribute("unClients", this.clientService.findPageByTypeAndCountry(pageRequest, "un","Ethiopia").getContent());
-		model.addAttribute("govClients", this.clientService.findPageByTypeAndCountry(pageRequest, "gov","Ethiopia").getContent());
-		model.addAttribute("nongovClients", this.clientService.findPageByTypeAndCountry(pageRequest, "nongov","Ethiopia").getContent());
-		
+		model.addAttribute("unClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "un", "Ethiopia").getContent());
+		model.addAttribute("govClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "Ethiopia").getContent());
+		model.addAttribute("nongovClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "Ethiopia").getContent());
+
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
-		
+
 		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies",testomonialService.findAll());
-		
-		return "clientsinethiopia";
+		model.addAttribute("Testimonies", testomonialService.findAll());
+
+		return "client/clientsinethiopia";
 	}
 }

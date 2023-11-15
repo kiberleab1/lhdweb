@@ -15,28 +15,31 @@ import com.lemonde.web.domains.Contact;
 import com.lemonde.web.services.EmailService;
 
 @Controller
-@RequestMapping("/Admin/editContact")
+@RequestMapping("/Admin/editContacta")
 public class EditContactController {
-	private final String contactEmail="contact@lhdconsult.org";
+	private final String contactEmail = "contact@lhdconsult.org";
 	@Autowired
 	private EmailService emailService;
+
 	@GetMapping
 	public String getContact(Model model) {
 		model.addAttribute("newContact", new Contact());
 		return "editContact";
 	}
-	
+
 	@PostMapping
-	public String saveContact(@Valid @ModelAttribute("newContact") Contact contact,Model Model,Errors error) {
-		if(error.hasErrors()) {
+	public String saveContact(@Valid @ModelAttribute("newContact") Contact contact, Model Model, Errors error) {
+		if (error.hasErrors()) {
 			return "contact";
 		}
-		emailService.SendSimpleMessage("kiberleabdemassie@gmail.com",contactEmail,contact.getName()+"@ "+contact.getEmail(), contact.getMessage());
-		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Thanks","Thank you for contacting us and will respond to your quires.  Please\r\n" + 
-				"do reach out to the following emails and we will be able to respond to\r\n" + 
-				"you as soon as possible.\r\n" + 
-				"antenanie35@gmail.com or anduye2@gmail.com");
-		return "redirect:/lhd/Contact";
+		emailService.SendSimpleMessage("kiberleabdemassie@gmail.com", contactEmail,
+				contact.getName() + "@ " + contact.getEmail(), contact.getMessage());
+		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Thanks",
+				"Thank you for contacting us and will respond to your quires.  Please\r\n" +
+						"do reach out to the following emails and we will be able to respond to\r\n" +
+						"you as soon as possible.\r\n" +
+						"antenanie35@gmail.com or anduye2@gmail.com");
+		return "redirect:/lhd/contact";
 	}
 
 }

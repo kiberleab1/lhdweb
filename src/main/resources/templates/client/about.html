@@ -34,6 +34,7 @@
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
+
 </head>
 
 <body id="body">
@@ -61,6 +62,7 @@
 	<!--==========================
     Header
   ============================-->
+	<!-- #header -->
 	<header id="header">
 		<div class="container">
 
@@ -75,17 +77,17 @@
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
-					<li><a th:href="@{/lhd/About}">About Us</a></li>
-					<li><a th:href="@{/lhd/Service}">Services</a></li>
-					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
+					<li><a th:href="@{/lhd/about}">About Us</a></li>
+					<li><a th:href="@{/lhd/service}">Services</a></li>
+					<li><a th:href="@{/lhd/experiance}">Experience</a></li>
 					<li class="menu-has-children"><a href="">Clients</a>
 						<ul>
-							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
-							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
+							<li><a th:href="@{/lhd/clientinethiopia}">In Ethiopia</a></li>
+							<li><a th:href="@{/lhd/otherclients}">Other Countries</a></li>
 							<li><a th:href="@{/lhd/Emails}">Emails</a></li>
 							
 						</ul></li>
-					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
+					<li><a th:href="@{/lhd/contact}">Contact</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -98,7 +100,7 @@
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Apply on Vaccancy</span><br>Straving for Excellence and Lasting
+				<span>About Us</span><br>Striving for Excellence and Lasting
 				Change!
 			</h2>
 			<div></div>
@@ -107,100 +109,143 @@
 	<!-- #Page Banner -->
 
 	<main id="main"> <!--==========================
-      Contact Section
+      About Section
     ============================-->
-	<section id="contact" class="wow fadeInUp">
+    <section id="clients" class="wow fadeInUp">
 		<div class="container">
-		
-
-			<div class="row contact-info">
-				<div class="col-lg-5">
-					<div class="contact-address">
-						<i class="ion-ios-location-outline"></i>
-						<h3>Address</h3>
-						<address>Yeka Sub City, Addis Ababa, Ethiopia</address>
-					</div>
-					<div class="contact-phone">
-						<i class="ion-ios-telephone-outline"></i>
-						<h3>Phone Number</h3>
-						<p>
-							<a href="tel:+251">+251 11*******</a>
-						</p>
-					</div>
-					<div class="contact-email">
-						<i class="ion-ios-email-outline"></i>
-						<h3>Email</h3>
-						<p>
-							<a href="mailto:info@lhdconsult.org">info@lhdconsult.org</a>
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-7">
-					<div class="container">
-						<div class="form">
-
-							<!-- Form itself -->
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:action="@{/lhd/Vaccancy}" th:object="${newContact}"
-								method="POST" enctype="multipart/form-data">
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Full Name" id="name" required th:field="*{name}"
-											data-validation-required-message="Please enter your name" />
-										<p class="help-block"></p>
-
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="controls">
-										<input type="email" class="form-control" placeholder="Email"
-											id="email" required th:field="*{email}"
-											data-validation-required-message="Please enter your email" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="controls">
-										<textarea rows="10" cols="100" class="form-control"
-											placeholder="Message" id="message" required
-											data-validation-required-message="Please enter your message"
-											minlength="5"
-											data-validation-minlength-message="Min 5 characters"
-											maxlength="999" style="resize: none" th:field="*{message}"></textarea>
-									</div>
-								</div>
-								
-								<div class="control-group">
-									<div class="form-group">
-										<span>CV</span>
-										<input type="file" accept=".pdf" name="img" class="form-control"
-											placeholder="logo" value="Logo" id="img" required />
-									</div>
-								</div>
-								<div id="success"></div>
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Send</button>
-								<br />
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-
+			<div class="section-header" th:object="${FirmText}">
+				<h2>Our Firm</h2>
+				<p th:text="${detailText}"></p>
 			</div>
 		</div>
-
-		<div class="container mb-4 map">
-			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5348696893707!2d38.78105031366575!3d9.014874493530636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857490af8af3%3A0x979ce5703b0e5957!2sLem+Hotel!5e0!3m2!1sen!2set!4v1553023393272"
-				width="100%" height="450" frameborder="0" style="border: 0"
-				allowfullscreen></iframe>
-		</div>
-
 	</section>
-	<!-- #contact --> </main>
+	<section id="about" class="wow fadeInUp">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 about-img">
+					<img th:src="@{/img/about.svg}" alt="">
+				</div>
+
+				<div class="col-lg-6 content">
+					<div class="section-header">
+						<h2>Vision</h2>
+					</div>
+					<h3 th:object="${VisionText}" th:text="${detailText}"></h3>
+					<div class="section-header">
+						<h2>Mission</h2>
+					</div>
+					<p th:object="${MisionText}" th:text="${detailText}"></p>
+					<div class="section-header">
+						<h2>Objectives</h2>
+					</div>
+					<ul>
+						<li th:each="obj :${Objectives}"><i class="icon ion-ios-checkmark-outline" th:text="'  '+${obj.detailText}"></i></li>
+						
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${TeamText}">
+				<h2>Our Team</h2>
+				<p th:text="${detailText}"></p>
+			</div>
+		</div>
+	</section>
+	<!--  Our Team Section ============================-->
+	<section id="team" class="wow fadeInUp">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6" th:each="teamMember: ${ourTeam}">
+					<div class="member">
+						<div class="pic">
+							<img th:src="${teamMember.imgPath}" alt="">
+						</div>
+						<div class="details">
+							<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
+							<span th:text="${teamMember.authority}"></span>
+							<span th:text="${teamMember.qualification}"></span>
+							<div class="social">
+								<a target="_blank" th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
+								</a> <a target="_blank" th:href="${teamMember.facebook}"><i
+									class="fa fa-facebook"></i></a> <a target="_blank"
+									th:href="${teamMember.googlePlus}"> <i
+									class="fa fa-google-plus"></i></a> <a target="_blank"
+									th:href="${teamMember.linkdon}"><i class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+	</div>
+	</div>
+	</div>
+	</section>
+		<!-- #team --> <!--==========================!-->
+	<section id="about" class="wow fadeInUp">
+		<div class="section-header">
+			<h2>Operational Capacity</h2>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 about-img">
+					<img th:src="@{/img/about-img.png}" alt="">
+				</div>
+
+				<div class="col-lg-6 content" th:object="${OperationalCapacity}">
+					<p th:text="${detailText}"></p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- #about --> <!-- #about --> <!--==========================
+      Clients Section
+    ============================-->
+	<section id="clients" class="wow fadeInUp">
+		<div class="container">
+			<div class="section-header" th:object="${clientText}">
+				<h2>Clients</h2>
+				<p th:text="${detailText}"></p>
+			</div>
+
+			<div class="owl-carousel clients-carousel">
+				<a th:each="client :${Clients}" target="_blank"
+					th:href="${client.link}"> <img th:src="${client.imgPath}"
+					alt="">
+				</a>
+			</div>
+
+		</div>
+	</section>
+	<!-- #clients --> 
+
+	<!--==========================
+      Testimonials Section
+    ============================-->
+
+	<!-- #testimonials --> 
+		<!--==========================
+      Call To Action Section
+    ============================-->
+	<section id="call-to-action" class="wow fadeInUp">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 text-center text-lg-left" th:object="${Service}">
+					<h3 class="cta-title">Get Our Service</h3>
+					<p class="cta-text" th:text="${detailText}"></p>
+				</div>
+				<div class="col-lg-3 cta-btn-container text-center">
+					<a class="cta-btn align-middle" th:href="@{/lhd/contact}">Contact Us</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- #call-to-action --> 
+	</main>
 
 	<!--==========================
     Footer
@@ -219,8 +264,6 @@
 	<!-- #footer -->
 
 	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-	<!-- JavaScript  -->
 	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
 	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
 	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -231,9 +274,10 @@
 	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
 	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
-
-
+	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
+	<script th:src="@{/contact/contact_me.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
+
 
 </body>
 </html>

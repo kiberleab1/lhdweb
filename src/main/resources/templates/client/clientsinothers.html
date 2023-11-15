@@ -17,7 +17,6 @@ License: https://webthemez.com/license
 <link th:href="@{/img/favicon.png}" rel="icon">
 <link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
 
-
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
@@ -25,6 +24,7 @@ License: https://webthemez.com/license
 
 <!-- Bootstrap CSS File -->
 <link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
 <!-- Libraries CSS Files -->
 <link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
 	rel="stylesheet">
@@ -39,7 +39,6 @@ License: https://webthemez.com/license
 
 <!-- Main Stylesheet File -->
 <link th:href="@{/css/style.css}" rel="stylesheet">
-<!-- css -->
 <style>
 table {
 	counter-reset: rowNumber -1;
@@ -95,20 +94,19 @@ table tr td:first-child::before {
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
-					<li><a th:href="@{/lhd/About}">About Us</a></li>
-					<li><a th:href="@{/lhd/Service}">Services</a></li>
-					<li><a th:href="@{/lhd/Experiance}">Experience</a></li>
+					<li><a th:href="@{/lhd/about}">About Us</a></li>
+					<li><a th:href="@{/lhd/service}">Services</a></li>
+					<li><a th:href="@{/lhd/experiance}">Experience</a></li>
 					<li class="menu-has-children"><a href="">Clients</a>
 						<ul>
-							<li><a th:href="@{/lhd/ClientEthiopia}">In Ethiopia</a></li>
-							<li><a th:href="@{/lhd/ClientOther}">Other Countries</a></li>
+							<li><a th:href="@{/lhd/clientinethiopia}">In Ethiopia</a></li>
+							<li><a th:href="@{/lhd/otherclients}">Other Countries</a></li>
 							<li><a th:href="@{/lhd/Emails}">Emails</a></li>
 							
 						</ul></li>
-					<li><a th:href="@{/lhd/Contact}">Contact</a></li>
+					<li><a th:href="@{/lhd/contact}">Contact</a></li>
 				</ul>
-			</nav>
-			<!-- #nav-menu-container -->
+			</nav><!-- #nav-menu-container -->
 		</div>
 	</header>
 
@@ -120,8 +118,8 @@ table tr td:first-child::before {
 	<section id="innerBanner">
 		<div class="inner-content">
 			<h2>
-				<span>Add or Edit Vaccancy </span><br>Striving for Excellence
-				&amp; Lasting Change!!
+				<span>Our Clients In Other Countries</span><br>Striving for
+				Excellence &amp; Lasting Change!!
 			</h2>
 			<div></div>
 		</div>
@@ -130,42 +128,100 @@ table tr td:first-child::before {
 
 	<main id="main">
 	<section id="contact" class="wow fadeInUp">
-		<div th:each="vacc : ${vaccancys}">
-			<h4 class="col-md-4 offset-md-2">TITLE:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.title}"></p>
-			<h4 class="col-md-4 offset-md-2">MAJOR RESPONSIBILITIES:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.responsblities}"></p>
-			<h4 class="col-md-4 offset-md-2">POSTION:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.position}"></p>
+		<div class="section-header" th:object="${clientText}">
 			
-			<div id="demo" class="collapse">
-				<h4 class="col-md-4 offset-md-2">QUALIFICATION:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.Qualification}"></p>
-			<h4 class="col-md-4 offset-md-2">Conditions:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.conditions}"></p>
-			<h4 class="col-md-4 offset-md-2">DeadLine:</h4>
-			<p class="col-md-4 offset-md-3" th:text="${vacc.deadline}"></p>
-			<form class="col-md-4 offset-md-3" th:action="@{/lhd/Vaccancy/apply}" method="Get"
-				name="sentMessage">
-				<input type="hidden" name="appId" th:value="${vacc.Id}">
-				<button type="submit" class="btn btn-primary ">Apply</button>
-				<br />
-
-			</form>
-			</div>
-			<a class="col-md-4 offset-md-4" ass="btn btn-info" data-toggle="collapse" data-target="#demo">See More</a>
-			
-			
+			<p th:text="${detailText}"></p>
 		</div>
-		
-	</section>
-	
+		<div class="row">
+			<div class="col-3">
+				<div style="display:none; width:30px" class="list-group" id="list-tab" role="tablist">
+					<a class="list-group-item list-group-item-action active"
+						id="list-home-list" data-toggle="list" href="#list-home"
+						role="tab" aria-controls="home">UN Agencies</a> <a
+						class="list-group-item list-group-item-action"
+						id="list-profile-list" data-toggle="list" href="#list-profile"
+						role="tab" aria-controls="profile">Govermental Organizations </a>
+					<a class="list-group-item list-group-item-action"
+						id="list-messages-list" data-toggle="list" href="#list-messages"
+						role="tab" aria-controls="messages">Non-Govermental
+						Organazations</a>
 				</div>
 			</div>
+			<div class="col-12">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="list-home"
+						role="tabpanel" aria-labelledby="list-home-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Organization</th>
+									<th scope="col">Country</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="client : ${unClients}">
+									<td></td>
+									<td th:text="${client.name}"></td>
+									<td th:text="${client.country}"></td>
 
+								</tr>
+							</tbody>
 
+						</table>
+
+					</div>
+					<div class="tab-pane fade" id="list-profile" role="tabpanel"
+						aria-labelledby="list-profile-list">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Organization</th>
+									<th scope="col">Country</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="client : ${govClients}">
+									<td></td>
+									<td th:text="${client.name}"></td>
+									<td th:text="${client.country}"></td>
+
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="tab-pane fade" id="list-messages" role="tabpanel"
+						aria-labelledby="list-messages-list">
+						<div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Organization</th>
+										<th scope="col">Country</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="client : ${nongovClients}">
+										<td></td>
+										<td th:text="${client.name}"></td>
+										<td th:text="${client.country}"></td>
+
+									</tr>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+				
+				</div>
+			</div>
 		</div>
-		<!-- #clients -->
+	</section>
+	
 	</main>
 
 	<!--==========================
@@ -198,17 +254,8 @@ table tr td:first-child::before {
 	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
 	<script th:src="@{/lib/sticky/sticky.js}"></script>
 	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
+	<script th:src="@{/contact/contact_me.js}"></script>
 	<script th:src="@{/js/main.js}"></script>
-	<script th:src="@{/js/countrypicker.js}"></script>
-	<script th:src="@{/js/countrypicker.min.js}"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-
-	<script>
-		$('#arrival_date, #departure_date').datepicker({});
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 
 </body>
 </html>

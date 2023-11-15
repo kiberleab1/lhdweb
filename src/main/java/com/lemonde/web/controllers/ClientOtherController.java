@@ -14,19 +14,20 @@ import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.TestimonialService;
 
 @Controller
-@RequestMapping("/lhd/ClientOther")
+@RequestMapping("/lhd/otherclients")
 public class ClientOtherController {
 	private ExperianceService experianceService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
-	
+
 	@Autowired
-	public ClientOtherController(ExperianceService experianceService,TestimonialService testomonialService,ClientService clientService,OtherTextsService otherTextsService) {
+	public ClientOtherController(ExperianceService experianceService, TestimonialService testomonialService,
+			ClientService clientService, OtherTextsService otherTextsService) {
 		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
-		this.testomonialService=testomonialService;
+		this.testomonialService = testomonialService;
 	}
 
 	@GetMapping
@@ -34,17 +35,19 @@ public class ClientOtherController {
 			@RequestParam(name = "size", defaultValue = "10") int size,
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
 		PageRequest pageRequest = PageRequest.of(page, size);
-		model.addAttribute("unClients", this.clientService.findPageByTypeAndCountry(pageRequest, "un","other").getContent());
-		model.addAttribute("govClients", this.clientService.findPageByTypeAndCountry(pageRequest, "gov","other").getContent());
-		model.addAttribute("nongovClients", this.clientService.findPageByTypeAndCountry(pageRequest, "nongov","other").getContent());
-		
+		model.addAttribute("unClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "un", "other").getContent());
+		model.addAttribute("govClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "other").getContent());
+		model.addAttribute("nongovClients",
+				this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "other").getContent());
+
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
-		
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies",testomonialService.findAll());
-		
 
-		return "clientsinothers";
+		model.addAttribute("Clients", clientService.findImages());
+		model.addAttribute("Testimonies", testomonialService.findAll());
+
+		return "client/clientsinothers";
 	}
 }

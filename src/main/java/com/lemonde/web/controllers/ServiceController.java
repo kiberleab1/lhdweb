@@ -12,19 +12,21 @@ import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
 
 @Controller
-@RequestMapping("/lhd/Service")
+@RequestMapping("/lhd/service")
 public class ServiceController {
 
 	private OtherTextsService otherTextsService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private ServicesService servicesService;
+
 	@Autowired
-	public ServiceController(OtherTextsService otherTextsService, ClientService clientService,TestimonialService testomonialService,ServicesService servicesService) {
+	public ServiceController(OtherTextsService otherTextsService, ClientService clientService,
+			TestimonialService testomonialService, ServicesService servicesService) {
 		this.otherTextsService = otherTextsService;
 		this.clientService = clientService;
-		this.testomonialService=testomonialService;
-		this.servicesService=servicesService;
+		this.testomonialService = testomonialService;
+		this.servicesService = servicesService;
 	}
 
 	@GetMapping
@@ -32,16 +34,16 @@ public class ServiceController {
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
-		
+
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
-		
+
 		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
 		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies",testomonialService.findAll());
-		model.addAttribute("services",servicesService.findAll());
-		
-		return "services";
+		model.addAttribute("Testimonies", testomonialService.findAll());
+		model.addAttribute("services", servicesService.findAll());
+
+		return "client/services";
 	}
 }

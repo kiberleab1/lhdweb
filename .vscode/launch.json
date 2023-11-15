@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-LemondeApplication<lhdconsult>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.lemonde.web.LemondeApplication",
+      "projectName": "lhdconsult",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

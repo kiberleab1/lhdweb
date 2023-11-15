@@ -2,22 +2,25 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/lhd
-    username: root
-    password: 1234
-    
+    url: jdbc:mysql://localhost:3306/test_db?useSSL=false&serverTimezone=UTC
+    username: admin
+    password: password
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
   jpa:
     hibernate.ddl-auto: update
-    show-sql: false 
+    show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-  mail:  
-     host: mail.lhdconsult.org
-     port: 2525
-     properties:
-         mail:
-            smtp:
-              auth: true
-              starttls:
-                enable: true
-     
+  mail:
+    host: mail.lhdconsult.org
+    port: 2525
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

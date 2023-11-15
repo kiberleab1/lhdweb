@@ -17,9 +17,9 @@ import com.lemonde.web.services.TeamMembersService;
 import com.lemonde.web.services.TestimonialService;
 
 @Controller
-@RequestMapping("/lhd/About")
+@RequestMapping("/lhd/about")
 public class AboutController {
-	
+
 	private ExperianceService experianceService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
@@ -29,14 +29,14 @@ public class AboutController {
 
 	@Autowired
 	public AboutController(ExperianceService experianceService, TestimonialService testomonialService,
-			ClientService clientService, OtherTextsService otherTextsService,ServicesService servicesService
-			,TeamMembersService teamMembersService) {
+			ClientService clientService, OtherTextsService otherTextsService, ServicesService servicesService,
+			TeamMembersService teamMembersService) {
 		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
 		this.servicesService = servicesService;
-		this.teamMembersService=teamMembersService;
+		this.teamMembersService = teamMembersService;
 	}
 
 	@GetMapping
@@ -45,22 +45,22 @@ public class AboutController {
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
-		
+
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
 		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
 		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
-		
+
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
-		
+
 		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies",testomonialService.findAll());
-		model.addAttribute("services",servicesService.findAll());
-		model.addAttribute("ourTeam",teamMembersService.findAll());
-		
-		model.addAttribute("newTeamMember",new TeamMembers());
-		model.addAttribute("newTestemony",new Testimonies());
+		model.addAttribute("Testimonies", testomonialService.findAll());
+		model.addAttribute("services", servicesService.findAll());
+		model.addAttribute("ourTeam", teamMembersService.findAll());
+
+		model.addAttribute("newTeamMember", new TeamMembers());
+		model.addAttribute("newTestemony", new Testimonies());
 		model.addAttribute("newObjectives", new OtherTexts());
-		return "about";
+		return "client/about";
 	}
 }
