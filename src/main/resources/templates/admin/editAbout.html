@@ -1,39 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>LeMonde Health and Development</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="" name="keywords">
-<meta content="" name="description">
-<meta content="Author" name="WebThemez">
-<!-- Favicons -->
-<link th:href="@{/img/favicon.png}" rel="icon">
-<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+	<meta charset="utf-8">
+	<title>LHD Health and Development</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+	<meta content="Author" name="WebThemez">
+	<!-- Favicons -->
+	<link th:href="@{/img/favicon.png}" rel="icon">
+	<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
-	rel="stylesheet">
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+		rel="stylesheet">
 
-<!-- Bootstrap CSS File -->
-<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<!-- Bootstrap CSS File -->
+	<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
-<!-- Libraries CSS Files -->
-<link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
-	rel="stylesheet">
-<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
-<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
-<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
-	rel="stylesheet">
-<link th:href="@{/lib/magnific-popup/magnific-popup.css}"
-	rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/font-icon.css}">
-<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+	<!-- Libraries CSS Files -->
+	<link th:href="@{/lib/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+	<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
+	<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+	<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
+	<link th:href="@{/lib/magnific-popup/magnific-popup.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/font-icon.css}">
+	<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
 
-<!-- Main Stylesheet File -->
-<link th:href="@{/css/style.css}" rel="stylesheet">
+	<!-- Main Stylesheet File -->
+	<link th:href="@{/css/style.css}" rel="stylesheet">
 
 </head>
 
@@ -45,16 +42,15 @@
 	<section id="topbar" class="d-none d-lg-block">
 		<div class="container clearfix">
 			<div class="contact-info float-left">
-				<i class="fa fa-envelope-o"></i> <a
-					href="mailto:contact@example.com">name@websitename.com</a> <i
+				<i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">name@websitename.com</a> <i
 					class="fa fa-phone"></i> +1 2345 67855 22
 			</div>
 			<div class="social-links float-right">
-				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-					href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
-					href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
-					href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a href="#" class="facebook"><i
+						class="fa fa-facebook"></i></a> <a href="#" class="google-plus"><i
+						class="fa fa-google-plus"></i></a>
+				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a href="#" class="instagram"><i
+						class="fa fa-instagram"></i></a>
 			</div>
 		</div>
 	</section>
@@ -68,8 +64,8 @@
 
 			<div id="logo" class="pull-left">
 				<h1>
-					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
-							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
+					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img width="50"
+								th:src="@{/img/logo.svg}" /></i> LHD </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
@@ -87,9 +83,10 @@
 							<li><a th:href="@{/Admin/editVaccancy}">Edit Vacancy</a></li>
 							<li><a th:href="@{/Admin/Register}">Add Admin</a></li>
 
-						</ul></li>
+						</ul>
+					</li>
 					<li><a th:href="@{/Admin/editContact}">Contact</a></li>
-					<li><a th:href="@{/logout}">Logout</a></li>
+					<li><a th:href="@{/admin/logout}">Logout</a></li>
 				</ul>
 			</nav>
 			<!-- #nav-menu-container -->
@@ -113,26 +110,25 @@
 	<main id="main"> <!--==========================
       About Section
     ============================-->
-    <section id="about" class="wow fadeInUp">
+		<section id="about" class="wow fadeInUp">
 
-		<div class="container">
-			<div class="row">
-				
+			<div class="container">
+				<div class="row">
+
 
 					<div class="container">
-						<div class="section-header" th:object="${FirmText}">
+						<div class="section-header"  th:if="${FirmText != null}" th::object="${FirmText}">
 							<h2>Our Firm</h2>
 							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
-								row="8">
-								<input type="hidden" name="Id" th:field="*{Id}" /> <input
-									type="hidden" th:field="*{type}" /> <input type="hidden"
-									th:field="*{page}" />
+								th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
+								<input type="hidden" name="Id" th:field="*{Id}" />
+								 <input type="hidden"
+									th:field="*{type}" /> 
+								<input type="hidden" th:field="*{page}" />
 								<div class="control-group">
 									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Operational Capacity" id="name" required
-											th:field="*{detailText}"
+										<textarea class="form-control" rows="8" placeholder="Operational Capacity"
+											id="name" required th:field="*{detailText}"
 											data-validation-required-message="Please enter your name">
 											</textarea>
 										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
@@ -141,7 +137,6 @@
 								</div>
 								<div id="success"></div>
 								<br />
-								<!-- For success/fail messages -->
 								<button type="submit" class="btn btn-primary pull-right">Save</button>
 								<br />
 							</form>
@@ -149,60 +144,30 @@
 					</div>
 				</div>
 			</div>
-	</section>
-	
-	  
-	<section id="about" class="wow fadeInUp">
+		</section>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 about-img">
-					<img th:src="@{/img/about.svg}" alt="">
-				</div>
 
-				<div class="col-lg-6 content">
+		<section id="about" class="wow fadeInUp">
 
-					<div class="container">
-						<div class="section-header" th:object="${VisionText}">
-							<h2>Vision</h2>
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
-								row="8">
-								<input type="hidden" name="Id" th:field="*{Id}" /> <input
-									type="hidden" th:field="*{type}" /> <input type="hidden"
-									th:field="*{page}" />
-								<div class="control-group">
-									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Operational Capacity" id="name" required
-											th:field="*{detailText}"
-											data-validation-required-message="Please enter your name">
-											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-											th:errors="*{detailText}">Last Name Error </span>
-									</div>
-								</div>
-								<div id="success"></div>
-								<br />
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Save</button>
-								<br />
-							</form>
-						</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 about-img">
+						<img th:src="@{/img/about.svg}" alt="">
+					</div>
+
+					<div class="col-lg-6 content">
+
 						<div class="container">
-							<div class="section-header" th:object="${MisionText}">
-								<h2>Mission</h2>
-								<form name="sentMessage" class="well" id="contactForm"
-									novalidate th:action="@{/Admin/editAbout/saveOthersText}"
-									method="POST" row="8">
-									<input type="hidden" name="Id" th:value="*{Id}" /> <input
-										type="hidden" th:field="*{type}" /> <input type="hidden"
-										th:field="*{page}" />
+							<div class="section-header"  th:if="${VisionText != null}" th:object="${VisionText}">
+								<h2>Vision</h2>
+								<form name="sentMessage" class="well" id="contactForm" novalidate
+									th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
+									<input type="hidden" name="Id" th:field="*{Id}" /> <input type="hidden"
+										th:field="*{type}" /> <input type="hidden" th:field="*{page}" />
 									<div class="control-group">
 										<div class="form-group">
-											<textarea class="form-control" rows="8"
-												placeholder="Operational Capacity" id="name" required
-												th:field="*{detailText}"
+											<textarea class="form-control" rows="8" placeholder="Operational Capacity"
+												id="name" required th:field="*{detailText}"
 												data-validation-required-message="Please enter your name">
 											</textarea>
 											<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
@@ -216,67 +181,88 @@
 									<br />
 								</form>
 							</div>
-
-							<div class="section-header">
-								<h2>Objectives</h2>
-							</div>
-
-							<ul>
-								<li th:each="objectives : ${Objectives}"><i
-									class="icon ion-ios-checkmark-outline"
-									th:text="'  '+${objectives.detailText}"></i>
-									<form th:action="@{/Admin/editAbout/deleteObjective}"
-										method="POST" name="sentMessage">
-										<input type="hidden" name="objId" th:value="${objectives.Id}">
-										<button type="submit" class="btn btn-primary ">Delete</button>
-										<br />
-
-									</form></li>
-							</ul>
-							<form th:action="@{/Admin/editAbout/addObjectives}" method="POST"
-								name="sentMessage" th:object="${newObjectives}">
-								<input type="hidden" name="Id" th:value="*{Id}"> <input
-									type="hidden" name="type" value="aboutPoint" /> <input
-									type="hidden" name="page" value="about" />
-								<div class="control-group">
-									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Objectives" id="name" required
-											th:field="*{detailText}"
-											data-validation-required-message="Please enter your name">
+							<div class="container">
+								<div class="section-header"  th:if="${MisionText != null}" th:object="${MisionText}">
+									<h2>Mission</h2>
+									<form name="sentMessage" class="well" id="contactForm" novalidate
+										th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
+										<input type="hidden" name="Id" th:value="*{Id}" />
+										 <input type="hidden" th:field="*{type}" />
+										 <input type="hidden" th:field="*{page}" />
+										<div class="control-group">
+											<div class="form-group">
+												<textarea class="form-control" rows="8"
+													placeholder="Operational Capacity" id="name" required
+													th:field="*{detailText}"
+													data-validation-required-message="Please enter your name">
 											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-											th:errors="*{detailText}">Last Name Error </span>
-									</div>
+												<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+													th:errors="*{detailText}">Last Name Error </span>
+											</div>
+										</div>
+										<div id="success"></div>
+										<br />
+										<!-- For success/fail messages -->
+										<button type="submit" class="btn btn-primary pull-right">Save</button>
+										<br />
+									</form>
 								</div>
-								<button type="submit" class="btn btn-primary ">Add</button>
-								<br />
 
-							</form>
+								<div class="section-header">
+									<h2>Objectives</h2>
+								</div>
 
+								<ul>
+									<li th:each="objectives : ${Objectives}"><i class="icon ion-ios-checkmark-outline"
+											th:text="'  '+${objectives.detailText}"></i>
+										<form th:action="@{/Admin/editAbout/deleteObjective}" method="POST"
+											name="sentMessage">
+											<input type="hidden" name="objId" th:value="${objectives.Id}">
+											<button type="submit" class="btn btn-primary ">Delete</button>
+											<br />
+
+										</form>
+									</li>
+								</ul>
+								<form th:action="@{/Admin/editAbout/addObjectives}" method="POST" name="sentMessage"
+									th:object="${newObjectives}">
+									<input type="hidden" name="Id" th:value="*{Id}"> <input type="hidden" name="type"
+										value="aboutPoint" /> <input type="hidden" name="page" value="about" />
+									<div class="control-group">
+										<div class="form-group">
+											<textarea class="form-control" rows="8" placeholder="Objectives" id="name"
+												required th:field="*{detailText}"
+												data-validation-required-message="Please enter your name">
+											</textarea>
+											<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+												th:errors="*{detailText}">Last Name Error </span>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-primary ">Add</button>
+									<br />
+
+								</form>
+
+							</div>
 						</div>
-					</div>
-	</section>
-	<section id="about" class="wow fadeInUp">
+		</section>
+		<section id="about" class="wow fadeInUp">
 
-		<div class="container">
-			<div class="row">
-				
+			<div class="container">
+				<div class="row">
+
 
 					<div class="container">
-						<div class="section-header" th:object="${TeamText}">
+						<div class="section-header"  th:if="${TeamText != null}"  th:object="${TeamText}">
 							<h2>Our Team</h2>
 							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
-								row="8">
-								<input type="hidden" name="Id" th:field="*{Id}" /> <input
-									type="hidden" th:field="*{type}" /> <input type="hidden"
-									th:field="*{page}" />
+								th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
+								<input type="hidden" name="Id" th:field="*{Id}" /> <input type="hidden"
+									th:field="*{type}" /> <input type="hidden" th:field="*{page}" />
 								<div class="control-group">
 									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Operational Capacity" id="name" required
-											th:field="*{detailText}"
+										<textarea class="form-control" rows="8" placeholder="Operational Capacity"
+											id="name" required th:field="*{detailText}"
 											data-validation-required-message="Please enter your name">
 											</textarea>
 										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
@@ -293,365 +279,330 @@
 					</div>
 				</div>
 			</div>
-	</section>
-	<!--  Our Team Section ============================-->
-	<section id="team" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header">
-				<h2>Our Team</h2>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 col-md-6" th:each="teamMember: ${ourTeam}">
-					<div class="member">
-						<div class="pic">
-							<img th:src="${teamMember.imgPath}" alt="">
-						</div>
-						<div class="details">
-							<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
-							<span th:text="${teamMember.authority}"></span>
-							<span th:text="${teamMember.qualification}"></span>
-							<div class="social">
-								<a th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
-								</a> <a th:href="${teamMember.facebook}"><i
-									class="fa fa-facebook"></i></a> <a
-									th:href="${teamMember.googlePlus}"> <i
-									class="fa fa-google-plus"></i></a> <a
-									th:href="${teamMember.linkdon}"><i class="fa fa-linkedin"></i></a>
+		</section>
+		<!--  Our Team Section ============================-->
+		<section id="team" class="wow fadeInUp">
+			<div class="container">
+				<div class="section-header">
+					<h2>Our Team</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6" th:each="teamMember: ${ourTeam}">
+						<div class="member">
+							<div class="pic">
+								<img th:src="${teamMember.imgPath}" alt="">
+							</div>
+							<div class="details">
+								<h4 th:text="${teamMember.fristName+' '+teamMember.lastName}"></h4>
+								<span th:text="${teamMember.authority}"></span>
+								<span th:text="${teamMember.qualification}"></span>
+								<div class="social">
+									<a th:href="${teamMember.twiter}"><i class="fa fa-twitter"></i>
+									</a> <a th:href="${teamMember.facebook}"><i class="fa fa-facebook"></i></a> <a
+										th:href="${teamMember.googlePlus}"> <i class="fa fa-google-plus"></i></a> <a
+										th:href="${teamMember.linkdon}"><i class="fa fa-linkedin"></i></a>
+								</div>
 							</div>
 						</div>
+						<form th:action="@{/Admin/editAbout/deleteTeam}" method="POST" name="sentMessage">
+							<input type="hidden" name="teamMemberId" th:value="${teamMember.Id}">
+							<button type="submit" class="btn btn-primary ">Delete</button>
+							<br /> <br />
+						</form>
+
+						<form th:action="@{/Admin/editAbout/editTeam}" method="POST" name="sentMessage">
+							<input type="hidden" name="teamMemberId" th:value="${teamMember.Id}">
+							<button type="submit" class="btn btn-primary">Edit</button>
+
+						</form>
 					</div>
-					<form th:action="@{/Admin/editAbout/deleteTeam}" method="POST"
-						name="sentMessage">
-						<input type="hidden" name="teamMemberId"
-							th:value="${teamMember.Id}">
+				</div>
+
+			</div>
+		</section>
+		<section id="contact" class="wow fadeInUp">
+			<div class="container">
+
+				<div class="row contact-info">
+					<div class="col-lg-5"></div>
+					<div class="col-lg-7">
+						<div class="container">
+							<div class="form">
+
+								<!-- Form itself -->
+								<form name="sentMessage" class="well" id="contactForm" novalidate
+									th:object="${newTeamMember}" th:action="@{/Admin/editAbout/saveTeamMember}"
+									method="POST" enctype="multipart/form-data">
+									<input type="hidden" name="Id" th:value="*{Id}" />
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Frist Name" id="name"
+												required th:field="*{fristName}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('fristName')}"
+												th:errors="*{fristName}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Last Name" id="name"
+												required th:field="*{lastName}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('lastName')}"
+												th:errors="*{lastName}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Authority" id="name"
+												required th:field="*{authority}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('authority')}"
+												th:errors="*{authority}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Qualification"
+												id="name" required th:field="*{qualification}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('qualification')}"
+												th:errors="*{qualification}">Last Name Error </span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control"
+												placeholder="Link to facebook  Account" id="name" required
+												th:field="*{facebook}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('facebook')}"
+												th:errors="*{facebook}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control"
+												placeholder="Link to tewiter  Account" id="name" required
+												th:field="*{twiter}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('twiter')}"
+												th:errors="*{twiter}">Last
+												Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control"
+												placeholder="Link to Google+  Account" id="name" required
+												th:field="*{googlePlus}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('googlePlus')}"
+												th:errors="*{googlePlus}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control"
+												placeholder="Link to LinkdIn  Account" id="name" required
+												th:field="*{linkdon}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('linkdon')}"
+												th:errors="*{linkdon}">Last Name Error </span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="file" name="img" class="form-control" placeholder="logo"
+												value="Logo" id="img" required />
+										</div>
+									</div>
+
+
+									<div id="success"></div>
+									<br />
+									<!-- For success/fail messages -->
+									<button type="submit" class="btn btn-primary pull-right">Add</button>
+									<br />
+								</form>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+		</section>
+		<!-- #team --> <!--==========================!-->
+		<section id="about" class="wow fadeInUp">
+			<div class="container">
+				<div class="section-header"  th:if="${OperationalCapacity != null}" th:object="${OperationalCapacity}">
+					<h2>Operational Capacity</h2>
+					<form name="sentMessage" class="well" id="contactForm" novalidate
+						th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
+						<input type="hidden" name="Id" th:value="*{Id}" /> <input type="hidden" th:field="*{type}" />
+						<input type="hidden" th:field="*{page}" />
+						<div class="control-group">
+							<div class="form-group">
+								<textarea class="form-control" rows="8" placeholder="Operational Capacity" id="name"
+									required th:field="*{detailText}"
+									data-validation-required-message="Please enter your name">
+											</textarea>
+								<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+									th:errors="*{detailText}">Last Name Error </span>
+							</div>
+						</div>
+						<div id="success"></div>
+						<br />
+						<!-- For success/fail messages -->
+						<button type="submit" class="btn btn-primary pull-right">Save</button>
+						<br />
+					</form>
+				</div>
+		</section>
+		<!-- #about --> <!-- #about --> <!-- 
+      Testimonials Section
+    ============================-->
+		<section id="testimonials" class="wow fadeInUp">
+			<div class="container">
+				<div class="section-header"  th:if="${Testimonial != null}" th:object="${Testimonial}">
+					<h2>Testimonials Text</h2>
+					<form name="sentMessage" class="well" id="contactForm" novalidate
+						th:action="@{/Admin/editAbout/saveTestmonialText}" method="POST" row="8">
+						<input type="hidden" name="Id" th:value="*{Id}" /> <input type="hidden" th:field="*{type}" />
+						<input type="hidden" th:field="*{page}" />
+						<div class="control-group">
+							<div class="form-group">
+								<textarea class="form-control" rows="8" placeholder="About Clients" id="name" required
+									th:field="*{detailText}" data-validation-required-message="Please enter your name">
+											</textarea>
+								<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+									th:errors="*{detailText}">Last Name Error </span>
+							</div>
+						</div>
+						<div id="success"></div>
+						<br />
+						<!-- For success/fail messages -->
+						<button type="submit" class="btn btn-primary pull-right">Save</button>
+						<br />
+					</form>
+				</div>
+			</div>
+			</div>
+			<div class="owl-carousel testimonials-carousel">
+
+				<div class="testimonial-item" th:each="testomony : ${Testimonies}">
+					<p th:text="${testomony.detailText}"></p>
+					<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
+						James</h3>
+					<h4 th:text="${testomony.Authority}"></h4>
+					<h4 th:text="${testomony.Organazation}"></h4>
+					<br />
+					<form th:action="@{/Admin/editAbout/deleteTestmony}" method="POST" name="sentMessage">
+						<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
 						<button type="submit" class="btn btn-primary ">Delete</button>
 						<br /> <br />
 					</form>
 
-					<form th:action="@{/Admin/editAbout/editTeam}" method="POST"
-						name="sentMessage">
-						<input type="hidden" name="teamMemberId"
-							th:value="${teamMember.Id}">
+					<form th:action="@{/Admin/editAbout/editTestmony}" method="POST" name="sentMessage">
+						<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
 						<button type="submit" class="btn btn-primary">Edit</button>
 
 					</form>
+
 				</div>
 			</div>
+		</section>
+		<section id="contact" class="wow fadeInUp">
+			<div class="container">
 
-		</div>
-	</section>
-	<section id="contact" class="wow fadeInUp">
-		<div class="container">
+				<div class="row contact-info">
+					<div class="col-lg-5"></div>
+					<div class="col-lg-7">
+						<div class="container">
+							<div class="section-header" th:object="${clientText}">
+								<h2>Add or Edit Testimony</h2>
 
-			<div class="row contact-info">
-				<div class="col-lg-5"></div>
-				<div class="col-lg-7">
-					<div class="container">
-						<div class="form">
+							</div>
+							<div class="form">
 
-							<!-- Form itself -->
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:object="${newTeamMember}"
-								th:action="@{/Admin/editAbout/saveTeamMember}" method="POST"
-								enctype="multipart/form-data">
-								<input type="hidden" name="Id" th:value="*{Id}" />
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Frist Name" id="name" required
-											th:field="*{fristName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('fristName')}"
-											th:errors="*{fristName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Last Name" id="name" required
-											th:field="*{lastName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('lastName')}"
-											th:errors="*{lastName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Authority" id="name" required
-											th:field="*{authority}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('authority')}"
-											th:errors="*{authority}">Last Name Error </span>
-									</div>
-								</div>
+								<!-- Form itself -->
+								<form name="sentMessage" class="well" id="contactForm" novalidate
+									th:object="${newTestemony}" th:action="@{/Admin/editAbout/saveTestimony}"
+									method="POST">
+									<input type="hidden" name="Id" th:value="*{Id}" />
+
 									<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Qualification" id="name" required
-											th:field="*{qualification}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('qualification')}"
-											th:errors="*{qualification}">Last Name Error </span>
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Frist Name" id="name"
+												required th:field="*{FirstName}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('FirstName')}"
+												th:errors="*{FirstName}">Last Name Error </span>
+										</div>
 									</div>
-								</div>
-
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Link to facebook  Account" id="name" required
-											th:field="*{facebook}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('facebook')}"
-											th:errors="*{facebook}">Last Name Error </span>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Last Name" id="name"
+												required th:field="*{LastName}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('LastName')}"
+												th:errors="*{LastName}">Last Name Error </span>
+										</div>
 									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Link to tewiter  Account" id="name" required
-											th:field="*{twiter}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('twiter')}" th:errors="*{twiter}">Last
-											Name Error </span>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Authority" id="name"
+												required th:field="*{Authority}"
+												data-validation-required-message="Please enter your name" />
+											<span class="text-danger" th:if="${#fields.hasErrors('Authority')}"
+												th:errors="*{Authority}">Last Name Error </span>
+										</div>
 									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Link to Google+  Account" id="name" required
-											th:field="*{googlePlus}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('googlePlus')}"
-											th:errors="*{googlePlus}">Last Name Error </span>
+									<div class="control-group">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Organization" id="name"
+												required th:field="*{Organazation}"
+												data-validation-required-message="Organization" /> <span
+												class="text-danger" th:if="${#fields.hasErrors('Organazation')}"
+												th:errors="*{Organazation}">Last Name Error </span>
+										</div>
 									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Link to LinkdIn  Account" id="name" required
-											th:field="*{linkdon}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('linkdon')}"
-											th:errors="*{linkdon}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="file" name="img" class="form-control"
-											placeholder="logo" value="Logo" id="img" required />
-									</div>
-								</div>
-
-
-								<div id="success"></div>
-								<br />
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Add</button>
-								<br />
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-
-			</div>
-	</section>
-	<!-- #team --> <!--==========================!-->
-	<section id="about" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${OperationalCapacity}">
-				<h2>Operational Capacity</h2>
-				<form name="sentMessage" class="well" id="contactForm" novalidate
-					th:action="@{/Admin/editAbout/saveOthersText}" method="POST"
-					row="8">
-					<input type="hidden" name="Id" th:value="*{Id}" /> <input
-						type="hidden" th:field="*{type}" /> <input type="hidden"
-						th:field="*{page}" />
-					<div class="control-group">
-						<div class="form-group">
-							<textarea class="form-control" rows="8"
-								placeholder="Operational Capacity" id="name" required
-								th:field="*{detailText}"
-								data-validation-required-message="Please enter your name">
+									<div class="control-group">
+										<div class="form-group">
+											<textarea class="form-control" rows="8" placeholder="Testimonial Text"
+												id="name" required th:field="*{detailText}"
+												data-validation-required-message="Please enter your name">
 											</textarea>
-							<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-								th:errors="*{detailText}">Last Name Error </span>
+											<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+												th:errors="*{detailText}">Last Name Error </span>
+										</div>
+									</div>
+
+
+									<div id="success"></div>
+									<br />
+									<!-- For success/fail messages -->
+									<button type="submit" class="btn btn-primary pull-right">Add</button>
+									<br />
+								</form>
+							</div>
+
 						</div>
 					</div>
-					<div id="success"></div>
-					<br />
-					<!-- For success/fail messages -->
-					<button type="submit" class="btn btn-primary pull-right">Save</button>
-					<br />
-				</form>
-			</div>
-	</section>
-	<!-- #about --> <!-- #about --> <!-- 
-      Testimonials Section
-    ============================-->
-	<section id="testimonials" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${Testimonial}">
-				<h2>Testimonials Text</h2>
-				<form name="sentMessage" class="well" id="contactForm" novalidate
-					th:action="@{/Admin/editAbout/saveTestmonialText}" method="POST"
-					row="8">
-					<input type="hidden" name="Id" th:value="*{Id}" /> <input
-						type="hidden" th:field="*{type}" /> <input type="hidden"
-						th:field="*{page}" />
-					<div class="control-group">
-						<div class="form-group">
-							<textarea class="form-control" rows="8"
-								placeholder="About Clients" id="name" required
-								th:field="*{detailText}"
-								data-validation-required-message="Please enter your name">
-											</textarea>
-							<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-								th:errors="*{detailText}">Last Name Error </span>
-						</div>
-					</div>
-					<div id="success"></div>
-					<br />
-					<!-- For success/fail messages -->
-					<button type="submit" class="btn btn-primary pull-right">Save</button>
-					<br />
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="owl-carousel testimonials-carousel">
-
-		<div class="testimonial-item" th:each="testomony : ${Testimonies}">
-			<p th:text="${testomony.detailText}"></p>
-			<h3 th:text="${testomony.FirstName} + ' ' + ${testomony.LastName}">Mrio
-				James</h3>
-			<h4 th:text="${testomony.Authority}"></h4>
-			<h4 th:text="${testomony.Organazation}"></h4>
-			<br />
-			<form th:action="@{/Admin/editAbout/deleteTestmony}" method="POST"
-				name="sentMessage">
-				<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
-				<button type="submit" class="btn btn-primary ">Delete</button>
-				<br /> <br />
-			</form>
-
-			<form th:action="@{/Admin/editAbout/editTestmony}" method="POST"
-				name="sentMessage">
-				<input type="hidden" name="testomonyId" th:value="${testomony.Id}">
-				<button type="submit" class="btn btn-primary">Edit</button>
-
-			</form>
-
-		</div>
-	</div>
-	</section>
-	<section id="contact" class="wow fadeInUp">
-		<div class="container">
-
-			<div class="row contact-info">
-				<div class="col-lg-5"></div>
-				<div class="col-lg-7">
-					<div class="container">
-						<div class="section-header" th:object="${clientText}">
-							<h2>Add or Edit Testimony</h2>
-
-						</div>
-						<div class="form">
-
-							<!-- Form itself -->
-							<form name="sentMessage" class="well" id="contactForm" novalidate
-								th:object="${newTestemony}"
-								th:action="@{/Admin/editAbout/saveTestimony}" method="POST">
-								<input type="hidden" name="Id" th:value="*{Id}" />
-
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Frist Name" id="name" required
-											th:field="*{FirstName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('FirstName')}"
-											th:errors="*{FirstName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Last Name" id="name" required
-											th:field="*{LastName}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('LastName')}"
-											th:errors="*{LastName}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Authority" id="name" required
-											th:field="*{Authority}"
-											data-validation-required-message="Please enter your name" />
-										<span class="text-danger"
-											th:if="${#fields.hasErrors('Authority')}"
-											th:errors="*{Authority}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Organization" id="name" required
-											th:field="*{Organazation}"
-											data-validation-required-message="Organization" /> <span
-											class="text-danger"
-											th:if="${#fields.hasErrors('Organazation')}"
-											th:errors="*{Organazation}">Last Name Error </span>
-									</div>
-								</div>
-								<div class="control-group">
-									<div class="form-group">
-										<textarea class="form-control" rows="8"
-											placeholder="Testimonial Text" id="name" required
-											th:field="*{detailText}"
-											data-validation-required-message="Please enter your name">
-											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
-											th:errors="*{detailText}">Last Name Error </span>
-									</div>
-								</div>
 
 
-								<div id="success"></div>
-								<br />
-								<!-- For success/fail messages -->
-								<button type="submit" class="btn btn-primary pull-right">Add</button>
-								<br />
-							</form>
-						</div>
-
-					</div>
 				</div>
 
 
 			</div>
 
 
-		</div>
+		</section>
 
-
-	</section>
-
-	<!-- #testimonials --> </main>
+		<!-- #testimonials -->
+	</main>
 
 	<footer id="footer">
 		<div class="container">
@@ -683,4 +634,5 @@
 
 
 </body>
+
 </html>

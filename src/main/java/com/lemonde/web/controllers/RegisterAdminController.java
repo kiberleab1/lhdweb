@@ -14,26 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lemonde.web.domains.User;
 import com.lemonde.web.services.UserService;
 
-
 @Controller
 @RequestMapping("/Admin/Register")
 public class RegisterAdminController {
-	
+
 	private UserService userService;
-	
+
 	@Autowired
 	public RegisterAdminController(UserService userService) {
-		this.userService=userService;
+		this.userService = userService;
 	}
-	
+
 	@ModelAttribute(name = "registerAdmin")
 	public User registerManager(Model model) {
 		return new User();
 	}
+
 	@GetMapping
 	public String getRegister() {
-		
-		return "registerAdmin";
+
+		return "admin/registerAdmin";
 	}
 
 	@PostMapping
@@ -41,13 +41,18 @@ public class RegisterAdminController {
 
 		if (errors.hasErrors()) {
 
-			return "registerAdmin";
+			return "admin/registerAdmin";
 		}
-		this.userService.saveAdminUser(Admin);
+		try {
+			this.userService.saveAdminUser(Admin);
+		} catch (Exception e) {
+			// add custom error message
+			errors.rejectValue("", "Something Went wrong");
+			return "redirect:/Admin/Register?error";
+		}
 		// User registedManager=userRepository.save(manager);
 		return "redirect:/Admin/Home";
 
 	}
-
 
 }

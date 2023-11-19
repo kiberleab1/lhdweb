@@ -17,23 +17,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "type"),name="other_texts",schema = "lhd")
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "Id"), name = "other_texts", schema = "lhd")
 public class OtherTexts {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
-	
+
 	@NotNull
 	private String type;
-	
+
 	@NotNull
 	private String page;
-	
-	@NotEmpty(message="About Clients Cannot be Empty")
-	@Column(columnDefinition="TEXT")
+
+	@NotEmpty(message = "About Clients Cannot be Empty")
+	@Column(columnDefinition = "TEXT")
 	private String detailText;
-	
-	@OneToOne(mappedBy="otherTextId",cascade = CascadeType.PERSIST, 
-            fetch = FetchType.LAZY)
+
+	@OneToOne(mappedBy = "otherTextId", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private ImageModel imageModel;
 }

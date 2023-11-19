@@ -19,7 +19,7 @@ public class MainController {
 		return "redirect:/lhd/Home";
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/admin/login")
 	public String getLogin(Model model) {
 		return "admin/login";
 	}

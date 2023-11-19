@@ -58,10 +58,11 @@ public class EditClientController {
 
 		model.addAttribute("Clients", clientService.findImages());
 		model.addAttribute("newClient", new Clients());
-		ArrayList<Clients> listClients=new ArrayList<>();
-		
-		return "editClient";
+		ArrayList<Clients> listClients = new ArrayList<>();
+
+		return "admin/editClient";
 	}
+
 	@PostMapping
 	public String addClient(@Valid @ModelAttribute("newClient") Clients client, BindingResult bindingResult,
 			@RequestParam("img") MultipartFile file, Errors errors, Model model) {
@@ -73,59 +74,55 @@ public class EditClientController {
 			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 			model.addAttribute("Clients", clientService.findImages());
-			return "editClient";
+			return "admin/editClient";
 		}
-		
+
 		if (!file.getOriginalFilename().isEmpty()) {
 
-			
 			try {
-				int i=1;
-				String filename=file.getOriginalFilename();
+				int i = 1;
+				String filename = file.getOriginalFilename();
 				int pos = filename.lastIndexOf(".");
-	            String dir="src/main/resources/static/img";
-	            File directory = new File(dir);
-	            if (! directory.exists()){
-	                directory.mkdir();
-	            }
-				String name="";
-				if (pos > 0) {
-				    name += filename.substring(0, pos);
+				String dir = "src/main/resources/static/img";
+				File directory = new File(dir);
+				if (!directory.exists()) {
+					directory.mkdir();
 				}
-				String absPath=directory.getAbsolutePath();
-			
-				String filePath = absPath + "/" + name+"/";
+				String name = "";
+				if (pos > 0) {
+					name += filename.substring(0, pos);
+				}
+				String absPath = directory.getAbsolutePath();
+
+				String filePath = absPath + "/" + name + "/";
 				File destFolder = new File(filePath);
-				
-				while(destFolder.exists()) {
-					filePath=directory.getAbsolutePath()+"/"+ name+"("+i+")/";
-					destFolder=new File(filePath);
+
+				while (destFolder.exists()) {
+					filePath = directory.getAbsolutePath() + "/" + name + "(" + i + ")/";
+					destFolder = new File(filePath);
 					i++;
 				}
-				
+
 				destFolder.mkdir();
-				
-				
-				
-				filePath+=filename;
-				
-				File dest=new File(filePath);
-			
+
+				filePath += filename;
+
+				File dest = new File(filePath);
+
 				file.transferTo(dest);
-				
-				client.setImgPath("/img/"+name+"/"+name+".jpg");
-				
-			}
-			catch(FileNotFoundException e) {
-				
-			}
-			catch(IOException e) {
-			
+
+				client.setImgPath("/img/" + name + "/" + name + ".jpg");
+
+			} catch (FileNotFoundException e) {
+
+			} catch (IOException e) {
+
 			}
 		}
 		this.clientService.save(client);
 		return "redirect:/Admin/editClient";
 	}
+
 	@PostMapping("/delete")
 	public String deleteClient(String clientId) {
 		int id = Integer.parseInt(clientId);
@@ -137,7 +134,7 @@ public class EditClientController {
 	public String editClient(String clientId, @RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "1000") int size,
 			@RequestParam(name = "type", defaultValue = "un") String type, Model model) {
-		
+
 		PageRequest pageRequest = PageRequest.of(page, size);
 		model.addAttribute("unClients", this.clientService.findByPage(pageRequest, type).getContent());
 		model.addAttribute("govClients", this.clientService.findByPage(pageRequest, "gov").getContent());
@@ -150,12 +147,13 @@ public class EditClientController {
 		int id = Integer.parseInt(clientId);
 
 		model.addAttribute("newClient", this.clientService.findById((long) id));
-		return "editClient";
+		return "admin/editClient";
 
 	}
 
 	@PostMapping("/saveClientText")
-	public String saveClientText(@Valid @ModelAttribute("clientText") OtherTexts clientText, BindingResult bindingResult,
+	public String saveClientText(@Valid @ModelAttribute("clientText") OtherTexts clientText,
+			BindingResult bindingResult,
 			Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			PageRequest pageRequest = PageRequest.of(0, 1000);
@@ -163,17 +161,14 @@ public class EditClientController {
 			model.addAttribute("govClients", this.clientService.findByPage(pageRequest, "gov").getContent());
 			model.addAttribute("nongovClients", this.clientService.findByPage(pageRequest, "nongov").getContent());
 			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-			
 
 			model.addAttribute("Clients", clientService.findImages());
 
-			return "editClient";
+			return "admin/editClient";
 		}
 
 		this.otherTextsService.save(clientText);
 		return "redirect:/Admin/editClient";
 	}
-
-	
 
 }

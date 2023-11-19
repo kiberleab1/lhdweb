@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>LeMonde Health and Development</title>
+<title>LHD Health and Development</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -81,7 +81,7 @@ table tr td:first-child::before {
 			<div id="logo" class="pull-left">
 				<h1>
 					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
-							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
+							width="50" th:src="@{/img/logo.svg}" /></i> LHD </a>
 				</h1>
 				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
 			</div>
@@ -100,7 +100,7 @@ table tr td:first-child::before {
 
 						</ul></li>
 					<li><a th:href="@{/Admin/editContact}">Contact</a></li>
-					<li><a th:href="@{/logout}">Logout</a></li>
+					<li><a th:href="@{/admin/logout}">Logout</a></li>
 				</ul>
 
 			</nav>
@@ -359,7 +359,7 @@ table tr td:first-child::before {
 			<div class="row justify-content-end">
 				<section id="clients" class="wow fadeInUp col-9">
 					<div class="container">
-						<div class="section-header" th:object="${clientText}">
+						<div class="section-header"  th:if="${clientText != null}" th:object="${clientText}">
 							<h2>Client Text</h2>
 							<form name="sentMessage" class="well" id="contactForm" novalidate
 								th:action="@{/Admin/editClient/saveClientText}" method="POST"

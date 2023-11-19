@@ -1,217 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>LeMonde Health and Development</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="" name="keywords">
-<meta content="" name="description">
-<meta content="Author" name="WebThemez">
-<!-- Favicons -->
-<link th:href="@{/img/favicon.png}" rel="icon">
-<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+  <head>
+    <meta charset="utf-8" />
+    <title>LHD Health and Development</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <meta content="Author" name="WebThemez" />
+    <!-- Favicons -->
+    <link th:href="@{/img/favicon.png}" rel="icon" />
+    <link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon" />
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
-	rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+      rel="stylesheet"
+    />
 
-<!-- Bootstrap CSS File -->
-<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
 
-<!-- Libraries CSS Files -->
-<link th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
-	rel="stylesheet">
-<link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
-<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
-<link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
-	rel="stylesheet">
-<link th:href="@{/lib/magnific-popup/magnific-popup.css}"
-	rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/font-icon.css}">
-<link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link
+      th:href="@{/lib/font-awesome/css/font-awesome.min.css}"
+      rel="stylesheet"
+    />
+    <link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet" />
+    <link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet" />
+    <link
+      th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}"
+      rel="stylesheet"
+    />
+    <link
+      th:href="@{/lib/magnific-popup/magnific-popup.css}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/font-icon.css}" />
+    <link th:href="@{/lib/ionicons/css/ionicons.min.css}" rel="stylesheet" />
 
-<!-- Main Stylesheet File -->
-<link th:href="@{/css/style.css}" rel="stylesheet">
-</head>
+    <!-- Main Stylesheet File -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+  </head>
 
-<body id="body">
-
-	<!--==========================
+  <body id="body">
+    <!--==========================
     Top Bar
   ============================-->
-	<section id="topbar" class="d-none d-lg-block">
-		<div class="container clearfix">
-			<div class="contact-info float-left">
-				<i class="fa fa-envelope-o"></i> <a
-					href="mailto:contact@example.com">name@websitename.com</a> <i
-					class="fa fa-phone"></i> +1 2345 67855 22
-			</div>
-			<div class="social-links float-right">
-				<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
-					href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
-					href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-				<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> <a
-					href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-			</div>
-		</div>
-	</section>
+    <section id="topbar" class="d-none d-lg-block">
+      <div class="container clearfix">
+        <div class="contact-info float-left">
+          <i class="fa fa-envelope-o"></i>
+          <a href="mailto:contact@example.com">name@websitename.com</a>
+          <i class="fa fa-phone"></i> +1 2345 67855 22
+        </div>
+        <div class="social-links float-right">
+          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
+    </section>
 
-	<!--==========================
+    <!--==========================
     Header
   ============================-->
-	<header id="header">
-		<div class="container">
+    <header id="header">
+      <div class="container">
+        <div id="logo" class="pull-left">
+          <h1>
+            <a th:href="@{/lhd/Home}" class="scrollto"
+              ><i class="icon"><img width="50" th:src="@{/img/logo.svg}" /></i>
+              LHD
+            </a>
+          </h1>
+          <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
 
-			<div id="logo" class="pull-left">
-				<h1>
-					<a th:href="@{/lhd/Home}" class="scrollto"><i class="icon"><img
-							width="50" th:src="@{/img/logo.svg}" /></i> Le Monde </a>
-				</h1>
-				<!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-			</div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
+            <li><a th:href="@{/lhd/about}">About Us</a></li>
+            <li><a th:href="@{/lhd/service}">Services</a></li>
+            <li><a th:href="@{/lhd/experiance}">Experience</a></li>
+            <li class="menu-has-children">
+              <a href="">Clients</a>
+              <ul>
+                <li><a th:href="@{/lhd/clientinethiopia}">In Ethiopia</a></li>
+                <li><a th:href="@{/lhd/otherclients}">Other Countries</a></li>
+                <li><a th:href="@{/lhd/Emails}">Emails</a></li>
+              </ul>
+            </li>
+            <li><a th:href="@{/lhd/contact}">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- #nav-menu-container -->
+      </div>
+    </header>
 
-			<nav id="nav-menu-container">
-				<ul class="nav-menu">
-					<li class="menu-active"><a th:href="@{/lhd/Home}">Home</a></li>
-					<li><a th:href="@{/lhd/about}">About Us</a></li>
-					<li><a th:href="@{/lhd/service}">Services</a></li>
-					<li><a th:href="@{/lhd/experiance}">Experience</a></li>
-					<li class="menu-has-children"><a href="">Clients</a>
-						<ul>
-							<li><a th:href="@{/lhd/clientinethiopia}">In Ethiopia</a></li>
-							<li><a th:href="@{/lhd/otherclients}">Other Countries</a></li>
-							<li><a th:href="@{/lhd/Emails}">Emails</a></li>
-							
-						</ul></li>
-					<li><a th:href="@{/lhd/contact}">Contact</a></li>
-				</ul>
-			</nav>
-			<!-- #nav-menu-container -->
-		</div>
-	</header>
+    <!-- #header -->
 
-	<!-- #header -->
-
-	<!--==========================
+    <!--==========================
     Page Banner Section
   ============================-->
-	<section id="innerBanner">
-		<div class="inner-content">
-			<h2>
-				<span>Services</span> <br>Striving for Excellence and Lasting
-				Change!
-			</h2>
-			<div></div>
-		</div>
-	</section>
-	<!-- #Page Banner -->
+    <section id="innerBanner">
+      <div class="inner-content">
+        <h2>
+          <span>Services</span> <br />Striving for Excellence and Lasting
+          Change!
+        </h2>
+        <div></div>
+      </div>
+    </section>
+    <!-- #Page Banner -->
 
-	<main id="main"> <!--==========================
+    <main id="main">
+      <!--==========================
       Services Section
     ============================-->
-	<section id="services">
+      <section id="services">
+        <div class="container">
+          <div class="section-header" th:object="${Service}">
+            <h2>Services</h2>
+            <p th:text="*{detailText}"></p>
+          </div>
 
-		<div class="container">
-			<div class="section-header" th:object="${Service}">
-				<h2>Services</h2>
-				<p th:text="${detailText}"></p>
-			</div>
-
-			<div class="row">
-
-				<div class="col-lg-4" th:each="service :${services}">
-					<div class="box wow fadeInLeft">
-						<div class="icon">
-							<i class="icon icon-briefcase"></i>
-						</div>
-						<h4 class="title">
-							<a th:href="@{/lhd/services/}+''+${service.serviceName}"
-								th:text="${service.serviceName}"></a>
-						</h4>
-						<p class="description" th:text="${service.detailText}"></p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- #services --> <!--==========================
+          <div class="row">
+            <div class="col-lg-4" th:each="service :${services}">
+              <div class="box wow fadeInLeft">
+                <div class="icon">
+                  <i class="icon icon-briefcase"></i>
+                </div>
+                <h4 class="title">
+                  <a
+                    th:href="@{/lhd/services/}+''+${service.serviceName}"
+                    th:text="${service.serviceName}"
+                  ></a>
+                </h4>
+                <p class="description" th:text="${service.detailText}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- #services -->
+      <!--==========================
       Clients Section
     ============================-->
-	<section id="clients" class="wow fadeInUp">
-		<div class="container">
-			<div class="section-header" th:object="${clientText}">
-				<h2>Clients</h2>
-				<p th:text="${detailText}"></p>
-			</div>
+      <section id="clients" class="wow fadeInUp">
+        <div class="container">
+          <div class="section-header" th:object="${clientText}">
+            <h2>Clients</h2>
+            <p th:text="*{detailText}"></p>
+          </div>
 
-			<div class="owl-carousel clients-carousel">
-				<a th:each="client :${Clients}" target="_blank"
-					th:href="${client.link}"> <img th:src="${client.imgPath}"
-					alt="">
-				</a>
-			</div>
-
-		</div>
-	</section>
-	<!-- #clients --> <!--==========================
+          <div class="owl-carousel clients-carousel">
+            <a
+              th:each="client :${Clients}"
+              target="_blank"
+              th:href="${client.link}"
+            >
+              <img th:src="${client.imgPath}" alt="" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- #clients -->
+      <!--==========================
       About Section
     ============================-->
-	
-	<!-- #about --> <!--==========================
+
+      <!-- #about -->
+      <!--==========================
       Call To Action Section
     ============================-->
-	<section id="call-to-action" class="wow fadeInUp">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 text-center text-lg-left"
-					th:object="${Service}">
-					<h3 class="cta-title">Get Our Service</h3>
-					<p class="cta-text" th:text="${detailText}"></p>
-				</div>
-				<div class="col-lg-3 cta-btn-container text-center">
-					<a class="cta-btn align-middle" th:href="@{/lhd/contact}">Contact
-						Us</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- #call-to-action --> </main>
+      <section id="call-to-action" class="wow fadeInUp">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-lg-9 text-center text-lg-left"
+              th:object="${Service}"
+            >
+              <h3 class="cta-title">Get Our Service</h3>
+              <p class="cta-text" th:text="*{detailText}"></p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" th:href="@{/lhd/contact}"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- #call-to-action -->
+    </main>
 
-	<!--==========================
+    <!--==========================
     Footer
   ============================-->
-	<footer id="footer">
-		<div class="container">
-			<div class="copyright">
-				&copy; Copyright <strong>BizTech</strong>. All Rights Reserved
-			</div>
-			<div class="credits">
-				Best <a href="https://webthemez.com/free-bootstrap-templates/">Bootstrap
-					Templates</a> by WebThemez
-			</div>
-		</div>
-	</footer>
-	<!-- #footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong>BizTech</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Best
+          <a href="https://webthemez.com/free-bootstrap-templates/"
+            >Bootstrap Templates</a
+          >
+          by WebThemez
+        </div>
+      </div>
+    </footer>
+    <!-- #footer -->
 
-	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-	<!-- JavaScript  -->
-	<script th:src="@{/lib/jquery/jquery.min.js}"></script>
-	<script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
-	<script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<script th:src="@{/lib/easing/easing.min.js}"></script>
-	<script th:src="@{/lib/superfish/hoverIntent.js}"></script>
-	<script th:src="@{/lib/superfish/superfish.min.js}"></script>
-	<script th:src="@{/lib/wow/wow.min.js}"></script>
-	<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
-	<script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
-	<script th:src="@{/lib/sticky/sticky.js}"></script>
-	<script th:src="@{/contact/jqBootstrapValidation.js}"></script>
-	<script th:src="@{/contact/contact_me.js}"></script>
-	<script th:src="@{/js/main.js}"></script>
-
-</body>
+    <!-- JavaScript  -->
+    <script th:src="@{/lib/jquery/jquery.min.js}"></script>
+    <script th:src="@{/lib/jquery/jquery-migrate.min.js}"></script>
+    <script th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/lib/easing/easing.min.js}"></script>
+    <script th:src="@{/lib/superfish/hoverIntent.js}"></script>
+    <script th:src="@{/lib/superfish/superfish.min.js}"></script>
+    <script th:src="@{/lib/wow/wow.min.js}"></script>
+    <script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+    <script th:src="@{/lib/magnific-popup/magnific-popup.min.js}"></script>
+    <script th:src="@{/lib/sticky/sticky.js}"></script>
+    <script th:src="@{/contact/jqBootstrapValidation.js}"></script>
+    <script th:src="@{/contact/contact_me.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+  </body>
 </html>

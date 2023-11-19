@@ -28,7 +28,6 @@ import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
 
-
 @Controller
 @RequestMapping("Admin/editService")
 public class EditServiceController {
@@ -63,7 +62,7 @@ public class EditServiceController {
 		model.addAttribute("services", servicesService.findAll());
 		model.addAttribute("newService", new Services());
 
-		return "editServices";
+		return "admin/editServices";
 
 	}
 
@@ -83,7 +82,7 @@ public class EditServiceController {
 			model.addAttribute("Clients", clientService.findImages());
 			model.addAttribute("Testimonies", testomonialService.findAll());
 			model.addAttribute("services", servicesService.findAll());
-			return "editServices";
+			return "admin/editServices";
 		}
 
 		if (!file.getOriginalFilename().isEmpty()) {
@@ -103,7 +102,7 @@ public class EditServiceController {
 				}
 				String absPath = directory.getAbsolutePath();
 				// absPath.replaceAll("\\","/");
-				
+
 				String filePath = absPath + "/" + name + "/";
 				File destFolder = new File(filePath);
 
@@ -116,7 +115,7 @@ public class EditServiceController {
 				destFolder.mkdir();
 
 				filePath += filename;
-				
+
 				File dest = new File(filePath);
 
 				file.transferTo(dest);
@@ -124,9 +123,9 @@ public class EditServiceController {
 				service.setSvgImgPath("/img/" + name + "/" + name + ".svg");
 
 			} catch (FileNotFoundException e) {
-				
+
 			} catch (IOException e) {
-				
+
 			}
 		}
 		this.servicesService.save(service);
@@ -144,7 +143,7 @@ public class EditServiceController {
 	public String editClient(String serviceId, Model model) {
 
 		int id = Integer.parseInt(serviceId);
-		
+
 		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
 		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
@@ -159,7 +158,7 @@ public class EditServiceController {
 		model.addAttribute("services", servicesService.findAll());
 		model.addAttribute("newService", this.servicesService.findById(id));
 
-		return "editServices";
+		return "admin/editServices";
 
 	}
 

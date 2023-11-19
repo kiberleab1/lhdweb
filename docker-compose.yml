@@ -9,7 +9,7 @@ services:
         environment:
             MYSQL_USER: admin
             MYSQL_PASSWORD: password
-            MYSQL_DATABASE: test_db
+            MYSQL_DATABASE: lhd_web
             MYSQL_ROOT_PASSWORD: password
         volumes:
             - "test_db:/var/lib/mysql"

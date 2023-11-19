@@ -34,7 +34,7 @@ public class ContactController {
 		}
 		emailService.SendSimpleMessage("kiberleabdemassie@gmail.com", contactEmail,
 				contact.getName() + "@ " + contact.getEmail(), contact.getMessage());
-		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Contact @ LeMonde",
+		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Contact @ LHD",
 				"Thank you for contacting us and will respond to your quires.  Please\r\n" +
 						"do reach out to the following emails and we will be able to respond to\r\n" +
 						"you as soon as possible.\r\n" +

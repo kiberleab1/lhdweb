@@ -14,13 +14,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private UserDetailsService userDetailService;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/fonts/**", "/images/**", "../css/**", "../js/**",
@@ -31,22 +31,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// http.requestMatcher(EndpointRequest.toAnyEndpoint());
 		http.authorizeRequests()
-			.antMatchers("/").permitAll()
-			.antMatchers("/lhd/**").permitAll()
-			.antMatchers("/Admin/**").permitAll()
+				.antMatchers("/").permitAll()
+				.antMatchers("/lhd/**").permitAll()
+				.antMatchers("/Admin/**").authenticated()
 				.and()
-					.formLogin()
-						.loginPage("/login")
-							.failureUrl("/login?error=true")
-							.defaultSuccessUrl("/default")
+				.formLogin()
+				.loginPage("/admin/login")
+				.failureUrl("/admin/login?error=true")
+				.defaultSuccessUrl("/default")
 
 				.and()
-					.logout()
-						.invalidateHttpSession(true)
-						.clearAuthentication(true)
-						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-						.logoutSuccessUrl("/login?logout")
-							.permitAll().and().exceptionHandling().accessDeniedPage("/AccessDenied");
+				.logout()
+				.invalidateHttpSession(true)
+				.clearAuthentication(true)
+				.logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout"))
+				.logoutSuccessUrl("/admin/login?logout")
+				.permitAll().and().exceptionHandling().accessDeniedPage("/AccessDenied");
 
 	}
 

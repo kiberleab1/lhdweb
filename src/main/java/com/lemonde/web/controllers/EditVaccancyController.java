@@ -24,14 +24,14 @@ public class EditVaccancyController {
 	public String getEditVaccancy(Model model) {
 		model.addAttribute("vaccancys", this.vaccancyService.findAll());
 		model.addAttribute("newVaccancy", new Vaccancy());
-		return "editVaccancy";
+		return "admin/editVaccancy";
 	}
 
 	@PostMapping
 	public String saveVaccancy(@Valid @ModelAttribute("newVaccancy") Vaccancy vaccancy, Model model, Errors errors) {
 		if (errors.hasErrors()) {
 			model.addAttribute("vaccancys", this.vaccancyService.findAll());
-			return "editVaccancy";
+			return "admin/editVaccancy";
 		}
 		this.vaccancyService.save(vaccancy);
 		return "redirect:/Admin/editVaccancy";
@@ -45,11 +45,11 @@ public class EditVaccancyController {
 	}
 
 	@PostMapping("edit")
-	public String editVaccancy(String clientId,Model model) {
-		long Id=(long)Integer.parseInt(clientId);
+	public String editVaccancy(String clientId, Model model) {
+		long Id = (long) Integer.parseInt(clientId);
 		model.addAttribute("vaccancys", this.vaccancyService.findAll());
-		model.addAttribute("newVaccancy",this.vaccancyService.findById(Id));
-		return "editVaccancy";
+		model.addAttribute("newVaccancy", this.vaccancyService.findById(Id));
+		return "admin/editVaccancy";
 	}
 
 }

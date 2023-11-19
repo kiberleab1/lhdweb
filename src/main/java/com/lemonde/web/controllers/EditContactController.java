@@ -15,7 +15,7 @@ import com.lemonde.web.domains.Contact;
 import com.lemonde.web.services.EmailService;
 
 @Controller
-@RequestMapping("/Admin/editContacta")
+@RequestMapping("/Admin/editContact")
 public class EditContactController {
 	private final String contactEmail = "contact@lhdconsult.org";
 	@Autowired
@@ -24,7 +24,7 @@ public class EditContactController {
 	@GetMapping
 	public String getContact(Model model) {
 		model.addAttribute("newContact", new Contact());
-		return "editContact";
+		return "admin/editContact";
 	}
 
 	@PostMapping

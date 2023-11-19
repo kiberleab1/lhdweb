@@ -13,9 +13,10 @@ import com.lemonde.web.services.OtherTextsService;
 public class EditHome {
 	@Autowired
 	private OtherTextsService otherTextsService;
+
 	@GetMapping
 	public String getEditHome(Model model) {
-		return "editHome";
+		return "/admin/editHome";
 	}
 
 }

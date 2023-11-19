@@ -76,7 +76,7 @@ public class EditAboutController {
 		model.addAttribute("newTestemony", new Testimonies());
 		model.addAttribute("newObjectives", new OtherTexts());
 
-		return "editAbout";
+		return "admin/editAbout";
 	}
 
 	@PostMapping("/deleteObjective")
@@ -118,7 +118,7 @@ public class EditAboutController {
 		model.addAttribute("newObjectives", new OtherTexts());
 
 		model.addAttribute("newTestemony", this.testomonialService.findById((long) id));
-		return "editAbout";
+		return "admin/editAbout";
 	}
 
 	@PostMapping("/saveTestimony")
@@ -149,7 +149,7 @@ public class EditAboutController {
 
 			model.addAttribute("newTestemony", new Testimonies());
 
-			return "editAbout";
+			return "admin/editAbout";
 		}
 
 		this.testomonialService.save(testimonies);
