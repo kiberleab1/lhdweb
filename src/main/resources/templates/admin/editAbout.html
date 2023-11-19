@@ -117,21 +117,20 @@
 
 
 					<div class="container">
-						<div class="section-header"  th:if="${FirmText != null}" th::object="${FirmText}">
+						<div class="section-header"  th:if="${FirmText != null}" th:object="${FirmText}">
 							<h2>Our Firm</h2>
 							<form name="sentMessage" class="well" id="contactForm" novalidate
 								th:action="@{/Admin/editAbout/saveOthersText}" method="POST" row="8">
 								<input type="hidden" name="Id" th:field="*{Id}" />
-								 <input type="hidden"
-									th:field="*{type}" /> 
-								<input type="hidden" th:field="*{page}" />
+								 <input type="hidden" th:field="*{type}" />  
+								 <input type="hidden" th:field="*{page}" />
 								<div class="control-group">
 									<div class="form-group">
-										<textarea class="form-control" rows="8" placeholder="Operational Capacity"
+										 <textarea class="form-control" rows="8" placeholder="Operational Capacity"
 											id="name" required th:field="*{detailText}"
 											data-validation-required-message="Please enter your name">
-											</textarea>
-										<span class="text-danger" th:if="${#fields.hasErrors('Id')}"
+											</textarea> 
+										 <span class="text-danger" th:if="${#fields.hasErrors('Id')}"
 											th:errors="*{detailText}">Last Name Error </span>
 									</div>
 								</div>

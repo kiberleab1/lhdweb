@@ -62,7 +62,7 @@ public class EditAboutController {
 
 		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
 		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
-		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+		model.addAttribute("FirmText", otherTextsService.findSingleByPage("teamText"));
 		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 
 		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
@@ -75,7 +75,7 @@ public class EditAboutController {
 		model.addAttribute("newTeamMember", new TeamMembers());
 		model.addAttribute("newTestemony", new Testimonies());
 		model.addAttribute("newObjectives", new OtherTexts());
-
+		System.out.println(model.toString());
 		return "admin/editAbout";
 	}
 
@@ -183,7 +183,7 @@ public class EditAboutController {
 			model.addAttribute("newTestemony", new Testimonies());
 			// model.addAttribute("newObjectives", new OtherTexts());
 
-			return "editAbout";
+			return "admin/editAbout";
 
 		}
 		this.otherTextsService.save(clientText);
@@ -217,7 +217,7 @@ public class EditAboutController {
 			model.addAttribute("newTestemony", new Testimonies());
 			model.addAttribute("newObjectives", new OtherTexts());
 
-			return "editAbout";
+			return "admin/editAbout";
 
 		}
 
@@ -251,7 +251,7 @@ public class EditAboutController {
 			model.addAttribute("newTeamMember", new TeamMembers());
 			model.addAttribute("newTestemony", new Testimonies());
 			model.addAttribute("newObjectives", new OtherTexts());
-			return "editAbout";
+			return "admin/editAbout";
 
 		}
 
@@ -285,7 +285,7 @@ public class EditAboutController {
 			// model.addAttribute("newTeamMember",new TeamMembers());
 			model.addAttribute("newTestemony", new Testimonies());
 			model.addAttribute("newObjectives", new OtherTexts());
-			return "editAbout";
+			return "admin/editAbout";
 		}
 
 		if (!file.getOriginalFilename().isEmpty()) {
@@ -366,7 +366,7 @@ public class EditAboutController {
 		model.addAttribute("newTeamMember", this.teamMembersService.findById(id));
 		model.addAttribute("newTestemony", new Testimonies());
 		model.addAttribute("newObjectives", new OtherTexts());
-		return "editAbout";
+		return "admin/editAbout";
 	}
 
 }

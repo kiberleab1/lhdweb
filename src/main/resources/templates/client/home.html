@@ -88,9 +88,12 @@
             <li class="menu-has-children">
               <a href="">Clients</a>
               <ul>
-                <li><a th:href="@{/lhd/clientinethiopia}">In Ethiopia</a></li>
-                <li><a th:href="@{/lhd/otherclients}">Other Countries</a></li>
-                <li><a th:href="@{/lhd/Emails}">Emails</a></li>
+                <li>
+                  <a th:href="@{/lhd/clientinethiopia}"
+                    >Clients in East Africa</a
+                  >
+                </li>
+                <li><a th:href="@{/lhd/otherclients}">Global Clients</a></li>
               </ul>
             </li>
             <li><a th:href="@{/lhd/contact}">Contact</a></li>
@@ -143,8 +146,8 @@
 
 		</div>
 	</section>
-	<!-- #about -->
-      <!--==========================
+	#about 
+      ==========================
       Services Section
     ============================-->
       <section id="services">
@@ -172,6 +175,25 @@
           </div>
         </div>
       </section>
+      <section id="clients" class="wow fadeInUp">
+        <div class="container">
+          <div class="section-header" th:object="${clientText}">
+            <h2>Clients</h2>
+            <p th:text="*{detailText}"></p>
+          </div>
+
+          <div class="owl-carousel clients-carousel">
+            <a
+              th:each="client :${Clients}"
+              target="_blank"
+              th:href="${client.link}"
+            >
+              <img th:src="${client.imgPath}" alt="" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!--==========================
       Call To Action Section
     ============================-->

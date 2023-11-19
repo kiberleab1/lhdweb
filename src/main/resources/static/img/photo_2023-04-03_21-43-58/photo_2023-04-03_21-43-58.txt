@@ -1,0 +1,36 @@
+17. Which of the following is backward recovery?
+‘A Where the before-images are applied to the database
+B. Where the after-images are applied to the database
+© Where the after-images and before-images are applied to the database
+D. Switching to an existing copy of the database
+18. The transaction log includes which of the following
+A. The before-image of record
+B. The after-image of a record
+C. The before and after-image of the record
+D. The essential data of the record.
+19. 1n SQL; Which of the folowing is a correct syntax to modify a table?
+‘A Alter table <Table Name <Column name <data type> field size>constrains>
+B ALTER TABLE ADD <colurn Name > <data type > field size> constraint>
+
+C. ALTER TABELE <table Name > ADD <column Name > <data type> field
+
+Size> < constraint»
+D. ALTER TABELE <table Name > DROPP <column Name > <data type> field size:
+
+20, Which of the following referential integrity constraints should be enforced to speci
+Automatic delation ofa foreign key record when a record in the base table is deleted?
+A on Drop cascade
+B.On Delete cascade
+C. On update Cascade
+
+D.On drop set mull
+21. All of the following can bie considered as Entity integrity constraint except
+
+A Unique. i
+
+B. foreign key
+
+C. Identity
+
+D. Primary key
+
