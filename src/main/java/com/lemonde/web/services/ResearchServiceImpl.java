@@ -1,11 +1,10 @@
 package com.lemonde.web.services;
-import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.lemonde.web.domains.Expirence;
 import com.lemonde.web.domains.Research;
 import com.lemonde.web.repositories.ResearchRepository;
 
@@ -14,6 +13,7 @@ public class ResearchServiceImpl implements ResearchService {
 
 	@Autowired
 	private ResearchRepository researchRepository;
+
 	@Override
 	public Iterable<Research> findAll() {
 		// TODO Auto-generated method stub
@@ -39,16 +39,16 @@ public class ResearchServiceImpl implements ResearchService {
 	}
 
 	@Override
-	public Page<Research> findByType(Pageable pagable,String type) {
-		return this.researchRepository.findByType(pagable,type);
+	public Page<Research> findByType(Pageable pagable, String type) {
+		return this.researchRepository.findByType(pagable, type);
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub  
-		return (int)this.researchRepository.count();
+		// TODO Auto-generated method stub
+		return (int) this.researchRepository.count();
 	}
 
 }

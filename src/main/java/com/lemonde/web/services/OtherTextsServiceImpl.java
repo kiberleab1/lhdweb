@@ -20,7 +20,7 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 
 	@Override
 	public List<OtherTexts> findByType(String type) {
-		
+
 		return otherTextsRepository.findByType(type);
 	}
 
@@ -29,8 +29,6 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 		return otherTextsRepository.findByPage(page);
 	}
 
-
-
 	@Override
 	public OtherTexts findSingleByPage(String page) {
 		return otherTextsRepository.findSingleByPage(page);
@@ -38,19 +36,19 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 
 	@Override
 	public OtherTexts findSingleByType(String type) {
-		return  otherTextsRepository.findSingleByType(type);
+		return otherTextsRepository.findSingleByType(type);
 	}
 
 	@Override
 	public void save(OtherTexts otherText) {
 		otherTextsRepository.save(otherText);
-		
+
 	}
 
 	@Override
 	public void deleteById(long id) {
 		otherTextsRepository.deleteById(id);
-		
+
 	}
 
 }

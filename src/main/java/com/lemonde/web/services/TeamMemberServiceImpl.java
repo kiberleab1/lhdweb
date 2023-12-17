@@ -1,7 +1,5 @@
 package com.lemonde.web.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +11,7 @@ public class TeamMemberServiceImpl implements TeamMembersService {
 
 	@Autowired
 	private TeamMembersRepository teamMembersRepositoriy;
+
 	@Override
 	public void save(TeamMembers teamMember) {
 		// TODO Auto-generated method stub
@@ -28,7 +27,7 @@ public class TeamMemberServiceImpl implements TeamMembersService {
 	@Override
 	public void deleteById(long id) {
 		this.teamMembersRepositoriy.deleteById(id);
-		
+
 	}
 
 	@Override

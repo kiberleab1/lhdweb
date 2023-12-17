@@ -15,28 +15,28 @@ import com.lemonde.web.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	private UserRepository userRepository;
-	
+
 	private RoleRepository roleRepository;
-	
+
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository,RoleRepository roleRepository,BCryptPasswordEncoder passwordEncoder)
-	{
-		this.userRepository=userRepository;
-		this.roleRepository=roleRepository;
-		this.passwordEncoder=passwordEncoder;
+	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
+			BCryptPasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserDetails userDetails=this.userRepository.findByEmail(username);
-		if(userDetails!=null) {
+		UserDetails userDetails = this.userRepository.findByEmail(username);
+		if (userDetails != null) {
 			return userDetails;
 		}
-		throw new UsernameNotFoundException("User '" + username+ "' not found");
+		throw new UsernameNotFoundException("User '" + username + "' not found");
 	}
 
 	@Override
@@ -48,19 +48,19 @@ public class UserServiceImpl implements UserService {
 	public User findUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		return userRepository.findByEmail(email);
-		
+
 	}
 
 	@Override
 	public void saveAdminUser(User user) {
 		// TODO Auto-generated method stub
-		Role role=new Role();
+		Role role = new Role();
 		role.setName("ADMIN");
 		role.setUser(user);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		roleRepository.save(role);
-		
+
 	}
 
 	@Override
