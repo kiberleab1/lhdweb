@@ -1,9 +1,5 @@
 package com.lemonde.web.controllers;
 
-import java.awt.List;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.validation.Valid;
@@ -22,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lemonde.web.domains.Clients;
-import com.lemonde.web.domains.Expirence;
 import com.lemonde.web.domains.OtherTexts;
 import com.lemonde.web.services.ClientService;
 import com.lemonde.web.services.ExperianceService;
+import com.lemonde.web.services.FileUpload;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.TestimonialService;
 
@@ -36,14 +32,16 @@ public class EditClientController {
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
+	private FileUpload fileUpload;
 
 	@Autowired
 	public EditClientController(ExperianceService experianceService, TestimonialService testomonialService,
-			ClientService clientService, OtherTextsService otherTextsService) {
+			ClientService clientService, OtherTextsService otherTextsService, FileUpload fileUploadService) {
 		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
+		this.fileUpload = fileUploadService;
 	}
 
 	@GetMapping
@@ -80,43 +78,12 @@ public class EditClientController {
 		if (!file.getOriginalFilename().isEmpty()) {
 
 			try {
-				int i = 1;
-				String filename = file.getOriginalFilename();
-				int pos = filename.lastIndexOf(".");
-				String dir = "src/main/resources/static/img";
-				File directory = new File(dir);
-				if (!directory.exists()) {
-					directory.mkdir();
-				}
-				String name = "";
-				if (pos > 0) {
-					name += filename.substring(0, pos);
-				}
-				String absPath = directory.getAbsolutePath();
 
-				String filePath = absPath + "/" + name + "/";
-				File destFolder = new File(filePath);
+				String imageURL = this.fileUpload.uploadFile(file);
+				client.setImgPath(imageURL);
 
-				while (destFolder.exists()) {
-					filePath = directory.getAbsolutePath() + "/" + name + "(" + i + ")/";
-					destFolder = new File(filePath);
-					i++;
-				}
-
-				destFolder.mkdir();
-
-				filePath += filename;
-
-				File dest = new File(filePath);
-
-				file.transferTo(dest);
-
-				client.setImgPath("/img/" + name + "/" + name + ".jpg");
-
-			} catch (FileNotFoundException e) {
-
-			} catch (IOException e) {
-
+			} catch (Exception e) {
+				System.out.println("error" + e.getMessage());
 			}
 		}
 		this.clientService.save(client);

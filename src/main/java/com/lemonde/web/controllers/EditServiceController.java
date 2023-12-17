@@ -1,13 +1,8 @@
 package com.lemonde.web.controllers;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.lemonde.web.domains.Clients;
-import com.lemonde.web.domains.Expirence;
 import com.lemonde.web.domains.Services;
 import com.lemonde.web.services.ClientService;
-import com.lemonde.web.services.ExperianceService;
+import com.lemonde.web.services.FileUpload;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
@@ -36,14 +29,16 @@ public class EditServiceController {
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private ServicesService servicesService;
+	private FileUpload fileUpload;
 
 	@Autowired
 	public EditServiceController(OtherTextsService otherTextsService, ClientService clientService,
-			TestimonialService testomonialService, ServicesService servicesService) {
+			TestimonialService testomonialService, ServicesService servicesService, FileUpload fileUpload) {
 		this.otherTextsService = otherTextsService;
 		this.clientService = clientService;
 		this.testomonialService = testomonialService;
 		this.servicesService = servicesService;
+		this.fileUpload = fileUpload;
 	}
 
 	@GetMapping
@@ -88,44 +83,12 @@ public class EditServiceController {
 		if (!file.getOriginalFilename().isEmpty()) {
 
 			try {
-				int i = 1;
-				String filename = file.getOriginalFilename();
-				int pos = filename.lastIndexOf(".");
-				String dir = "src/main/resources/static/img";
-				File directory = new File(dir);
-				if (!directory.exists()) {
-					directory.mkdir();
-				}
-				String name = "";
-				if (pos > 0) {
-					name += filename.substring(0, pos);
-				}
-				String absPath = directory.getAbsolutePath();
-				// absPath.replaceAll("\\","/");
 
-				String filePath = absPath + "/" + name + "/";
-				File destFolder = new File(filePath);
+				String name = this.fileUpload.uploadFile(file);
+				service.setSvgImgPath(name);
 
-				while (destFolder.exists()) {
-					filePath = directory.getAbsolutePath() + "/" + name + "(" + i + ")/";
-					destFolder = new File(filePath);
-					i++;
-				}
-
-				destFolder.mkdir();
-
-				filePath += filename;
-
-				File dest = new File(filePath);
-
-				file.transferTo(dest);
-
-				service.setSvgImgPath("/img/" + name + "/" + name + ".svg");
-
-			} catch (FileNotFoundException e) {
-
-			} catch (IOException e) {
-
+			} catch (Exception e) {
+				System.out.println("error" + e.getMessage());
 			}
 		}
 		this.servicesService.save(service);

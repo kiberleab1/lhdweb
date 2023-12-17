@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lemonde.web.domains.Expirence;
 import com.lemonde.web.services.ClientService;
 import com.lemonde.web.services.ExperianceService;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ResearchService;
-import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TestimonialService;
 
 @Controller

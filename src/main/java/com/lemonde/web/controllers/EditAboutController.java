@@ -1,13 +1,8 @@
 package com.lemonde.web.controllers;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.lemonde.web.domains.Clients;
 import com.lemonde.web.domains.OtherTexts;
 import com.lemonde.web.domains.TeamMembers;
 import com.lemonde.web.domains.Testimonies;
 import com.lemonde.web.services.ClientService;
 import com.lemonde.web.services.ExperianceService;
+import com.lemonde.web.services.FileUpload;
 import com.lemonde.web.services.OtherTextsService;
 import com.lemonde.web.services.ServicesService;
 import com.lemonde.web.services.TeamMembersService;
@@ -40,17 +35,20 @@ public class EditAboutController {
 	private OtherTextsService otherTextsService;
 	private ServicesService servicesService;
 	private TeamMembersService teamMembersService;
+	private FileUpload fileUpload;
 
 	@Autowired
 	public EditAboutController(ExperianceService experianceService, TestimonialService testomonialService,
 			ClientService clientService, OtherTextsService otherTextsService, ServicesService servicesService,
-			TeamMembersService teamMembersService) {
+			TeamMembersService teamMembersService,
+			FileUpload fileUploadService) {
 		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
 		this.servicesService = servicesService;
 		this.teamMembersService = teamMembersService;
+		this.fileUpload = fileUploadService;
 	}
 
 	@GetMapping
@@ -289,50 +287,19 @@ public class EditAboutController {
 		}
 
 		if (!file.getOriginalFilename().isEmpty()) {
-
 			try {
-				int i = 1;
-				String filename = file.getOriginalFilename();
-				int pos = filename.lastIndexOf(".");
-				String dir = "src/main/resources/static/img";
-				File directory = new File(dir);
-				if (!directory.exists()) {
-					directory.mkdir();
-				}
-				String name = "";
-				if (pos > 0) {
-					name += filename.substring(0, pos);
-				}
-				String absPath = directory.getAbsolutePath();
-				// absPath.replaceAll("\\","/");
+				String imgPath = this.fileUpload.uploadFile(file);
 
-				String filePath = absPath + "/" + name + "/";
-				File destFolder = new File(filePath);
+				teamMembers.setImgPath(imgPath);
 
-				while (destFolder.exists()) {
-					filePath = directory.getAbsolutePath() + "/" + name + "(" + i + ")/";
-					destFolder = new File(filePath);
-					i++;
-				}
-
-				destFolder.mkdir();
-
-				filePath += filename;
-
-				File dest = new File(filePath);
-
-				file.transferTo(dest);
-
-				teamMembers.setImgPath("/img/" + name + "/" + name + ".jpg");
-
-			} catch (FileNotFoundException e) {
-
-			} catch (IOException e) {
+			} catch (Exception e) {
 
 			}
 		}
+
 		this.teamMembersService.save(teamMembers);
 		return "redirect:/Admin/editAbout";
+
 	}
 
 	@PostMapping("/deleteTeam")
