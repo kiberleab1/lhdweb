@@ -129,7 +129,7 @@ License: https://webthemez.com/license
     <section id="innerBanner">
       <div class="inner-content">
         <h2>
-          <span>Experiance</span><br />Striving for Excellence &amp; Lasting
+          <span>Experience</span><br />Striving for Excellence &amp; Lasting
           Change!!
         </h2>
         <div></div>
@@ -144,91 +144,7 @@ License: https://webthemez.com/license
         </div>
 
         <div class="row">
-          <div class="col-3">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item">Research, Survey &amp; Assessment</a>
-              <ul>
-                <div
-                  class="list-group collapse"
-                  id="homeSubmenu"
-                  role="tablist"
-                >
-                  <a
-                    class="list-group-item list-group-item-action active"
-                    id="list-health-list"
-                    data-toggle="list"
-                    href="#list-health"
-                    role="tab"
-                    aria-controls="health"
-                    >Health</a
-                  >
-                  <a
-                    class="list-group-item list-group-item-action"
-                    id="list-food-list"
-                    data-toggle="list"
-                    href="#list-food"
-                    role="tab"
-                    aria-controls="food"
-                    >Nutrition & Food Security
-                  </a>
-                  <a
-                    class="list-group-item list-group-item-action"
-                    id="list-water-list"
-                    data-toggle="list"
-                    href="#list-water"
-                    role="tab"
-                    aria-controls="water"
-                    >Water, Sanitation & Hygiene (WaSH)</a
-                  >
-                  <a
-                    class="list-group-item list-group-item-action"
-                    id="list-hiv-list"
-                    data-toggle="list"
-                    href="#list-hiv"
-                    role="tab"
-                    aria-controls="hiv"
-                    >HIV & AIDS</a
-                  >
-                </div>
-              </ul>
-              <a
-                class="list-group-item list-group-item-action"
-                id="list-profile-list"
-                data-toggle="list"
-                href="#list-profile"
-                role="tab"
-                aria-controls="profile"
-                >Strategic &amp; Training Materials Development</a
-              >
-              <a
-                class="list-group-item list-group-item-action"
-                id="list-messages-list"
-                data-toggle="list"
-                href="#list-messages"
-                role="tab"
-                aria-controls="messages"
-                >Technical Assistance</a
-              >
-              <a
-                class="list-group-item list-group-item-action"
-                id="list-train-list"
-                data-toggle="list"
-                href="#list-train"
-                role="tab"
-                aria-controls="train"
-                >Providing Training</a
-              ><a
-                class="list-group-item list-group-item-action"
-                id="list-settings-list"
-                data-toggle="list"
-                href="#list-settings"
-                role="tab"
-                aria-controls="settings"
-                >Proposal Development</a
-              >
-            </div>
-          </div>
-          <div class="col-8">
+          <div class="col-12">
             <div class="tab-content" id="nav-tabContent">
               <div
                 class="tab-pane fade show active"
@@ -236,251 +152,22 @@ License: https://webthemez.com/license
                 role="tabpanel"
                 aria-labelledby="list-health-list"
               >
-                <table class="table table-striped">
-                  <thead></thead>
-                  <tbody>
-                    <tr th:each="experiance : ${health}">
-                      <td style="display: none; width: 0px"></td>
-                      <td>
-                        <table>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Title:</td>
-                            <td th:text="${experiance.title}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Client:</td>
-                            <td th:text="${experiance.client}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Objective of the study:</td>
-                            <td th:text="${experiance.objective}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Methodology:</td>
-                            <td th:text="${experiance.methodlogy}"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div
-                class="tab-pane fade"
-                id="list-water"
-                role="tabpanel"
-                aria-labelledby="list-water-list"
-              >
-                <table class="table table-striped">
-                  <thead></thead>
-                  <tbody>
-                    <tr th:each="experiance : ${water}">
-                      <td style="display: none; width: 0px"></td>
-                      <td>
-                        <table>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Title:</td>
-                            <td th:text="${experiance.title}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Client:</td>
-                            <td th:text="${experiance.client}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Objective of the study:</td>
-                            <td th:text="${experiance.objective}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Methodology:</td>
-                            <td th:text="${experiance.methodlogy}"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div
-                class="tab-pane fade"
-                id="list-food"
-                role="tabpanel"
-                aria-labelledby="list-food-list"
-              >
-                <table class="table table-striped">
-                  <thead></thead>
-                  <tbody>
-                    <tr th:each="experiance : ${food}">
-                      <td style="display: none; width: 0px"></td>
-                      <td>
-                        <table>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Title:</td>
-                            <td th:text="${experiance.title}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Client:</td>
-                            <td th:text="${experiance.client}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Objective of the study:</td>
-                            <td th:text="${experiance.objective}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Methodology:</td>
-                            <td th:text="${experiance.methodlogy}"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-hiv"
-                role="tabpanel"
-                aria-labelledby="list-hiv-list"
-              >
-                <table class="table table-striped">
-                  <thead></thead>
-                  <tbody>
-                    <tr th:each="experiance : ${hiv}">
-                      <td style="display: none; width: 0px"></td>
-                      <td>
-                        <table>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Title:</td>
-                            <td th:text="${experiance.title}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Client:</td>
-                            <td th:text="${experiance.client}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Objective of the study:</td>
-                            <td th:text="${experiance.objective}"></td>
-                          </tr>
-                          <tr>
-                            <td style="display: none; width: 0px"></td>
-                            <td style="width: 20px">Methodology:</td>
-                            <td th:text="${experiance.methodlogy}"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-profile"
-                role="tabpanel"
-                aria-labelledby="list-profile-list"
-              >
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Strategic and Training Materials</th>
-                      <th scope="col">Client</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr th:each="experiance : ${stratExperiance}">
-                      <td></td>
-                      <td th:text="${experiance.detailText}"></td>
-                      <td th:text="${experiance.client}"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-messages"
-                role="tabpanel"
-                aria-labelledby="list-messages-list"
-              >
-                <div>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Technical Assistance</th>
-                        <th scope="col">Client</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr th:each="experiance : ${assistExperiance}">
-                        <td></td>
-                        <td th:text="${experiance.detailText}"></td>
-                        <td th:text="${experiance.client}"></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="table borderless w-100">
+                  <div
+                    th:each="experience : ${health} "
+                    class="d-flex flex-row w-100 align-items-center justify-content-center"
+                  >
+                    <div
+                      class="w-75 shadow-lg p-4 mb-10 bg-body rounded border border-4"
+                    >
+                      <h3
+                        class="text-left"
+                        th:text="${experience.title} +' | '+ ${experience.client}+ ' | ' + ${experience.methodlogy}"
+                      ></h3>
+                      <p th:text="${experience.objective}"></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-settings"
-                role="tabpanel"
-                aria-labelledby="list-settings-list"
-              >
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Proposal Development</th>
-                      <th scope="col">Client</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr th:each="experiance : ${proposalExperiance}">
-                      <td></td>
-                      <td th:text="${experiance.detailText}"></td>
-                      <td th:text="${experiance.client}"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-train"
-                role="tabpanel"
-                aria-labelledby="list-train-list"
-              >
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Providing Training</th>
-                      <th scope="col">Client</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr th:each="experiance : ${trainExperiance}">
-                      <td></td>
-                      <td th:text="${experiance.detailText}"></td>
-                      <td th:text="${experiance.client}"></td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
@@ -510,7 +197,6 @@ License: https://webthemez.com/license
           </div>
         </div>
       </section>
-      -->
     </main>
 
     <!--==========================
@@ -519,7 +205,7 @@ License: https://webthemez.com/license
     <footer id="footer">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong>BizTech</strong>. All Rights Reserved
+          &copy; Copyright <strong>LHD consult</strong>. All Rights Reserved
         </div>
         <div class="credits">
           Best

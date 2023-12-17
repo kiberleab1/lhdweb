@@ -48,12 +48,14 @@ public class ExperianceController {
 		model.addAttribute("hiv", this.researchService.findByType(pageRequest, "hiv"));
 		model.addAttribute("food", this.researchService.findByType(pageRequest, "food"));
 
+		model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
 		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
 		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
 		model.addAttribute("proposalExperiance",
 				this.experianceService.findByPage(pageRequest, "propsal").getContent());
 
 		model.addAttribute("expText", otherTextsService.findSingleByPage("experiance"));
+
 		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
 		model.addAttribute("Clients", clientService.findImages());
