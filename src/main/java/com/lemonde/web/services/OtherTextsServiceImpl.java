@@ -2,7 +2,6 @@ package com.lemonde.web.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lemonde.web.domains.OtherTexts;
@@ -13,7 +12,6 @@ public class OtherTextsServiceImpl implements OtherTextsService {
 
 	private OtherTextsRepository otherTextsRepository;
 
-	@Autowired
 	public OtherTextsServiceImpl(OtherTextsRepository otherTextsRepository) {
 		this.otherTextsRepository = otherTextsRepository;
 	}

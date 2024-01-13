@@ -1,6 +1,5 @@
 package com.lemonde.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,6 @@ public class ExperianceController {
 	private OtherTextsService otherTextsService;
 	private ResearchService researchService;
 
-	@Autowired
 	public ExperianceController(ExperianceService experianceService, TestimonialService testomonialService,
 			ClientService clientService, OtherTextsService otherTextsService, ResearchService researchService) {
 		this.experianceService = experianceService;
@@ -37,29 +35,33 @@ public class ExperianceController {
 	public String recentTacos(@RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "10") int size,
 			@RequestParam(name = "type", defaultValue = "health") String type, Model model) {
+		try {
+			PageRequest pageRequest = PageRequest.of(page, size);
 
-		PageRequest pageRequest = PageRequest.of(page, size);
+			model.addAttribute("pageCounter", (this.researchService.count() + size) / size);
+			model.addAttribute("health", this.researchService.findByType(pageRequest, "health"));
+			model.addAttribute("water", this.researchService.findByType(pageRequest, "water"));
+			model.addAttribute("hiv", this.researchService.findByType(pageRequest, "hiv"));
+			model.addAttribute("food", this.researchService.findByType(pageRequest, "food"));
 
-		model.addAttribute("pageCounter", (this.researchService.count() + size) / size);
-		model.addAttribute("health", this.researchService.findByType(pageRequest, "health"));
-		model.addAttribute("water", this.researchService.findByType(pageRequest, "water"));
-		model.addAttribute("hiv", this.researchService.findByType(pageRequest, "hiv"));
-		model.addAttribute("food", this.researchService.findByType(pageRequest, "food"));
+			model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
+			model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
+			model.addAttribute("assistExperiance",
+					this.experianceService.findByPage(pageRequest, "assist").getContent());
+			model.addAttribute("proposalExperiance",
+					this.experianceService.findByPage(pageRequest, "propsal").getContent());
 
-		model.addAttribute("stratExperiance", this.experianceService.findByPage(pageRequest, "strat").getContent());
-		model.addAttribute("trainExperiance", this.experianceService.findByPage(pageRequest, "train").getContent());
-		model.addAttribute("assistExperiance", this.experianceService.findByPage(pageRequest, "assist").getContent());
-		model.addAttribute("proposalExperiance",
-				this.experianceService.findByPage(pageRequest, "propsal").getContent());
+			model.addAttribute("expText", otherTextsService.findSingleByPage("experiance"));
 
-		model.addAttribute("expText", otherTextsService.findSingleByPage("experiance"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
 
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
-
-		return "client/experiance";
+			return "client/experiance";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 
 	}
 }

@@ -29,27 +29,39 @@ public class EditVaccancyController {
 
 	@PostMapping
 	public String saveVaccancy(@Valid @ModelAttribute("newVaccancy") Vaccancy vaccancy, Model model, Errors errors) {
-		if (errors.hasErrors()) {
-			model.addAttribute("vaccancys", this.vaccancyService.findAll());
-			return "admin/editVaccancy";
+		try {
+			if (errors.hasErrors()) {
+				model.addAttribute("vaccancys", this.vaccancyService.findAll());
+				return "admin/editVaccancy";
+			}
+			this.vaccancyService.save(vaccancy);
+			return "redirect:/Admin/editVaccancy";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
-		this.vaccancyService.save(vaccancy);
-		return "redirect:/Admin/editVaccancy";
 	}
 
 	@PostMapping("delete")
 	public String deleteVaccancy(String clientId) {
-		long Id = (long) Integer.parseInt(clientId);
-		this.vaccancyService.delete(Id);
-		return "redirect:/Admin/editVaccancy";
+		try {
+			long Id = (long) Integer.parseInt(clientId);
+			this.vaccancyService.delete(Id);
+			return "redirect:/Admin/editVaccancy";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 
 	@PostMapping("edit")
 	public String editVaccancy(String clientId, Model model) {
-		long Id = (long) Integer.parseInt(clientId);
-		model.addAttribute("vaccancys", this.vaccancyService.findAll());
-		model.addAttribute("newVaccancy", this.vaccancyService.findById(Id));
-		return "admin/editVaccancy";
+		try {
+			long Id = (long) Integer.parseInt(clientId);
+			model.addAttribute("vaccancys", this.vaccancyService.findAll());
+			model.addAttribute("newVaccancy", this.vaccancyService.findById(Id));
+			return "admin/editVaccancy";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 
 }

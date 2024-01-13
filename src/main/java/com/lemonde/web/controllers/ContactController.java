@@ -29,16 +29,21 @@ public class ContactController {
 
 	@PostMapping
 	public String saveContact(@Valid @ModelAttribute("newContact") Contact contact, Model Model, Errors error) {
-		if (error.hasErrors()) {
-			return "contact";
+		try {
+
+			if (error.hasErrors()) {
+				return "contact";
+			}
+			emailService.SendSimpleMessage("kiberleabdemassie@gmail.com", contactEmail,
+					contact.getName() + "@ " + contact.getEmail(), contact.getMessage());
+			emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Contact @ LHD",
+					"Thank you for contacting us and will respond to your quires.  Please\r\n" +
+							"do reach out to the following emails and we will be able to respond to\r\n" +
+							"you as soon as possible.\r\n" +
+							"antenanie35@gmail.com or anduye2@gmail.com");
+			return "redirect:/lhd/contact";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
-		emailService.SendSimpleMessage("kiberleabdemassie@gmail.com", contactEmail,
-				contact.getName() + "@ " + contact.getEmail(), contact.getMessage());
-		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Contact @ LHD",
-				"Thank you for contacting us and will respond to your quires.  Please\r\n" +
-						"do reach out to the following emails and we will be able to respond to\r\n" +
-						"you as soon as possible.\r\n" +
-						"antenanie35@gmail.com or anduye2@gmail.com");
-		return "redirect:/lhd/contact";
 	}
 }

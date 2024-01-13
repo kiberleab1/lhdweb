@@ -15,6 +15,7 @@ spring:
     show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
   mail:
     host: mail.lhdconsult.org
     port: 2525

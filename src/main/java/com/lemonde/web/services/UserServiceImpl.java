@@ -2,7 +2,6 @@ package com.lemonde.web.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,7 +21,6 @@ public class UserServiceImpl implements UserService {
 
 	private BCryptPasswordEncoder passwordEncoder;
 
-	@Autowired
 	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
 			BCryptPasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;

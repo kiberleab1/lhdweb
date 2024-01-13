@@ -1,6 +1,5 @@
 package com.lemonde.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,18 +19,15 @@ import com.lemonde.web.services.TestimonialService;
 @RequestMapping("/lhd/about")
 public class AboutController {
 
-	private ExperianceService experianceService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
 	private ServicesService servicesService;
 	private TeamMembersService teamMembersService;
 
-	@Autowired
 	public AboutController(ExperianceService experianceService, TestimonialService testomonialService,
 			ClientService clientService, OtherTextsService otherTextsService, ServicesService servicesService,
 			TeamMembersService teamMembersService) {
-		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
@@ -41,26 +37,32 @@ public class AboutController {
 
 	@GetMapping
 	public String getAbout(Model model) {
-		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
-		model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
+		try {
 
-		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
-		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
-		model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
-		model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("OperationalCapacity", otherTextsService.findSingleByPage("operational"));
 
-		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("FirmText", otherTextsService.findSingleByPage("firm"));
+			model.addAttribute("TeamText", otherTextsService.findSingleByPage("teamText"));
 
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
-		model.addAttribute("services", servicesService.findAll());
-		model.addAttribute("ourTeam", teamMembersService.findAll());
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 
-		model.addAttribute("newTeamMember", new TeamMembers());
-		model.addAttribute("newTestemony", new Testimonies());
-		model.addAttribute("newObjectives", new OtherTexts());
-		return "client/about";
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
+			model.addAttribute("services", servicesService.findAll());
+			model.addAttribute("ourTeam", teamMembersService.findAll());
+
+			model.addAttribute("newTeamMember", new TeamMembers());
+			model.addAttribute("newTestemony", new Testimonies());
+			model.addAttribute("newObjectives", new OtherTexts());
+			return "client/about";
+		} catch (Exception e) {
+			System.out.println(e);
+			return "redirect:/error";
+		}
 	}
 }

@@ -1,6 +1,5 @@
 package com.lemonde.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,15 +15,12 @@ import com.lemonde.web.services.TestimonialService;
 @Controller
 @RequestMapping("/lhd/otherclients")
 public class ClientOtherController {
-	private ExperianceService experianceService;
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
 
-	@Autowired
 	public ClientOtherController(ExperianceService experianceService, TestimonialService testomonialService,
 			ClientService clientService, OtherTextsService otherTextsService) {
-		this.experianceService = experianceService;
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
@@ -34,20 +30,25 @@ public class ClientOtherController {
 	public String recentTacos(@RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "10") int size,
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
-		PageRequest pageRequest = PageRequest.of(page, size);
-		model.addAttribute("unClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "un", "other").getContent());
-		model.addAttribute("govClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "other").getContent());
-		model.addAttribute("nongovClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "other").getContent());
+		try {
 
-		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			PageRequest pageRequest = PageRequest.of(page, size);
+			model.addAttribute("unClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "un", "other").getContent());
+			model.addAttribute("govClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "other").getContent());
+			model.addAttribute("nongovClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "other").getContent());
 
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
-		return "client/clientsinothers";
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
+
+			return "client/clientsinothers";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 }

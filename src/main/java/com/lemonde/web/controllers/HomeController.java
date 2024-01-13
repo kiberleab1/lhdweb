@@ -23,7 +23,6 @@ public class HomeController {
 	@Autowired
 	private VaccancyService vaccancyService;
 
-	@Autowired
 	public HomeController(OtherTextsService otherTextsService, ClientService clientService,
 			TestimonialService testomonialService, ServicesService servicesService) {
 		this.otherTextsService = otherTextsService;
@@ -34,19 +33,23 @@ public class HomeController {
 
 	@GetMapping
 	public String getHome(Model model) {
-		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+		try {
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
-		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
-		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
-		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 
-		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
-		model.addAttribute("services", servicesService.findAll());
-		model.addAttribute("vacc", this.vaccancyService.count());
-		return "client/home";
+			model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
+			model.addAttribute("services", servicesService.findAll());
+			model.addAttribute("vacc", this.vaccancyService.count());
+			return "client/home";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 }

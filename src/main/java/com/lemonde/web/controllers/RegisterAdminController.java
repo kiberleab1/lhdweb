@@ -2,7 +2,6 @@ package com.lemonde.web.controllers;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,7 +19,6 @@ public class RegisterAdminController {
 
 	private UserService userService;
 
-	@Autowired
 	public RegisterAdminController(UserService userService) {
 		this.userService = userService;
 	}
@@ -38,20 +36,22 @@ public class RegisterAdminController {
 
 	@PostMapping
 	public String processRegisterHotel(@Valid @ModelAttribute("registerAdmin") User Admin, Errors errors) {
-
-		if (errors.hasErrors()) {
-
-			return "admin/registerAdmin";
-		}
 		try {
-			this.userService.saveAdminUser(Admin);
+			if (errors.hasErrors()) {
+
+				return "admin/registerAdmin";
+			}
+			try {
+				this.userService.saveAdminUser(Admin);
+			} catch (Exception e) {
+				// add custom error message
+				errors.rejectValue("", "Something Went wrong");
+				return "redirect:/Admin/Register?error";
+			}
+			return "redirect:/Admin/Home";
 		} catch (Exception e) {
-			// add custom error message
-			errors.rejectValue("", "Something Went wrong");
-			return "redirect:/Admin/Register?error";
+			return "redirect:/error";
 		}
-		// User registedManager=userRepository.save(manager);
-		return "redirect:/Admin/Home";
 
 	}
 

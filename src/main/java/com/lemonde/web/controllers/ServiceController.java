@@ -1,6 +1,5 @@
 package com.lemonde.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,6 @@ public class ServiceController {
 	private TestimonialService testomonialService;
 	private ServicesService servicesService;
 
-	@Autowired
 	public ServiceController(OtherTextsService otherTextsService, ClientService clientService,
 			TestimonialService testomonialService, ServicesService servicesService) {
 		this.otherTextsService = otherTextsService;
@@ -31,19 +29,23 @@ public class ServiceController {
 
 	@GetMapping
 	public String getService(Model model) {
-		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-		model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+		try {
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Service", otherTextsService.findSingleByPage("Service"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
-		model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
-		model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
-		model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("VisionText", otherTextsService.findSingleByPage("vision"));
+			model.addAttribute("MisionText", otherTextsService.findSingleByPage("mision"));
+			model.addAttribute("Objectives", otherTextsService.findByType("aboutPoint"));
 
-		model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
-		model.addAttribute("services", servicesService.findAll());
+			model.addAttribute("AboutPoints", otherTextsService.findByType("aboutPoint"));
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
+			model.addAttribute("services", servicesService.findAll());
 
-		return "client/services";
+			return "client/services";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 }

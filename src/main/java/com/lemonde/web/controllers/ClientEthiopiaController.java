@@ -1,6 +1,5 @@
 package com.lemonde.web.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,15 +15,14 @@ import com.lemonde.web.services.TestimonialService;
 @Controller
 @RequestMapping("/lhd/clientinethiopia")
 public class ClientEthiopiaController {
-	private ExperianceService experianceService;
+
 	private ClientService clientService;
 	private TestimonialService testomonialService;
 	private OtherTextsService otherTextsService;
 
-	@Autowired
 	public ClientEthiopiaController(ExperianceService experianceService, TestimonialService testomonialService,
 			ClientService clientService, OtherTextsService otherTextsService) {
-		this.experianceService = experianceService;
+
 		this.clientService = clientService;
 		this.otherTextsService = otherTextsService;
 		this.testomonialService = testomonialService;
@@ -34,21 +32,25 @@ public class ClientEthiopiaController {
 	public String recentTacos(@RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "1000") int size,
 			@RequestParam(name = "type", defaultValue = "research") String type, Model model) {
+		try {
 
-		PageRequest pageRequest = PageRequest.of(page, size);
-		model.addAttribute("unClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "un", "Ethiopia").getContent());
-		model.addAttribute("govClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "Ethiopia").getContent());
-		model.addAttribute("nongovClients",
-				this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "Ethiopia").getContent());
+			PageRequest pageRequest = PageRequest.of(page, size);
+			model.addAttribute("unClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "un", "Ethiopia").getContent());
+			model.addAttribute("govClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "gov", "Ethiopia").getContent());
+			model.addAttribute("nongovClients",
+					this.clientService.findPageByTypeAndCountry(pageRequest, "nongov", "Ethiopia").getContent());
 
-		model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
-		model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
+			model.addAttribute("clientText", otherTextsService.findSingleByPage("clients"));
+			model.addAttribute("Testimonial", otherTextsService.findSingleByPage("Testimonial"));
 
-		model.addAttribute("Clients", clientService.findImages());
-		model.addAttribute("Testimonies", testomonialService.findAll());
+			model.addAttribute("Clients", clientService.findImages());
+			model.addAttribute("Testimonies", testomonialService.findAll());
 
-		return "client/clientsinethiopia";
+			return "client/clientsinethiopia";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 }

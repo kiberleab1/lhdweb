@@ -33,39 +33,52 @@ public class VaccancyContoller {
 
 	@GetMapping
 	public String getEditVaccancy(Model model) {
-		model.addAttribute("vaccancys", this.vaccancyService.findAll());
-		return "vaccancy";
+		try {
+			model.addAttribute("vaccancys", this.vaccancyService.findAll());
+			return "vaccancy";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 
 	@GetMapping("apply")
 	public String getApplyVaccancy(String appId, Model model) {
-		vaccId = Integer.parseInt(appId);
+		try {
+			vaccId = Integer.parseInt(appId);
 
-		model.addAttribute("newContact", new Contact());
-		return "applyVaccancy";
+			model.addAttribute("newContact", new Contact());
+			return "applyVaccancy";
+		} catch (Exception e) {
+			return "redirect:/error";
+		}
 	}
 
 	@PostMapping
 	public String saveContact(@Valid @ModelAttribute("newContact") Contact contact,
 			@RequestParam("img") MultipartFile file, Model Model, Errors error) {
-		if (error.hasErrors()) {
-			return "contact";
-		}
-		String filePath = "";
-		if (!file.getOriginalFilename().isEmpty()) {
-
-			try {
-				filePath = fileUpload.uploadFile(file);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("error" + e.getMessage());
+		try {
+			if (error.hasErrors()) {
+				return "contact";
 			}
+			String filePath = "";
+			if (!file.getOriginalFilename().isEmpty()) {
+
+				try {
+					filePath = fileUpload.uploadFile(file);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.println("error" + e.getMessage());
+					throw new RuntimeException("Could not upload the file: " + file.getOriginalFilename() + "!");
+				}
+			}
+			Vaccancy vac = vaccancyService.findById(vaccId);
+			emailService.sendMesssageWithAttachment(contactEmail, contactEmail,
+					contact.getEmail() + " Applyed on" + vac.getTitle(), contact.getMessage(), filePath);
+			emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Thanks", "We will contact u");
+			return "redirect:/lhd/Home";
+		} catch (Exception e) {
+			return "redirect:/error";
 		}
-		Vaccancy vac = vaccancyService.findById(vaccId);
-		emailService.sendMesssageWithAttachment(contactEmail, contactEmail,
-				contact.getEmail() + " Applyed on" + vac.getTitle(), contact.getMessage(), filePath);
-		emailService.SendSimpleMessage(contact.getEmail(), contactEmail, "Thanks", "We will contact u");
-		return "redirect:/lhd/Home";
 	}
 
 }
